@@ -1,14 +1,14 @@
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/Iranian Sans.ttf",
-  variable: "--font-geist-sans",
+const yekan1 = localFont({
+  src: "./fonts/Yekan.woff",
+  variable: "--font-yekan",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/Iranian Sans.ttf",
-  variable: "--font-geist-mono",
+const yekan = localFont({
+  src: "./fonts/Yekan.woff",
+  variable: "--font-yekan",
   weight: "100 900",
 });
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-bgColor`}
+        className={`${yekan1.variable} ${yekan.variable} antialiased bg-bgColor`}
       >
         {children}
       </body>
