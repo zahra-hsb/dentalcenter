@@ -1,28 +1,11 @@
 import Link from "next/link"
+import Menu from "../Menu"
 
 const DesktopMenu = () => {
     return (
         <>
             <nav>
-                <ul className="hidden sm:flex justify-between items-center gap-10">
-                    <li>
-                        <Link href={'#'}>
-                            درباره ما
-                        </Link>
-                    </li>
-                    {/* <li></li> */}
-                    <li>
-                        <Link href={'#'}>
-                            تماس با ما
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href={'/'} >
-                            صفحه اصلی
-                        </Link>
-                    </li>
-
-                </ul>
+                <Menu />
             </nav>
         </>
     )
