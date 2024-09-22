@@ -1,5 +1,10 @@
+import IconContainer from "@/components/globalComponents/IconContainer"
 import PhoneButton from "@/components/globalComponents/PhoneButton"
+import Image from "next/image"
 import { FaPhone } from "react-icons/fa"
+import phone from '../../../../public/icons/phone.svg'
+import location from '../../../../public/icons/location.svg'
+import InfoSection from "@/components/globalComponents/InfoSection"
 
 const Main = () => {
     return (
@@ -13,6 +18,10 @@ const Main = () => {
                             همین حالا تماس بگیر
                         </>
                     } />
+                    <div className="flex gap-5">
+                        <InfoSection info={'+989'} title={'شماره تلفن'} icon={phone} />
+                        <InfoSection info={'شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع، پلاک 67، واحد 1'} title={'آدرس'} icon={location} />
+                    </div>
                 </div>
                 <div></div>
             </section>
