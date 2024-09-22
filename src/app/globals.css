@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+  @font-face {
+    font-family: 'Yekan';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Yekan.woff) format('woff');
+  }
+  html {
+    font-family: 'Yekan' , Verdana, Geneva, Tahoma, sans-serif;
+    direction: rtl;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

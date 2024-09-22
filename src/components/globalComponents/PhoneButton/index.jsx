@@ -1,11 +1,11 @@
 import Button from "../Button"
 
-const PhoneButton = ({ style }) => {
+const PhoneButton = ({ style, text }) => {
     return (
         <>
             <nav className={" " + style}>
                 <Button link={'tel:#'}>
-                    تماس
+                    {text}
                 </Button>
             </nav>
         </>

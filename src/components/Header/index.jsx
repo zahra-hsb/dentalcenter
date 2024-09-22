@@ -20,13 +20,13 @@ const Header = () => {
     return (
         <>
             <header className="py-5 sm:py-10 px-3 sm:px-16 lg:px-16 flex justify-between items-center gap-5 bg-opacity-50 sm:bg-opacity-100 m-5 sm:m-0 bg-white sm:bg-bgColor shadow sm:shadow-none">
-                <PhoneButton style={'hidden sm:block'} />
+                <Logo />
+                <MobileMenu closeMenu={closeMenu} isShow={isShow} />
+                <DesktopMenu />
                 <button onClick={openMenu} className={`sm:hidden ${isShow ? `rotate-90` : `rotate-0`}`}>
                     <IoMenu size={25} />
                 </button>
-                <MobileMenu closeMenu={closeMenu} isShow={isShow} />
-                <DesktopMenu />
-                <Logo />
+                <PhoneButton text={'دریافت نوبت'} style={'hidden sm:block'} />
             </header>
         </>
     )
