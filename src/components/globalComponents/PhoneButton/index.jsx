@@ -4,7 +4,7 @@ const PhoneButton = ({ style, text }) => {
     return (
         <>
             <nav className={" " + style}>
-                <Button link={'tel:#'}>
+                <Button link={'tel:02146807225'}>
                     {text}
                 </Button>
             </nav>

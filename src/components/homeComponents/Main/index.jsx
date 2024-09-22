@@ -9,21 +9,23 @@ import InfoSection from "@/components/globalComponents/InfoSection"
 const Main = () => {
     return (
         <>
-            <section className="px-20">
-                <div className="flex flex-col gap-10">
-                    <h1 className="tetx-darkGreen text-6xl font-bold">دکتر <span className="text-green">وحید گماریان</span></h1>
-                    <h5 className="text-3xl">به مطب دندانپزشکی دنتال سنتر خوش آمدید.</h5>
-                    <PhoneButton text={
+            <section className="w-full px-5 sm:px-16 flex flex-col-reverse sm:flex-row gap-5 justify-between py-10">
+                <div className="w-full flex flex-col gap-10 text-justify">
+                    <h1 className="tetx-darkGreen lg:text-6xl font-bold text-right sm:text-4xl text-4xl">دکتر <span className="text-green">وحید گماریان</span></h1>
+                    <h5 className="lg:text-3xl text-xl">به مطب دندانپزشکی دنتال سنتر خوش آمدید.</h5>
+                    <PhoneButton style={'text-md'} text={
                         <>
                             همین حالا تماس بگیر
                         </>
                     } />
-                    <div className="flex gap-5">
-                        <InfoSection info={'+989'} title={'شماره تلفن'} icon={phone} />
-                        <InfoSection info={'شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع، پلاک 67، واحد 1'} title={'آدرس'} icon={location} />
+                    <div className="flex gap-5 lg:items-center flex-col items-start lg:flex-row">
+                        <InfoSection info={'02146807225'} title={'شماره تلفن'} icon={phone} />
+                        <InfoSection info={'شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع'} title={'آدرس'} icon={location} />
                     </div>
                 </div>
-                <div></div>
+                <div className="w-full h-full">
+                    <div className="bg-green h-full p-10 rounded-[50px] rounded-ee-xl overflow-x-hidden"></div>
+                </div>
             </section>
         </>
     )
