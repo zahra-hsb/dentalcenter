@@ -1,9 +1,9 @@
 import Button from "../Button"
 
-const PhoneButton = () => {
+const PhoneButton = ({ style }) => {
     return (
         <>
-            <nav className="hidden sm:block">
+            <nav className={" " + style}>
                 <Button link={'tel:#'}>
                     تماس
                 </Button>
