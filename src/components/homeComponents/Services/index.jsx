@@ -1,18 +1,47 @@
 'use client'
-
+import implant from '../../../../public/icons/🦆 emoji _tooth_.svg'
+import toothClean from '../../../../public/icons/🦆 icon _teeth clean_.svg'
+import toothDrill from '../../../../public/icons/🦆 icon _tooth drill_.svg'
+import dentist from '../../../../public/icons/Group 3.svg'
 import Container from "@/components/globalComponents/Container"
+import Image from "next/image"
 
 const Services = () => {
     return (
         <>
-            <section className="w-full px-5 sm:px-16 flex flex-col gap-5 justify-between py-10">
-                <div>
-                    <h5 className="text-green text-2xl font-bold">زیبایی را با ما تجربه کنید.</h5>
-                    <h3 className="text-darkGreen text-4xl font-bold">خدمات دنتال سنتر</h3>
+            <section className="w-full px-5 sm:px-16 flex flex-col items-center  gap-5 justify-between py-10">
+                <div className='text-center'>
+                    <h5 className="text-green text-md lg:text-2xl font-bold my-1">زیبایی را با ما تجربه کنید.</h5>
+                    <h3 className="text-darkGreen text-2xl sm:text-4xl font-bold my-2">خدمات دنتال سنتر</h3>
                 </div>
-                <div>
+                <div className='w-full grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 items-center justify-between gap-8'>
                     <Container>
-                        
+                        <div className="bg-green h-24 w-24 flex items-center justify-center rounded-xl p-2 px-5 bg-opacity-50 group-hover:bg-opacity-100">
+                            <Image src={toothDrill} alt="" /> 
+                        </div>
+                        <h3 className='text-xl font-bold group-hover:text-green'>ایمپلنت اقساطی</h3>
+                        <h3 className='group-hover:text-white'>پرداخت تا 6 ماه</h3>
+                    </Container>
+                    <Container>
+                        <div className="bg-green h-24 w-24 flex rounded-xl p-2  bg-opacity-50 group-hover:bg-opacity-100">
+                            <Image src={toothClean} alt="" /> 
+                        </div>
+                        <h3 className='text-xl font-bold group-hover:text-green'>روکش</h3>
+                        <h3 className='group-hover:text-white'>پروتز ثابت</h3>
+                    </Container>
+                    <Container>
+                        <div className="bg-green h-24 w-24 flex items-center justify-center rounded-xl p-2 bg-opacity-50 group-hover:bg-opacity-100">
+                            <Image src={implant} alt="" /> 
+                        </div>
+                        <h3 className='text-xl font-bold group-hover:text-green'>ترمیم، لمینت</h3>
+                        <h3 className='group-hover:text-white'>کامپوزیت زیبایی</h3>
+                    </Container>
+                    <Container>
+                        <div className="bg-green h-24 w-24 flex items-center justify-center rounded-xl p-2 bg-opacity-50 group-hover:bg-opacity-100">
+                            <Image src={dentist} alt="" /> 
+                        </div>
+                        <h3 className='text-xl font-bold group-hover:text-green'>درمان ریشه</h3>
+                        <h3 className='group-hover:text-white'>عصب کشی</h3>
                     </Container>
                 </div>
             </section>
