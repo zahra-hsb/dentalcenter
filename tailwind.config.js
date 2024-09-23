@@ -15,6 +15,13 @@ module.exports = {
         green: '#01CFC9',
         bgColor: '#EEFBFA'
       },
+      backgroundSize: {
+        'size-200': '200% 200%',
+      },
+      backgroundPosition: {
+        'pos-0': '0% 0%',
+        'pos-100': '100% 100%',
+      },
     },
   },
   plugins: [],
