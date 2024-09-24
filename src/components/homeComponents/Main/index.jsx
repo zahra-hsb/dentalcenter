@@ -10,7 +10,7 @@ const Main = () => {
     return (
         <>
             <section className="w-full px-5 sm:px-16 flex flex-col-reverse sm:flex-row gap-5 justify-between py-10">
-                <div className="w-full flex flex-col gap-10 text-justify">
+                <div className="w-full flex flex-col items-start gap-10 text-justify">
                     <h1 className="tetx-darkGreen lg:text-6xl font-bold text-right sm:text-4xl text-4xl">دکتر <span className="text-green">وحید گماریان</span></h1>
                     <h5 className="lg:text-3xl text-xl">به مطب دندانپزشکی دنتال سنتر خوش آمدید.</h5>
                     <PhoneButton style={'text-md'} text={
