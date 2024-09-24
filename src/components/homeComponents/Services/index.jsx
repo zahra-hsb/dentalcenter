@@ -5,12 +5,13 @@ import toothDrill from '../../../../public/icons/🦆 icon _tooth drill_.svg'
 import dentist from '../../../../public/icons/Group 3.svg'
 import Container from "@/components/globalComponents/Container"
 import Image from "next/image"
+import Button from '@/components/globalComponents/Button'
 
 const Services = () => {
     return (
         <>
             <section className="w-full px-5 sm:px-16 flex flex-col items-center  gap-5 justify-between py-10">
-                <div className='text-center'>
+                <div className='text-center mb-5'>
                     <h5 className="text-green text-md lg:text-2xl font-bold my-1">زیبایی را با ما تجربه کنید.</h5>
                     <h3 className="text-darkGreen text-2xl sm:text-4xl font-bold my-2">خدمات دنتال سنتر</h3>
                 </div>
@@ -43,6 +44,11 @@ const Services = () => {
                         <h3 className='text-xl font-bold group-hover:text-green'>درمان ریشه</h3>
                         <h3 className='group-hover:text-white'>عصب کشی</h3>
                     </Container>
+                </div>
+                <div className='py-5'>
+                    <Button link={'/contact'}>
+                        تماس با ما
+                    </Button>
                 </div>
             </section>
         </>
