@@ -5,6 +5,11 @@ const Menu = ({ style }) => {
         <>
             <ul className={"hidden sm:flex justify-between items-center gap-10 " + style}>
                 <li className="hover:text-green transition-all duration-300">
+                    <Link href={'/'} >
+                        صفحه اصلی
+                    </Link>
+                </li>
+                <li className="hover:text-green transition-all duration-300">
                     <Link href={'#'}>
                         درباره ما
                     </Link>
@@ -13,11 +18,6 @@ const Menu = ({ style }) => {
                 <li className="hover:text-green transition-all duration-300">
                     <Link href={'#'}>
                         تماس با ما
-                    </Link>
-                </li>
-                <li className="hover:text-green transition-all duration-300">
-                    <Link href={'/'} >
-                        صفحه اصلی
                     </Link>
                 </li>
             </ul>
