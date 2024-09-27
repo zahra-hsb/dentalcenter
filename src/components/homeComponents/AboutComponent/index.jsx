@@ -17,25 +17,25 @@ const AboutComponent = () => {
                         این مرکز متعهد است در تشخیص بیماری‌های دهان و دندان، ترمیم و درمان ریشه دندان، پروتزهای دندانی روکش دندانی ، اقدامات زیبایی و ایمپلنت و ...کمک رسانی کند.
                     </p>
 
-                    <div className="flex flex-col items-start gap-5 my-8">
-                        <div className="flex items-center justify-start gap-5">
+                    <div className="flex flex-col items-start gap-8 my-8">
+                        <div className="flex sm:flex-row flex-col items-center justify-start gap-5">
                             {/* icon */}
                             <div className="p-4 rounded-lg bg-green bg-opacity-30">
                                 <Image src={clock} alt="" />
                             </div>
                             {/* texts */}
-                            <div className="h-full flex flex-col justify-between gap-3 w-2/3">
+                            <div className="h-full flex flex-col justify-between items-center sm:items-start gap-3 w-2/3">
                                 <h4 className="font-semibold text-lg ">جدول زمانی کامل برای همه</h4>
                                 <h6 className="text-justify">ما همه روزه در از ساعت 9 صبح تا 9 شب آماده خدمات رسانی هستیم</h6>
                             </div>
                         </div>
-                        <div className="flex items-center justify-start gap-5">
+                        <div className="flex sm:flex-row flex-col items-center justify-start gap-5">
                             {/* icon */}
                             <div className="p-4 rounded-lg bg-green bg-opacity-30">
                                 <Image src={terms} alt="" width={50} />
                             </div>
                             {/* texts */}
-                            <div className="h-full flex flex-col justify-between gap-3 w-2/3">
+                            <div className="h-full flex flex-col justify-between items-center sm:items-start  gap-3 w-2/3">
                                 <h4 className="font-semibold text-lg ">شرایط پرداخت</h4>
                                 <h6 className="text-justify">DentalCenter یک طرح پرداخت سفارشی ارائه می دهد، سلامت بیمار همیشه باید اولین هدف ما باشد.</h6>
                             </div>
