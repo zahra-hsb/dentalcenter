@@ -8,7 +8,7 @@ import PhoneButton from "../PhoneButton";
 const MobileMenu = ({ isShow, closeMenu }) => {
     return (
         <>
-            <div className={`w-full h-full p-10 fixed bottom-0 left-0 backdrop-blur-md flex flex-col justify-between gap-10 ${isShow ? 'opacity-100 z-50' : 'opacity-0 -z-10 -translate-x-full'} `}>
+            <div className={`w-full h-full p-10 fixed bottom-0 left-0 backdrop-blur-md flex flex-col justify-between gap-10 ${isShow ? 'opacity-100 z-50' : 'opacity-0 -z-10 -translate-x-full'} transition-all duration-300`}>
                 <div className="flex flex-col">
                     <span onClick={closeMenu}>
                         <MdClose className={isShow ? `scale-100` : `scale-0`} size={25} color="red" />

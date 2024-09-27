@@ -1,8 +1,12 @@
+import Image from "next/image"
+import clock from '../../../../public/icons/clock.svg'
+import terms from '../../../../public/icons/🦆 icon _terms of delivery_.svg'
+
 const AboutComponent = () => {
     return (
         <>
-            <section className="px-20">
-                <div>
+            <section className="w-full px-10 sm:px-16 flex flex-col-reverse sm:flex-col-reverse lg:flex-row gap-20 justify-between items-center py-10">
+                <div className="w-full">
                     <p className="text-green font-semibold text-2xl mb-2">
                         درباره
                     </p>
@@ -12,9 +16,36 @@ const AboutComponent = () => {
 
                         این مرکز متعهد است در تشخیص بیماری‌های دهان و دندان، ترمیم و درمان ریشه دندان، پروتزهای دندانی روکش دندانی ، اقدامات زیبایی و ایمپلنت و ...کمک رسانی کند.
                     </p>
-                </div>
-                <div>
 
+                    <div className="flex flex-col items-start gap-5 my-8">
+                        <div className="flex items-center justify-start gap-5">
+                            {/* icon */}
+                            <div className="p-4 rounded-lg bg-green bg-opacity-30">
+                                <Image src={clock} alt="" />
+                            </div>
+                            {/* texts */}
+                            <div className="h-full flex flex-col justify-between gap-3 w-2/3">
+                                <h4 className="font-semibold text-lg ">جدول زمانی کامل برای همه</h4>
+                                <h6 className="text-justify">ما همه روزه در از ساعت 9 صبح تا 9 شب آماده خدمات رسانی هستیم</h6>
+                            </div>
+                        </div>
+                        <div className="flex items-center justify-start gap-5">
+                            {/* icon */}
+                            <div className="p-4 rounded-lg bg-green bg-opacity-30">
+                                <Image src={terms} alt="" width={50} />
+                            </div>
+                            {/* texts */}
+                            <div className="h-full flex flex-col justify-between gap-3 w-2/3">
+                                <h4 className="font-semibold text-lg ">شرایط پرداخت</h4>
+                                <h6 className="text-justify">DentalCenter یک طرح پرداخت سفارشی ارائه می دهد، سلامت بیمار همیشه باید اولین هدف ما باشد.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full lg:pr-20">
+                    <div className="w-full h-full flex items-center justify-center">
+                        <div className="bg-green rounded-[50px] rounded-ee-xl w-[300px] h-[300px]"></div>
+                    </div>
                 </div>
             </section>
         </>

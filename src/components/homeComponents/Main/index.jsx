@@ -9,7 +9,7 @@ import InfoSection from "@/components/globalComponents/InfoSection"
 const Main = () => {
     return (
         <>
-            <section className="w-full px-5 sm:px-16 flex flex-col-reverse sm:flex-row gap-5 justify-between py-10">
+            <section className="w-full px-10 sm:px-16 flex flex-col-reverse sm:flex-row gap-10 justify-between py-10">
                 <div className="w-full flex flex-col items-start gap-10 text-justify">
                     <h1 className="tetx-darkGreen lg:text-6xl font-bold text-right sm:text-4xl text-4xl">دکتر <span className="text-green">وحید گماریان</span></h1>
                     <h5 className="lg:text-3xl text-xl">به مطب دندانپزشکی دنتال سنتر خوش آمدید.</h5>
@@ -24,7 +24,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="w-full h-full">
-                    <div className="bg-green h-full p-10 rounded-[50px] rounded-ee-xl overflow-x-hidden"></div>
+                    <div className="bg-green h-[350px] w-full p-10 rounded-[50px] rounded-ee-xl overflow-x-hidden"></div>
                 </div>
             </section>
         </>

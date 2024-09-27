@@ -23,7 +23,7 @@ const Header = () => {
                 <Logo />
                 <MobileMenu closeMenu={closeMenu} isShow={isShow} />
                 <DesktopMenu />
-                <button onClick={openMenu} className={`sm:hidden ${isShow ? `rotate-90` : `rotate-0`}`}>
+                <button onClick={openMenu} className={`sm:hidden ${isShow ? `rotate-90` : `rotate-0`} transition-all duration-300`}>
                     <IoMenu size={25} />
                 </button>
                 <PhoneButton text={'تماس'} style={' hidden sm:block'} />
