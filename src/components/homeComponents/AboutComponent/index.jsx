@@ -17,7 +17,7 @@ const AboutComponent = () => {
                         این مرکز متعهد است در تشخیص بیماری‌های دهان و دندان، ترمیم و درمان ریشه دندان، پروتزهای دندانی روکش دندانی ، اقدامات زیبایی و ایمپلنت و ...کمک رسانی کند.
                     </p>
 
-                    <div className="flex flex-col items-start gap-8 my-8">
+                    <div className="flex flex-col sm:items-start items-center gap-8 my-8">
                         <div className="flex sm:flex-row flex-col items-center justify-start gap-5">
                             {/* icon */}
                             <div className="p-4 rounded-lg bg-green bg-opacity-30">

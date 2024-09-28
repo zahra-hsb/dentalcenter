@@ -7,9 +7,9 @@ import { FaUserDoctor } from "react-icons/fa6";
 const TitlesSection = () => {
     return (
         <>
-            <section className="flex gap-10 px-28 items-center justify-between">
+            <section className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 px-16 pb-20">
                 <Container>
-                    <div className=" text-center h-24 flex flex-col gap-3 items-center justify-center">
+                    <div className=" text-center h-28 flex flex-col gap-3 items-center justify-center">
                         <GiToothbrush size={40} className="group-hover:text-white text-green" />
                         <p className="group-hover:text-green">
                             آموزش مراقبت‌های پیشگیرانه بیماری‌های لثه و دندان
@@ -17,7 +17,7 @@ const TitlesSection = () => {
                     </div>
                 </Container>
                 <Container>
-                    <div className=" text-center h-24 flex flex-col gap-3 items-center justify-center">
+                    <div className=" text-center h-28 flex flex-col gap-3 items-center justify-center">
                         <TbDentalBroken size={40} className="group-hover:text-white text-green" />
                         <p className="group-hover:text-green">
                             کنترل پلاک و جرم
