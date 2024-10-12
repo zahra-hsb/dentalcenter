@@ -23,7 +23,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col items-center lg:items-start">
                         <p className=" text-sm mb-1">آدرس:</p>
-                        <p className="text-gray-500 text-sm">شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع</p>
+                        <p className="text-gray-500 text-sm text-center lg:text-start">شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع</p>
                     </div>
                 </div>
                 <div className="flex flex-col items-center lg:items-start gap-5">
