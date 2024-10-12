@@ -1,3 +1,4 @@
+import Footer from "@/components/globalComponents/Footer";
 import Header from "@/components/Header";
 import AboutComponent from "@/components/homeComponents/AboutComponent";
 import Main from "@/components/homeComponents/Main";
@@ -13,6 +14,7 @@ export default function Home() {
       <Services />
       <AboutComponent />
       <TitlesSection />
+      <Footer />
     </>
   );
 }
