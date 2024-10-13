@@ -5,6 +5,7 @@ import { IoMenu } from "react-icons/io5";
 import PhoneButton from "../globalComponents/PhoneButton";
 import { useState } from "react";
 import MobileMenu from "../globalComponents/MobileMenu";
+import Button from "../globalComponents/Button";
 
 const Header = () => {
     const [isShow, setShow] = useState(false)
@@ -26,7 +27,10 @@ const Header = () => {
                 <button onClick={openMenu} className={`sm:hidden ${isShow ? `rotate-90` : `rotate-0`} transition-all duration-300`}>
                     <IoMenu size={25} />
                 </button>
-                <PhoneButton text={'تماس'} style={' hidden sm:block'} />
+                {/* <PhoneButton text={'تماس'} style={' hidden sm:block'} /> */}
+                <Button link={'/login'} style={'py-3 hidden sm:block'}>
+                    ورود پرسنل
+                </Button>
             </header>
         </>
     )
