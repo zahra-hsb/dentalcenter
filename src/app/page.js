@@ -1,5 +1,5 @@
 import Footer from "@/components/globalComponents/Footer";
-import Header from "@/components/Header";
+import Header from "@/components/globalComponents/Header";
 import AboutComponent from "@/components/homeComponents/AboutComponent";
 import Main from "@/components/homeComponents/Main";
 import Services from "@/components/homeComponents/Services";

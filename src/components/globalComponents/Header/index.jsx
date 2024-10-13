@@ -1,11 +1,11 @@
 'use client'
-import DesktopMenu from "../globalComponents/DesktopMenu"
-import Logo from "../globalComponents/Logo"
+import DesktopMenu from "../DesktopMenu"
+import Logo from "../Logo"
 import { IoMenu } from "react-icons/io5";
-import PhoneButton from "../globalComponents/PhoneButton";
+import PhoneButton from "../PhoneButton";
 import { useState } from "react";
-import MobileMenu from "../globalComponents/MobileMenu";
-import Button from "../globalComponents/Button";
+import MobileMenu from "../MobileMenu";
+import Button from "../Button";
 
 const Header = () => {
     const [isShow, setShow] = useState(false)
