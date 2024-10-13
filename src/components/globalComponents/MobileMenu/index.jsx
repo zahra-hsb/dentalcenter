@@ -25,7 +25,7 @@ const MobileMenu = ({ isShow, closeMenu }) => {
                             <FaTelegram size={20} color="#0F2650" className="hover:text-[#01CFC9]" />
                         </Link>
                     </div>
-                    <Button link={'#'} style={'pb-2 pt-2'}> 
+                    <Button link={'/login'} style={'pb-2 pt-2'}> 
                         ورود پرسنل
                     </Button>
                     {/* <PhoneButton text={'دریافت نوبت'} /> */}
