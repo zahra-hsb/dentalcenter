@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 import { LuInstagram } from "react-icons/lu";
 import { FaTelegram } from "react-icons/fa";
 import PhoneButton from "../PhoneButton";
+import Button from "../Button";
 
 const MobileMenu = ({ isShow, closeMenu }) => {
     return (
@@ -13,7 +14,7 @@ const MobileMenu = ({ isShow, closeMenu }) => {
                     <span onClick={closeMenu}>
                         <MdClose className={isShow ? `scale-100` : `scale-0`} size={25} color="red" />
                     </span>
-                    <Menu style={'!flex-col-reverse !flex items-center justify-center !text-darkBlue'} />
+                    <Menu style={'!flex-col !flex items-center justify-center !text-darkBlue'} />
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="flex gap-5">
@@ -24,7 +25,10 @@ const MobileMenu = ({ isShow, closeMenu }) => {
                             <FaTelegram size={20} color="#0F2650" className="hover:text-[#01CFC9]" />
                         </Link>
                     </div>
-                    <PhoneButton text={'دریافت نوبت'} />
+                    <Button link={'#'} style={'pb-2 pt-2'}> 
+                        ورود پرسنل
+                    </Button>
+                    {/* <PhoneButton text={'دریافت نوبت'} /> */}
                 </div>
             </div>
         </>
