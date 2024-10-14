@@ -65,9 +65,9 @@ const dashboard = () => {
                                             <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                                         </div>
                                     </td>
-                                    <td class="p-4 border-b border-blue-gray-50 w-full">
-                                        <div class="flex items-center gap-3">
-                                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300 w-full">کامپوزیت چیست؟</p>
+                                    <td class="p-4 border-b border-blue-gray-50 w-full lg:w-auto">
+                                        <div class="">
+                                            <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300">کامپوزیت چیست؟</p>
                                         </div>
                                     </td>
                                     <td class="p-4 border-b border-blue-gray-50">

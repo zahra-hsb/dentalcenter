@@ -12,7 +12,7 @@ const ShowMenuButton = () => {
     return (
         <>
             <div className={`lg:hidden text-black bg-darkGreen w-full h-full p-5 relative`}>
-                <div onClick={handleShowMenu} className="cursor-pointer">
+                <div onClick={handleShowMenu} className="cursor-pointer w-14">
                     <MdOutlineMenu size={25} color="white" />
                 </div>
                 <SideNav style={`bg-white p-5 shadow absolute right-16 ${isShowMenu ? 'translate-y-5 z-50 ' : '-translate-y-full -z-50'} transition-all duration-300`} />
