@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 const menu = [
     { id: 0, title: 'داشبورد', route: '/dashboard', icon: <> <MdDashboard size={25} /> </> },
     { id: 1, title: 'مدیریت وبلاگ', route: '/dashboard/blog', icon: <> <TiEdit size={25} /> </> },
-    { id: 2, title: 'ادمین ها', route: '', icon: <> <RiAdminFill size={25} /> </> },
+    { id: 2, title: 'ادمین ها', route: '/dashboard/admins', icon: <> <RiAdminFill size={25} /> </> },
     { id: 3, title: 'خروج', route: '', icon: <> <RiLogoutBoxRLine size={25} />  </> },
 ]
 
