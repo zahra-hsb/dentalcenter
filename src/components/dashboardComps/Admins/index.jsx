@@ -4,6 +4,7 @@ import { IoPersonAddOutline } from "react-icons/io5";
 import { useState } from "react";
 import AdminRow from "./AdminRow";
 import DelAllBtn from "../DelAllBtn";
+import Modal from "@/components/globalComponents/Modal";
 
 
 
@@ -12,7 +13,7 @@ const Admins = () => {
         { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '', selected: false },
 
     ])
-
+    const [isShowModal, setShowModal] = useState(false)
     const toggleSelect = (id) => {
         setItems(prevItems =>
             prevItems.map(item =>
@@ -23,7 +24,22 @@ const Admins = () => {
 
     const deleteSelected = () => {
         setItems(prevItems => prevItems.filter(item => !item.selected));
+        setShowModal(false);
     };
+
+    function handleShowModal() {
+        const hasSelectedItems = items.some(item => item.selected);
+
+        if (!hasSelectedItems) {
+            alert('موردی برای حذف وجود ندارد')
+            return;
+        } 
+        setShowModal(true)
+    }
+
+    function handleCloseModal() {
+        setShowModal(false)
+    }
 
     return (
         <>
@@ -37,7 +53,7 @@ const Admins = () => {
                                         <DelAllBtn items={items} setItems={setItems} />
                                     </td>
                                     <td>
-                                        <button onClick={deleteSelected} className="hover:text-red-500 py-3 underline transition-all duration-300">حذف انتخاب شده ها</button>
+                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300">حذف انتخاب شده ها</button>
                                     </td>
                                     <td>
                                         <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
@@ -91,6 +107,7 @@ const Admins = () => {
                     </div>
 
                 </div>
+                {isShowModal && <Modal question={'آیا از حذف این موارد اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={deleteSelected} />}
 
             </section>
         </>
