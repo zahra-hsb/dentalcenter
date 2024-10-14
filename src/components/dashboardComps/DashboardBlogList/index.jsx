@@ -3,6 +3,8 @@ import { BiShowAlt } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { FaRegEdit } from "react-icons/fa";
+
 const DashboardBlogList = () => {
     return (
         <div class="flex items-center justify-center bg-white">
@@ -17,12 +19,12 @@ const DashboardBlogList = () => {
                                 <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
                             </td>
                             <td>
-                                <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">1</span></p>
+                                <p className="py-3 transition-all duration-300">تعداد وبلاگ ها: <span className="text-green">1</span></p>
                             </td>
                             <td>
                                 <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
-                                    <IoPersonAddOutline className="group-hover:text-black" />
-                                    افزودن ادمین
+                                    <FaRegEdit className="group-hover:text-black" />
+                                    افزودن وبلاگ
                                 </Link>
                             </td>
                         </tr>
