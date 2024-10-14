@@ -12,9 +12,12 @@ const dashboard = () => {
                     <div class="p-6 px-10 w-full  overflow-x-auto">
                         <table class="w-full table-auto group">
                             <thead>
-                                <tr className="py-3 flex">
+                                <tr className="">
                                     <td>
-                                        <Link className="hover:text-red-500 transition-all duration-300" href={'#'}>حذف همه</Link>
+                                        <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف همه</Link>
+                                    </td>
+                                    <td>
+                                        <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
                                     </td>
                                 </tr>
                                 <tr>
