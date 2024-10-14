@@ -3,7 +3,6 @@ import { useState } from "react"
 
 const DelAllBtn = ({ items, setItems }) => {
 
-    const [areDelete, setDeleteAll] = useState(false)
     const [isShowModal, setShowModal] = useState(false)
 
     function handleDeleteAllList() {
