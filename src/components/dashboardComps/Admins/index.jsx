@@ -1,11 +1,31 @@
+'use client'
 import Button from "@/components/globalComponents/Button";
 import Link from "next/link"
 import { BiShowAlt } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoPersonAddOutline } from "react-icons/io5";
+import { useState } from "react";
+import Modal from "@/components/globalComponents/Modal";
 
 const Admins = () => {
+    const [areDelete, setDelete] = useState(false)
+    const [isShowModal, setShowModal] = useState(false)
+
+    function handleDeleteAllList() {
+        setShowModal(false)
+        setDelete(true)
+    }
+
+    function handleShowModal() {
+        setShowModal(true)
+    }
+
+    function handleCloseModal() {
+        setShowModal(false)
+    }
+
+    
     return (
         <>
             <section className="p-20">
@@ -15,7 +35,7 @@ const Admins = () => {
                             <thead>
                                 <tr className="">
                                     <td>
-                                        <Link className="hover:text-red-500 py-3 transition-all underline duration-300" href={'#'}>حذف همه</Link>
+                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 transition-all underline duration-300">حذف همه</button>
                                     </td>
                                     <td>
                                         <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
@@ -103,6 +123,7 @@ const Admins = () => {
                     </div>
 
                 </div>
+                {isShowModal && <Modal handleDeleteAllList={handleDeleteAllList} handleCloseModal={handleCloseModal} question={'آیا از حذف همه ادمین ها اطمینان دارید؟'} />}
             </section>
         </>
     )
