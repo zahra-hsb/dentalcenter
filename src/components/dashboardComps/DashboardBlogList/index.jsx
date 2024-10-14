@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { BiShowAlt } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
+import { IoPersonAddOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
-
 const DashboardBlogList = () => {
     return (
         <div class="flex items-center justify-center bg-white">
@@ -11,10 +11,19 @@ const DashboardBlogList = () => {
                     <thead>
                         <tr className="">
                             <td>
-                                <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف همه</Link>
+                                <Link className="hover:text-red-500 py-3 transition-all underline duration-300" href={'#'}>حذف همه</Link>
                             </td>
                             <td>
-                                <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
+                                <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
+                            </td>
+                            <td>
+                                <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">1</span></p>
+                            </td>
+                            <td>
+                                <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
+                                    <IoPersonAddOutline className="group-hover:text-black" />
+                                    افزودن ادمین
+                                </Link>
                             </td>
                         </tr>
                         <tr>
@@ -61,7 +70,7 @@ const DashboardBlogList = () => {
                             </td>
 
                             <td class="p-4 border-b border-blue-gray-50">
-                                <div class="flex items-center gap-3">
+                                <div class="flex items-center justify-center">
                                     <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                                 </div>
                             </td>

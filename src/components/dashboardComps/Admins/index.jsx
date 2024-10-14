@@ -15,16 +15,16 @@ const Admins = () => {
                             <thead>
                                 <tr className="">
                                     <td>
-                                        <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف همه</Link>
+                                        <Link className="hover:text-red-500 py-3 transition-all underline duration-300" href={'#'}>حذف همه</Link>
                                     </td>
                                     <td>
-                                        <Link className="hover:text-red-500 py-3 transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
+                                        <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
                                     </td>
                                     <td>
                                         <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">1</span></p>
                                     </td>
                                     <td>
-                                        <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2'}>
+                                        <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
                                             <IoPersonAddOutline className="group-hover:text-black" />
                                             افزودن ادمین
                                         </Link>
