@@ -4,7 +4,7 @@ import Link from "next/link"
 import { MdDashboard } from "react-icons/md";
 import { TiEdit } from "react-icons/ti";
 import { RiAdminFill, RiLogoutBoxRLine } from "react-icons/ri";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const menu = [
     { id: 0, title: 'داشبورد', route: '/dashboard', icon: <> <MdDashboard size={25} /> </> },
@@ -15,6 +15,11 @@ const menu = [
 
 const SideNav = ({ style }) => {
     const pathname = usePathname()
+    const router = useRouter()
+
+    function handleExit() {
+        router.push('/')
+    }
     return (
         <>
             <div className={style}>
@@ -22,11 +27,19 @@ const SideNav = ({ style }) => {
                 <ul className="flex flex-col items-start gap-8 border-r pr-5 border-r-green">
                     {menu?.map(item => (
                         <li className=" w-full" key={item.id}>
-                            <Link className={` ${item.route === pathname
-                                && 'text-green'} flex gap-2 items-center justify-start`} href={item.route}>
-                                {item.icon}
-                                <p className={`hover:-translate-x-3 transition-all duration-300`}>{item.title}</p>
-                            </Link>
+                            {item.id === menu.length - 1 ?
+                                <button onClick={handleExit} className={` ${item.route === pathname
+                                    && 'text-green'} flex gap-2 items-center justify-start group`}>
+                                    {item.icon}
+                                    <p className={`hover:-translate-x-3 transition-all duration-300 group-hover:text-green`}>{item.title}</p>
+                                </button>
+                                :
+                                <Link className={` ${item.route === pathname
+                                    && 'text-green'} group flex gap-2 items-center justify-start`} href={item.route}>
+                                    {item.icon}
+                                    <p className={`hover:-translate-x-3 group-hover:text-green transition-all duration-300`}>{item.title}</p>
+                                </Link>
+                            }
                         </li>
                     ))}
                 </ul>
