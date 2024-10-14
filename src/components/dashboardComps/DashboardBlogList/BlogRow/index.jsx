@@ -3,14 +3,14 @@ import { BiShowAlt } from "react-icons/bi"
 import { GrEdit } from "react-icons/gr"
 import { RiDeleteBinLine } from "react-icons/ri"
 
-const BlogRow = ({ title, image, author, date }) => {
+const BlogRow = ({ title, image, author, date, selected, toggleSelect }) => {
     return (
         <>
             <tr className="hover:bg-gray-100 cursor-pointer transition-all duration-300">
                 <td className="p-4 border-b border-blue-gray-50">
                     <div class="ml-5">
                         <div class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
-                            <input placeholder="checkbox" type="checkbox" class="checkbox absolute cursor-pointer w-full h-full" />
+                            <input checked={selected} onChange={toggleSelect} placeholder="checkbox" type="checkbox" class="checkbox absolute cursor-pointer w-full h-full" />
                             <div class="check-icon hidden bg-indigo-700 text-white rounded-sm">
                                 <svg class="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z"></path>

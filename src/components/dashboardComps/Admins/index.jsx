@@ -1,10 +1,7 @@
 'use client'
-import Button from "@/components/globalComponents/Button";
 import Link from "next/link"
-
 import { IoPersonAddOutline } from "react-icons/io5";
 import { useState } from "react";
-import Modal from "@/components/globalComponents/Modal";
 import AdminRow from "./AdminRow";
 import DelAllBtn from "../DelAllBtn";
 
@@ -12,11 +9,21 @@ import DelAllBtn from "../DelAllBtn";
 
 const Admins = () => {
     const [items, setItems] = useState([
-        { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '' },
+        { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '', selected: false },
 
     ])
-    
 
+    const toggleSelect = (id) => {
+        setItems(prevItems =>
+            prevItems.map(item =>
+                item.id === id ? { ...item, selected: !item.selected } : item
+            )
+        );
+    };
+
+    const deleteSelected = () => {
+        setItems(prevItems => prevItems.filter(item => !item.selected));
+    };
 
     return (
         <>
@@ -30,10 +37,10 @@ const Admins = () => {
                                         <DelAllBtn items={items} setItems={setItems} />
                                     </td>
                                     <td>
-                                        <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
+                                        <button onClick={deleteSelected} className="hover:text-red-500 py-3 underline transition-all duration-300">حذف انتخاب شده ها</button>
                                     </td>
                                     <td>
-                                        <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">1</span></p>
+                                        <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
                                     </td>
                                     <td>
                                         <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
@@ -68,7 +75,9 @@ const Admins = () => {
                             </thead>
                             <tbody>
                                 {items.length > 0 ? items.map(item => (
-                                    <AdminRow name={item.name} username={item.username} tel={item.tel} key={item.id} />
+                                    <AdminRow
+                                        selected={item.selected}
+                                        toggleSelect={() => toggleSelect(item.id)} name={item.name} username={item.username} tel={item.tel} key={item.id} />
                                 ))
                                     :
                                     <div className="p-5">
@@ -82,7 +91,7 @@ const Admins = () => {
                     </div>
 
                 </div>
-                
+
             </section>
         </>
     )
