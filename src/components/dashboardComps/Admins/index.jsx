@@ -6,29 +6,16 @@ import { IoPersonAddOutline } from "react-icons/io5";
 import { useState } from "react";
 import Modal from "@/components/globalComponents/Modal";
 import AdminRow from "./AdminRow";
+import DelAllBtn from "../DelAllBtn";
 
-const adminsArray = [
-    { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '' },
-
-]
 
 
 const Admins = () => {
-    const [areDelete, setDelete] = useState(false)
-    const [isShowModal, setShowModal] = useState(false)
+    const [items, setItems] = useState([
+        { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '' },
 
-    function handleDeleteAllList() {
-        setShowModal(false)
-        setDelete(true)
-    }
-
-    function handleShowModal() {
-        setShowModal(true)
-    }
-
-    function handleCloseModal() {
-        setShowModal(false)
-    }
+    ])
+    
 
 
     return (
@@ -40,7 +27,7 @@ const Admins = () => {
                             <thead>
                                 <tr className="">
                                     <td>
-                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 transition-all underline duration-300">حذف همه</button>
+                                        <DelAllBtn items={items} setItems={setItems} />
                                     </td>
                                     <td>
                                         <Link className="hover:text-red-500 py-3 underline transition-all duration-300" href={'#'}>حذف انتخاب شده ها</Link>
@@ -80,11 +67,11 @@ const Admins = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {adminsArray.length > 0 ? adminsArray.map(item => (
+                                {items.length > 0 ? items.map(item => (
                                     <AdminRow name={item.name} username={item.username} tel={item.tel} key={item.id} />
                                 ))
                                     :
-                                    <div>
+                                    <div className="p-5">
                                         موردی برای نمایش وجود ندارد...
                                     </div>
                                 }
@@ -95,7 +82,7 @@ const Admins = () => {
                     </div>
 
                 </div>
-                {isShowModal && <Modal handleDeleteAllList={handleDeleteAllList} handleCloseModal={handleCloseModal} question={'آیا از حذف همه ادمین ها اطمینان دارید؟'} />}
+                
             </section>
         </>
     )
