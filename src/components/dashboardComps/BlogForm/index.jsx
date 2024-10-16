@@ -1,5 +1,7 @@
+'use client'
 import Input from "../../globalComponents/Input"
-import CustomEditor from "../CustomEditor"
+import dynamic from 'next/dynamic'
+const CustomEditor = dynamic(() => import('../CustomEditor'), { ssr: false });
 import { useState } from "react"
 import Tag from "../../globalComponents/Tag"
 import Button from "../../globalComponents/Button"
