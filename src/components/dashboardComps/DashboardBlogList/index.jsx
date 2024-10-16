@@ -70,7 +70,7 @@ const DashboardBlogList = () => {
                                 <p className="p-3 transition-all duration-300">تعداد وبلاگ ها: <span className="text-green">{items?.length}</span></p>
                             </td>
                             <td className="">
-                                <Link href={'#'} className={'group p-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline text-nowrap'}>
+                                <Link href={'/dashboard/blog/add'} className={'group p-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline text-nowrap'}>
                                     <FaRegEdit className="group-hover:text-black" />
                                     افزودن وبلاگ
                                 </Link>
