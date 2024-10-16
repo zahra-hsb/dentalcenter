@@ -32,7 +32,8 @@ const AddBlog = () => {
                 <div className="border p-5 rounded-lg w-full bg-white shadow ">
                     <form className="flex flex-col gap-5">
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-10">
-                            <Input placeholder={'عنوان مقاله'} type={'text'} style={'w-1/2'} />
+                            <h3>عنوان مقاله</h3>
+                            <Input placeholder={'عنوان مقاله'} type={'text'} style={'w-full sm:w-1/2'} />
 
                         </div>
                         <h3>متن وبلاگ</h3>
@@ -42,7 +43,7 @@ const AddBlog = () => {
                                 <h3>تصویر مقاله</h3>
                                 <Input type={'file'} />
                             </div>
-                            <div className="flex flex-col gap-5 w-full ">
+                            <div className="flex flex-col gap-5 w-full pt-1">
                                 <h3>برچسب ها</h3>
                                 <Input onChange={(e) => handleChangeTag(e)} value={tag} placeholder={'برچسب ها'} type={'text'} onKeyDown={(e) => handleKeyDown(e)} style={''} />
                                 <div className="flex gap-5 w-full flex-wrap">
