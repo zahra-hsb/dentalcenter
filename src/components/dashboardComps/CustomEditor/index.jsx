@@ -1,5 +1,4 @@
-// components/custom-editor.js
-'use client' // only in App Router
+'use client'
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo, List, Alignment, Heading, Font, FontFamily, FontBackgroundColor, Strikethrough, Subscript, Code, Link,  BlockQuote, CodeBlock, TodoList, OutdentCodeBlockCommand, Indent, ImageInsertViaUrl, Image, ImageUpload } from 'ckeditor5';
@@ -7,7 +6,7 @@ import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo, List
 import 'ckeditor5/ckeditor5.css';
 
 
-function CustomEditor() {
+const CustomEditor = () => {
     return (
         <CKEditor
             editor={ClassicEditor}
