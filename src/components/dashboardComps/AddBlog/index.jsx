@@ -1,9 +1,9 @@
 'use client'
-import Input from "@/components/globalComponents/Input"
+import Input from "../../globalComponents/Input"
 import CustomEditor from "../CustomEditor"
 import { useState } from "react"
-import Tag from "@/components/globalComponents/Tag"
-import Button from "@/components/globalComponents/Button"
+import Tag from "../../globalComponents/Tag"
+import Button from "../../globalComponents/Button"
 import { LuSaveAll } from "react-icons/lu";
 
 const AddBlog = () => {
@@ -36,7 +36,7 @@ const AddBlog = () => {
 
                         </div>
                         <h3>متن وبلاگ</h3>
-                        {/* <CustomEditor /> */}
+                        <CustomEditor />
                         <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                             <div className="w-full flex flex-col gap-5">
                                 <h3>تصویر مقاله</h3>
