@@ -14,6 +14,9 @@ const Admins = () => {
 
     ])
     const [isShowModal, setShowModal] = useState(false)
+    const [id, setId] = useState(0)
+    const [isOneItem, setOneItem] = useState(false)
+
     const toggleSelect = (id) => {
         setItems(prevItems =>
             prevItems.map(item =>
@@ -21,7 +24,11 @@ const Admins = () => {
             )
         );
     };
-
+    function handleShowDeleteItemModal(id) {
+        setShowModal(true)
+        setOneItem(true)
+        setId(id)
+    }
     const deleteSelected = () => {
         setItems(prevItems => prevItems.filter(item => !item.selected));
         setShowModal(false);
@@ -33,7 +40,7 @@ const Admins = () => {
         if (!hasSelectedItems) {
             alert('موردی برای حذف وجود ندارد')
             return;
-        } 
+        }
         setShowModal(true)
     }
 
@@ -41,24 +48,30 @@ const Admins = () => {
         setShowModal(false)
     }
 
+    function handleDeleteOne(id) {
+        setItems(prevItems => prevItems.filter(item => item.id !== id));
+        setShowModal(false)
+    }
+
+
     return (
         <>
             <section className="p-20">
                 <div class="flex items-center justify-center bg-white">
                     <div class="p-6 px-10 w-full  overflow-x-auto">
-                        <table class="w-full table-auto group">
+                        <table class="w-full table-auto group min-w-[160%] lg:min-w-full">
                             <thead>
                                 <tr className="">
                                     <td>
                                         <DelAllBtn items={items} setItems={setItems} />
                                     </td>
                                     <td>
-                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300">حذف انتخاب شده ها</button>
+                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3">حذف انتخاب شده ها</button>
                                     </td>
                                     <td>
-                                        <p className="py-3 transition-all duration-300">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
+                                        <p className="py-3 transition-all duration-300 text-nowrap text-center">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
                                     </td>
-                                    <td>
+                                    <td className="text-center">
                                         <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
                                             <IoPersonAddOutline className="group-hover:text-black" />
                                             افزودن ادمین
@@ -90,25 +103,22 @@ const Admins = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {items.length > 0 ? items.map(item => (
+                                {items.length > 0 && items.map(item => (
                                     <AdminRow
                                         selected={item.selected}
-                                        toggleSelect={() => toggleSelect(item.id)} name={item.name} username={item.username} tel={item.tel} key={item.id} />
+                                        toggleSelect={() => toggleSelect(item.id)} name={item.name} username={item.username} tel={item.tel} key={item.id}
+                                        handleDeleteOne={() => handleShowDeleteItemModal(item.id)} />
                                 ))
-                                    :
-                                    <div className="p-5">
-                                        موردی برای نمایش وجود ندارد...
-                                    </div>
                                 }
-
-
                             </tbody>
                         </table>
+                        {items.length === 0 && <div className="p-5 text-nowrap">
+                            موردی برای نمایش وجود ندارد...
+                        </div>}
                     </div>
-
                 </div>
                 {isShowModal && <Modal question={'آیا از حذف این موارد اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={deleteSelected} />}
-
+                {isShowModal && isOneItem && <Modal question={'آیا از حذف این وبلاگ اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={() => handleDeleteOne(id)} />}
             </section>
         </>
     )

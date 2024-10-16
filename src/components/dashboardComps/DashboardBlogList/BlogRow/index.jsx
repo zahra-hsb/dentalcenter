@@ -3,7 +3,7 @@ import { BiShowAlt } from "react-icons/bi"
 import { GrEdit } from "react-icons/gr"
 import { RiDeleteBinLine } from "react-icons/ri"
 
-const BlogRow = ({ title, image, author, date, selected, toggleSelect }) => {
+const BlogRow = ({ title, image, author, date, selected, toggleSelect, handleDeleteOne }) => {
     return (
         <>
             <tr className="hover:bg-gray-100 cursor-pointer transition-all duration-300">
@@ -26,13 +26,13 @@ const BlogRow = ({ title, image, author, date, selected, toggleSelect }) => {
                         <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                     </div>
                 </td>
-                <td class="p-4 border-b border-blue-gray-50 w-full lg:w-auto">
+                <td class="p-4 border-b border-blue-gray-50 w-full sm:w-auto lg:w-auto">
                     <div class="">
-                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300">{title != '' && title}</p>
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300 text-nowrap">{title != '' && title}</p>
                     </div>
                 </td>
-                <td class="p-4 border-b border-blue-gray-50">
-                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{author != '' && author}</p>
+                <td class="p-4 border-b border-blue-gray-50 w-full lg:w-auto">
+                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal w-full lg:w-auto text-nowrap">{author != '' && author}</p>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
                     <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{date != '' && date}</p>
@@ -48,9 +48,9 @@ const BlogRow = ({ title, image, author, date, selected, toggleSelect }) => {
                     </Link>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <Link href={'/dashboard/blog?delete'} class="relative flex justify-center items-center select-none w-full hover:text-red-500  transition-all duration-300" >
+                    <button onClick={handleDeleteOne} class="relative flex justify-center items-center select-none w-full hover:text-red-500  transition-all duration-300" >
                         <RiDeleteBinLine size={20} />
-                    </Link>
+                    </button>
                 </td>
             </tr>
         </>
