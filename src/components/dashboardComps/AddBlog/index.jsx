@@ -44,7 +44,7 @@ const AddBlog = () => {
                             </div>
                             <div className="flex flex-col gap-5 w-full pt-1">
                                 <h3>برچسب ها</h3>
-                                <Input onChange={(e) => handleChangeTag(e)} value={tag} placeholder={'برچسب ها'} type={'text'} onKeyDown={(e) => handleKeyDown(e)} style={''} />
+                                <Input onChange={(e) => handleChangeTag(e)} value={tag} placeholder={'برای افزودن متن را نوشته و دکمه Enter را فشار دهید'} type={'text'} onKeyDown={(e) => handleKeyDown(e)} style={''} />
                                 <div className="flex gap-5 w-full flex-wrap">
                                     {tags?.length > 0
                                         &&
