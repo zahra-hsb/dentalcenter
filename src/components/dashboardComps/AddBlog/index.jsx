@@ -49,8 +49,8 @@ const AddBlog = () => {
                                 <div className="flex gap-5 w-full flex-wrap">
                                     {tags?.length > 0
                                         &&
-                                        tags?.map(item => (
-                                            <Tag tag={item} />
+                                        tags?.map((item, index) => (
+                                            <Tag tag={item} key={index} />
                                         ))
                                     }
                                 </div>

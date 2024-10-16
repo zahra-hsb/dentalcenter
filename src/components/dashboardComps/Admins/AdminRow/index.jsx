@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BiShowAlt } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
@@ -23,7 +24,7 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
 
                 <td class="p-4 border-b border-blue-gray-50">
                     <div class="flex items-center justify-center">
-                        <img src="https://docs.material-tailwind.com/img/logos/logo-spotify.svg" alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
+                        <Image src={''} alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                     </div>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50 w-full sm:w-auto lg:w-auto">
