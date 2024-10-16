@@ -1,4 +1,29 @@
+import Input from "../../globalComponents/Input"
+import CustomEditor from "../CustomEditor"
+import { useState } from "react"
+import Tag from "../../globalComponents/Tag"
+import Button from "../../globalComponents/Button"
+import { LuSaveAll } from "react-icons/lu";
+
 const BlogForm = () => {
+
+    const [tag, setTag] = useState('')
+    const [tags, setTags] = useState([])
+
+    function handleKeyDown(e) {
+        if (e.keyCode == 13 && tag.trim()) {
+            e.preventDefault()
+            if (!tags.includes(tag)) {
+                console.log('enter key worked!');
+                setTags(prevTags => [...prevTags, tag])
+                setTag('')
+            }
+        }
+    }
+
+    function handleChangeTag(e) {
+        setTag(e.target.value)
+    }
     return (
         <>
             <form className="flex flex-col gap-5">
