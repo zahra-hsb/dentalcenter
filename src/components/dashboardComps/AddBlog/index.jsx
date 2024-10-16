@@ -50,9 +50,7 @@ const AddBlog = () => {
                                     {tags?.length > 0
                                         &&
                                         tags?.map(item => (
-                                            <>
-                                                <Tag tag={item} />
-                                            </>
+                                            <Tag tag={item} />
                                         ))
                                     }
                                 </div>
