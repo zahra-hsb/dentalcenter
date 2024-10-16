@@ -36,7 +36,7 @@ const AddBlog = () => {
 
                         </div>
                         <h3>متن وبلاگ</h3>
-                        <CustomEditor />
+                        {/* <CustomEditor /> */}
                         <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                             <div className="w-full flex flex-col gap-5">
                                 <h3>تصویر مقاله</h3>
