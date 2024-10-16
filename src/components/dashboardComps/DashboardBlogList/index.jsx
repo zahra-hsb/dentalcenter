@@ -66,7 +66,7 @@ const DashboardBlogList = () => {
                             <td className="">
                                 <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3">حذف انتخاب شده ها</button>
                             </td>
-                            <td className="">
+                            <td className="text-center">
                                 <p className="p-3 transition-all duration-300">تعداد وبلاگ ها: <span className="text-green">{items?.length}</span></p>
                             </td>
                             <td className="">

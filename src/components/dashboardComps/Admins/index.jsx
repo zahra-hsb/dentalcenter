@@ -65,10 +65,10 @@ const Admins = () => {
                                     <td>
                                         <DelAllBtn items={items} setItems={setItems} />
                                     </td>
-                                    <td>
-                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3">حذف انتخاب شده ها</button>
+                                    <td className="text-center">
+                                        <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3 text-center">حذف انتخاب شده ها</button>
                                     </td>
-                                    <td>
+                                    <td className="text-center">
                                         <p className="py-3 transition-all duration-300 text-nowrap text-center">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
                                     </td>
                                     <td className="text-center">
