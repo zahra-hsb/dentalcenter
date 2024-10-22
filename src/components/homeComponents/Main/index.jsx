@@ -28,7 +28,7 @@ const Main = () => {
                 </div>
                 <div className="w-full h-full flex items-center justify-center">
                     <div className="bg-green sm:h-[320px] sm:w-[320px] lg:h-[400px] lg:w-[400px] h-[250px] w-[250px] p-10 rounded-[50px] rounded-ee-xl relative">
-                        <Image src={doctor} alt="دکتر وحید گماریان" className="lg:w-[350px] sm:w-[280px] w-[210px] absolute bottom-0 left-2 sm:left-1 lg:left-5" />
+                        <Image src={doctor} alt="دکتر وحید گماریان" className="lg:w-[325px] sm:w-[280px] w-[210px] absolute bottom-0 left-6 sm:left-5 lg:left-10" />
                     </div>
                 </div>
             </section>
