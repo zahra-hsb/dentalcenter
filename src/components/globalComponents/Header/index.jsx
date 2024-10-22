@@ -20,7 +20,7 @@ const Header = () => {
     }
     return (
         <>
-            <header className="w-9/10 py-5 sm:py-10 px-3 sm:px-12 lg:px-16 flex justify-between items-center gap-5 bg-opacity-50 sm:bg-opacity-100 m-3 sm:m-0 bg-white sm:bg-bgColor shadow sm:shadow-none">
+            <header className="w-9/10 py-5 sm:py-10 px-3 sm:pl-5 lg:px-16 flex justify-between items-center gap-5 bg-opacity-50 sm:bg-opacity-100 m-3 sm:m-0 bg-white sm:bg-bgColor shadow sm:shadow-none">
                 <Logo />
                 <MobileMenu closeMenu={closeMenu} isShow={isShow} />
                 <DesktopMenu />
