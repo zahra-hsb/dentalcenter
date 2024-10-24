@@ -13,7 +13,7 @@ const Services = () => {
             <section className="w-full px-5 sm:px-16 flex flex-col items-center gap-5 justify-between py-10">
                 <div className='text-center mb-5'>
                     <h5 className="text-green text-md lg:text-2xl font-bold my-1">زیبایی را با ما تجربه کنید.</h5>
-                    <h3 className="text-darkGreen text-2xl sm:text-4xl font-bold my-2">خدمات دنتال سنتر</h3>
+                    <h3 className="text-darkGreen text-2xl sm:text-4xl font-bold my-2">خدمات دنتال کلینیک</h3>
                 </div>
                 <div className='w-full grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-8 px-10 lg:px-0'>
                     <Container>
