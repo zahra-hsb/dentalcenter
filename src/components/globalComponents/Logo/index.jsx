@@ -1,11 +1,19 @@
+import Image from "next/image"
+import logo from '../../../../public/pictures/logo/logo.png'
+import Link from "next/link"
+
 const Logo = ({ style }) => {
     return (
         <>
-            <nav className="">
-                <h3 className={`uppercase text-darkGreen font-extrabold text-lg sm:text-3xl ${style}`}>
+            <nav className="flex items-center gap-2">
+                {/* <h3 className={`uppercase text-darkGreen font-extrabold text-lg sm:text-3xl ${style}`}>
                     dental
                     <span className="text-green">center</span>
-                </h3>
+                </h3> */}
+                <Link href={'/'}>
+                    <Image className="w-[50px]" src={logo} alt="" />
+                </Link>
+                <p className="sm:text-xl font-bold text-nowrap">دکتر وحید گماریان</p>
             </nav>
         </>
     )
