@@ -5,7 +5,7 @@ import terms from '../../../../public/icons/🦆 icon _terms of delivery_.svg'
 const AboutComponent = () => {
     return (
         <>
-            <section className="w-full px-10 sm:px-16 flex flex-col-reverse sm:flex-col-reverse lg:flex-row gap-20 justify-between items-center py-10">
+            <section className="w-full px-10 sm:px-16 lg:px-28 flex flex-col-reverse sm:flex-col-reverse lg:flex-row gap-20 justify-between items-center py-10">
                 <div className="w-full">
                     <p className="text-green font-semibold text-2xl mb-2">
                         درباره
