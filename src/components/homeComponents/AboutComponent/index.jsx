@@ -1,6 +1,7 @@
 import Image from "next/image"
 import clock from '../../../../public/icons/clock.svg'
 import terms from '../../../../public/icons/🦆 icon _terms of delivery_.svg'
+import DentalSlider from "../DentalSlider"
 
 const AboutComponent = () => {
     return (
@@ -42,9 +43,10 @@ const AboutComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full lg:pr-20">
+                <div className="w-1/2 lg:pr-20">
                     <div className="w-full h-full flex items-center justify-center">
-                        <div className="bg-green rounded-[50px] rounded-ee-xl w-[300px] h-[300px]"></div>
+                        {/* <div className="bg-green rounded-[50px] rounded-ee-xl w-[300px] h-[300px]"></div> */}
+                        <DentalSlider />
                     </div>
                 </div>
             </section>
