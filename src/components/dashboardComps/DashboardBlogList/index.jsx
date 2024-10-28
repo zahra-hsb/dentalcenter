@@ -58,7 +58,7 @@ const DashboardBlogList = () => {
     return (
         <>
 
-            <Link href={'/dashboard/admins/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10 right-10 z-40'}>
+            <Link href={'/dashboard/blog/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10 right-10 z-40'}>
                 <FaRegEdit className="group-hover:text-green" />
             </Link>
             <div class="flex items-center justify-center bg-white">
