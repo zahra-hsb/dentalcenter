@@ -58,6 +58,9 @@ const Admins = () => {
         <>
             <section className="px-5 py-10 sm:p-20">
                 <div class="flex items-center justify-center bg-white">
+                    <Link href={'/dashboard/admins/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10 right-10'}>
+                        <IoPersonAddOutline size={25} className="hover:text-green" />
+                    </Link>
                     <div class="p-6 px-10 w-full  overflow-x-auto">
                         <table class="w-full table-auto group min-w-[160%] lg:min-w-full">
                             <thead>
@@ -72,10 +75,7 @@ const Admins = () => {
                                         <p className="py-3 transition-all duration-300 text-nowrap text-center">تعداد ادمین ها: <span className="text-green">{items.length}</span></p>
                                     </td>
                                     <td className="text-center">
-                                        <Link href={'#'} className={'group py-2 hover:text-green pb-3 !text-center flex items-center gap-2 underline'}>
-                                            <IoPersonAddOutline className="group-hover:text-black" />
-                                            افزودن ادمین
-                                        </Link>
+
                                     </td>
                                 </tr>
                                 <tr>
