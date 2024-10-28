@@ -36,7 +36,7 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
                                         className={`hover:-translate-x-3 transition-all duration-300 group-hover:text-green`}
                                         onClick={(e) => {
                                             e.preventDefault()
-                                            handleCloseMenu()
+                                            // handleCloseMenu()
                                         }}
                                     >
                                         <>{item.title}</>
