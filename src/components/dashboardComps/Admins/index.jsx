@@ -56,7 +56,7 @@ const Admins = () => {
 
     return (
         <>
-            <section className="p-20">
+            <section className="px-5 py-10 sm:p-20">
                 <div class="flex items-center justify-center bg-white">
                     <div class="p-6 px-10 w-full  overflow-x-auto">
                         <table class="w-full table-auto group min-w-[160%] lg:min-w-full">
