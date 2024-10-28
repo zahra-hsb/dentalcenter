@@ -43,7 +43,7 @@ const AboutComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-1/2 lg:pr-0">
+                <div className="w-[80%] lg:w-1/2 lg:pr-0 pb-10">
                     <div className="w-full h-full flex items-center justify-end">
                         {/* <div className="bg-green rounded-[50px] rounded-ee-xl w-[300px] h-[300px]"></div> */}
                         <DentalSlider />

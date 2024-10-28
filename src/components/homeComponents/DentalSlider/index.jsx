@@ -10,12 +10,18 @@ import Image from 'next/image';
 import pic from '../../../../public/pictures/slides/photo_2024-10-24_12-01-41.jpg'
 import pic1 from '../../../../public/pictures/slides/photo_2024-10-24_12-02-20.jpg'
 import pic2 from '../../../../public/pictures/slides/photo_2024-10-24_12-30-44.jpg'
+import pic3 from '../../../../public/pictures/slides/1.jpg'
+import pic4 from '../../../../public/pictures/slides/2.jpg'
+import pic5 from '../../../../public/pictures/slides/3.jpg'
 import { useRef } from 'react';
 
 const picsArray = [
-    { id: 1, src: pic, alt: '' },
-    { id: 2, src: pic1, alt: '' },
-    { id: 3, src: pic2, alt: '' },
+    // { id: 1, src: pic, alt: '' },
+    // { id: 2, src: pic1, alt: '' },
+    // { id: 3, src: pic2, alt: '' },
+    { id: 4, src: pic3, alt: '' },
+    { id: 5, src: pic4, alt: '' },
+    { id: 6, src: pic5, alt: '' },
 ]
 
 const DentalSlider = () => {
@@ -51,8 +57,8 @@ const DentalSlider = () => {
                     {picsArray.length > 0 ? picsArray?.map(item =>
                         <>
                             <SwiperSlide>
-                                <div className='w-full flex items-center justify-end'>
-                                    <Image className={'lg:w-[350] w-full'} src={item.src} alt={item.alt} key={item.id} />
+                                <div className='lg:w-[350] flex items-center justify-end'>
+                                    <Image className={'w-full'} src={item.src} alt={item.alt} key={item.id} />
                                 </div>
                             </SwiperSlide>
                         </>
