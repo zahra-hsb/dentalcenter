@@ -1,4 +1,5 @@
-import AddAdmin from "@/components/dashboardComps/AddBlog"
+import AddAdmin from "@/components/dashboardComps/AddAdmin"
+
 
 const add = () => {
     return (
