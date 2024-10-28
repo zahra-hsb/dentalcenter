@@ -1,6 +1,6 @@
 import Container from "@/components/globalComponents/Container"
 import { TbDental } from "react-icons/tb";
-import { TbDentalBroken } from "react-icons/tb";
+import { TbDentalBroken, TbFreeRights } from "react-icons/tb";
 import { GiToothbrush } from "react-icons/gi";
 import { FaUserDoctor } from "react-icons/fa6";
 
@@ -42,7 +42,7 @@ const TitlesSection = () => {
                 </Container>
                 <Container>
                     <div className="text-center h-28 flex flex-col gap-3 items-center lg:justify-start justify-center ">
-                        <FaUserDoctor size={40} className="group-hover:text-white text-green" />
+                        <TbFreeRights size={40} className="group-hover:text-white text-green" />
                         <p className="group-hover:text-green">
                             ویزیت و مشاوره رایگان
                         </p>
