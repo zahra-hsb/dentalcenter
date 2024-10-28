@@ -13,7 +13,7 @@ const menu = [
     { id: 3, title: 'خروج', route: '', icon: <> <RiLogoutBoxRLine size={25} />  </> },
 ]
 
-const SideNav = ({ style }) => {
+const SideNav = ({ style, isShow, handleCloseMenu }) => {
     const pathname = usePathname()
     const router = useRouter()
 
@@ -22,6 +22,7 @@ const SideNav = ({ style }) => {
     }
     return (
         <>
+            <div onClick={handleCloseMenu} className={`block lg:hidden w-screen cursor-pointer h-screen absolute top-0 left-0 z-40 bg-darkGreen opacity-20 ${isShow ? 'block' : 'hidden'}`}></div>
             <div className={style}>
                 <Logo style={'text-inherit mb-10 !text-lg'} />
                 <ul className="flex flex-col items-start gap-8 border-r pr-5 border-r-green">
@@ -31,7 +32,15 @@ const SideNav = ({ style }) => {
                                 <button onClick={handleExit} className={` ${item.route === pathname
                                     && 'text-green'} flex gap-2 items-center justify-start group`}>
                                     {item.icon}
-                                    <p className={`hover:-translate-x-3 transition-all duration-300 group-hover:text-green`}>{item.title}</p>
+                                    <a
+                                        className={`hover:-translate-x-3 transition-all duration-300 group-hover:text-green`}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                            handleCloseMenu()
+                                        }}
+                                    >
+                                        <>{item.title}</>
+                                    </a>
                                 </button>
                                 :
                                 <Link className={` ${item.route === pathname
