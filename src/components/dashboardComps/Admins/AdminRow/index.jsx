@@ -29,14 +29,14 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
                 </td>
                 <td class="p-4 border-b border-blue-gray-50 w-full sm:w-auto lg:w-auto">
                     <div class="">
-                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300 text-nowrap">{name != '' && name}</p>
+                        <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300 text-nowrap text-center">{name != '' && name}</p>
                     </div>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
                     <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal text-center text-nowrap">{tel != '' && tel}</p>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal  text-nowrap">{username != '' && username}</p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal text-center text-nowrap">{username != '' && username}</p>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
                     <Link href={'/dashboard/blog/edit'} class="relative flex justify-center items-center select-none w-full hover:text-lime-500  transition-all duration-300" >
