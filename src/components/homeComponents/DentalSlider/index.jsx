@@ -28,7 +28,7 @@ const DentalSlider = () => {
     };
     return (
         <>
-            <div className='w-full pt-'>
+            <div className='w-full pt- lg:max-w-[75%] lg:min-w-[70%]'>
                 <Swiper
                     effect={'cube'}
                     grabCursor={true}
