@@ -5,7 +5,7 @@ import Link from "next/link"
 const Logo = ({ style }) => {
     return (
         <>
-            <nav className="flex items-center gap-2">
+            <nav className={`flex items-center gap-2 ${style}`}>
                 {/* <h3 className={`uppercase text-darkGreen font-extrabold text-lg sm:text-3xl ${style}`}>
                     dental
                     <span className="text-green">center</span>
