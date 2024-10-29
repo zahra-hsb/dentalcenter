@@ -1,7 +1,7 @@
 import Footer from "@/components/globalComponents/Footer";
 import Header from "@/components/globalComponents/Header";
 import { Suspense } from "react";
-import Loading from "../loading";   
+import Loading from "../loading";
 
 export default function RootLayout({ children }) {
     return (
@@ -10,9 +10,7 @@ export default function RootLayout({ children }) {
                 className={`antialiased bg-bgColor relative`}
             >
                 <Header />
-                <Suspense fallback={<><Loading /></>}>
-                    {children}
-                </Suspense>
+                {children}
                 <Footer />
             </body>
         </html>

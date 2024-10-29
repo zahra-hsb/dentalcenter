@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 export const metadata = {
@@ -13,7 +15,9 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased bg-bgColor`}
       >
+      <Suspense fallback={<><Loading /></>}>
         {children}
+      </Suspense>
       </body>
     </html>
   );
