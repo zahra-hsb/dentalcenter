@@ -20,7 +20,7 @@ const Menu = ({ style }) => {
                 </li>
                 {/* <li></li> */}
                 <li className="hover:text-green transition-all duration-300 text-nowrap">
-                    <Link href={'#'} className={pathname === '/contact' && 'text-green'}>
+                    <Link href={'/contact'} className={pathname === '/contact' && 'text-green'}>
                         تماس با ما
                     </Link>
                 </li>
