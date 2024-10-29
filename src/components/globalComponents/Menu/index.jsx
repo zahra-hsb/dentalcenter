@@ -10,7 +10,7 @@ const Menu = ({ style }) => {
                     </Link>
                 </li>
                 <li className="hover:text-green transition-all duration-300 text-nowrap">
-                    <Link href={'#'}>
+                    <Link href={'/about'}>
                         درباره ما
                     </Link>
                 </li>

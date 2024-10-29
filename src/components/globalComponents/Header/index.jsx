@@ -28,7 +28,7 @@ const Header = () => {
                     <IoMenu size={25} />
                 </button>
                 {/* <PhoneButton text={'تماس'} style={' hidden sm:block'} /> */}
-                <Button link={'/login'} style={'py-3 hidden sm:block'}>
+                <Button link={'/account/login'} style={'py-3 hidden sm:block'}>
                     ورود پرسنل
                 </Button>
             </header>

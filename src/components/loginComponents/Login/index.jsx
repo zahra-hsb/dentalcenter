@@ -14,7 +14,7 @@ const Login = () => {
                     <form className="flex flex-col items-center gap-8">
                         <input type="username" placeholder="نام کاربری یا شماره تلفن" className="bg-transparent py-2 px-3 outline-none border-b-2 w-full border-b-green" />
                         <input type="password" placeholder="رمز عبور" className="bg-transparent py-2 px-3 outline-none border-b-2 w-full border-b-green" />
-                        <Button style={'flex items-center justify-center pb-3 pt-2 w-full'} link={'/dashboard'}>
+                        <Button style={'flex items-center justify-center pb-3 pt-2 w-full'} link={'/account/dashboard'}>
                             ورود به پنل مدیریت
                         </Button>
                         <p className="text-gray-500 text-sm">
