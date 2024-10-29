@@ -4,7 +4,7 @@ import AboutComponent from "@/components/homeComponents/AboutComponent"
 const about = () => {
     return (
         <>
-            <AboutComponent />
+            <AboutComponent isAboutUs={true} />
             <AboutClinic /> 
         </>
     )

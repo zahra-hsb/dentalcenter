@@ -3,7 +3,7 @@ import clock from '../../../../public/icons/clock.svg'
 import terms from '../../../../public/icons/🦆 icon _terms of delivery_.svg'
 import DentalSlider from "../DentalSlider"
 
-const AboutComponent = () => {
+const AboutComponent = ({ isAboutUs }) => {
     return (
         <>
             <section className="w-full px-10 sm:px-16 lg:px-28 flex flex-col-reverse sm:flex-col-reverse lg:flex-row gap- justify-between items-center py-12">
@@ -43,7 +43,7 @@ const AboutComponent = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-[80%] lg:w-1/2 lg:pr-0 pb-10">
+                <div className={`w-[80%] lg:w-1/2 lg:pr-0 pb-10 ` + isAboutUs && `hidden`}>
                     <div className="w-full h-full flex items-center justify-end">
                         {/* <div className="bg-green rounded-[50px] rounded-ee-xl w-[300px] h-[300px]"></div> */}
                         <DentalSlider />

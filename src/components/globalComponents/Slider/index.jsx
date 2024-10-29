@@ -17,10 +17,10 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 
 
-const Slider = ({ dataArray, type1 }) => {
+const Slider = ({ dataArray, type1, isAboutUs }) => {
     return (
         <>
-            <div className="w-full">
+            <div className="w-full mb-10">
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
@@ -50,28 +50,43 @@ const Slider = ({ dataArray, type1 }) => {
                     {dataArray?.map(item => (
                         <>
                             <SwiperSlide>
-                                {type1 ? <Container style={'mb-10'}>
-                                    <div className="bg-green h-24 w-24 flex items-center justify-center rounded-xl p-2 px-5 bg-opacity-50 group-hover:bg-opacity-100">
-                                        <Image src={item.icon} alt="" />
-                                    </div>
-                                    <h3 className='text-xl font-bold group-hover:text-green text-nowrap'>{item.title1}</h3>
-                                    <h3 className='group-hover:text-white text-nowrap'>{item.title2}</h3>
-                                </Container>
-                                    :
-                                    <Container style={'mb-10'}>
-                                        <div className=" text-center h-28 flex flex-col gap-3 items-center lg:justify-start justify-center">
-                                            {item.icon}
-                                            <p className="group-hover:text-green sm:text-xs lg:text-sm">
-                                                {item.title}
-                                            </p>
+                                {isAboutUs ?
+
+                                    <>
+                                        <div className=" rounded-lg flex flex-col items-center gap-2 mb-10">
+                                            <Image src={item.image} alt="" />
+                                            <h3 className='text-xl group-hover:text-green text-nowrap'>{item.title}</h3>
+                                            
                                         </div>
-                                    </Container>
+                                    </>
+
+                                    :
+                                    <>
+
+                                        {type1 ? <Container style={'mb-10'}>
+                                            <div className="bg-green h-24 w-24 flex items-center justify-center rounded-xl p-2 px-5 bg-opacity-50 group-hover:bg-opacity-100">
+                                                <Image src={item.icon} alt="" />
+                                            </div>
+                                            <h3 className='text-xl font-bold group-hover:text-green text-nowrap'>{item.title1}</h3>
+                                            <h3 className='group-hover:text-white text-nowrap'>{item.title2}</h3>
+                                        </Container>
+                                            :
+                                            <Container style={'mb-10'}>
+                                                <div className=" text-center h-28 flex flex-col gap-3 items-center lg:justify-start justify-center">
+                                                    {item.icon}
+                                                    <p className="group-hover:text-green sm:text-xs lg:text-sm">
+                                                        {item.title}
+                                                    </p>
+                                                </div>
+                                            </Container>
+                                        }
+                                    </>
                                 }
                             </SwiperSlide>
                         </>
                     ))}
-                </Swiper>
-            </div>
+                </Swiper >
+            </div >
         </>
     )
 }
