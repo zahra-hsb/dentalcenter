@@ -26,10 +26,10 @@ const Footer = () => {
                         <p className="text-gray-500 text-sm text-center lg:text-start">شهرقدس، میدان قدس، خیابان امام خمینی، جنب مسجد جامع</p>
                     </div>
                 </div>
-                <div className="flex flex-col items-center lg:items-start gap-5">
+                <div className="flex flex-col items-center lg:items-start gap-2">
                     <Logo />
-                    <h5 className="text- text-md lg:text-xl font-bold my-1">زیبایی را با ما تجربه کنید.</h5>
-                    <div className="flex justify-between items-center gap-5">
+                    <h5 className="text- text-md lg:text-xl font- my- text-gray-600">زیبایی را با ما تجربه کنید.</h5>
+                    <div className="flex justify-between items-center gap-5 mt-5">
                         <Link href={'#'}>
                             <IconContainer style={'!bg-white hover:!bg-darkGreen transition-all duration-300'}>
                                 <Image src={insta} alt="" />
