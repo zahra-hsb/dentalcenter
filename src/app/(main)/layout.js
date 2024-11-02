@@ -5,14 +5,11 @@ import Loading from "../loading";
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body
-                className={`antialiased bg-bgColor relative`}
-            >
-                <Header />
-                {children}
-                <Footer />
-            </body>
-        </html>
+        <>
+            <Header />
+            {children}
+            <Footer />
+        </>
+
     )
 }
