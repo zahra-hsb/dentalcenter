@@ -34,9 +34,9 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
                                     {item.icon}
                                     <a
                                         className={`hover:-translate-x-3 transition-all duration-300 group-hover:text-green`}
-                                        onClick={(e) => {
-                                            handleCloseMenu(e)
-                                        }}
+                                        onClick={
+                                            handleCloseMenu
+                                        }
                                     >
                                         <>{item.title}</>
                                     </a>
@@ -44,9 +44,9 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
                                 :
                                 <Link className={` ${item.route === pathname
                                     && 'text-green'} group flex gap-2 items-center justify-start`}
-                                    onClick={(e) => {
-                                        handleCloseMenu(e)
-                                    }}
+                                    onClick={
+                                        handleCloseMenu
+                                    }
                                     href={item.route}>
                                     {item.icon}
                                     <p className={`hover:-translate-x-3 group-hover:text-green transition-all duration-300`}>{item.title}</p>
