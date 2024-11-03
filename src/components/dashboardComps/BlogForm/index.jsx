@@ -30,9 +30,8 @@ const BlogForm = () => {
         <>
             <form className="flex flex-col gap-5">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-10">
-                    <h3>عنوان مقاله</h3>
-                    <Input placeholder={'عنوان مقاله'} type={'text'} style={'w-full sm:w-1/2'} />
-
+                    {/* <h3>عنوان مقاله</h3> */}
+                    <Input placeholder={'عنوان مقاله'} type={'text'} style={'w-full'} />
                 </div>
                 <h3>متن وبلاگ</h3>
                 <CustomEditor />

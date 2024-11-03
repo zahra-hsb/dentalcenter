@@ -33,6 +33,14 @@ const ContactForm = () => {
                 alert('پیام ارسال نشد')
             });
     }
+
+    function handleClearForm() {
+        setValues({
+            fullName: '',
+            email: '',
+            description: '',
+        })
+    }
     return (
         <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col items-center gap-5 py-5 w-full">
             <Input
@@ -70,7 +78,7 @@ const ContactForm = () => {
 
                     ارسال پیام
                 </button>
-                <button type="reset" className={'pb-2 text-center border-2 px-3 py-1 border-green rounded-lg hover:text-white hover:bg-green transition-all duration-150'}>پاک کردن</button>
+                <button onClick={() => handleClearForm()} type="reset" className={'pb-2 text-center border-2 px-3 py-1 border-green rounded-lg hover:text-white hover:bg-green transition-all duration-150'}>پاک کردن</button>
             </div>
         </form>
     )
