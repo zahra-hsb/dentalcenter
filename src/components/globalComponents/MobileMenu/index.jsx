@@ -14,7 +14,7 @@ const MobileMenu = ({ isShow, closeMenu }) => {
                     <span onClick={closeMenu}>
                         <MdClose className={isShow ? `scale-100` : `scale-0`} size={25} color="red" />
                     </span>
-                    <Menu style={'!flex-col !flex items-center justify-center !text-darkBlue'} />
+                    <Menu closeMenu={closeMenu} style={'!flex-col !flex items-center justify-center !text-darkBlue'} />
                 </div>
                 <div className="flex justify-between items-center">
                     <div className="flex gap-5">
