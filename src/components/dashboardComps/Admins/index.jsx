@@ -57,6 +57,8 @@ const Admins = () => {
     return (
         <>
             <section className="px-5 py-10 sm:p-20 relative">
+                <h4 className="text-2xl font-semibold text-center sm:text-start mb-10 text-slate-600">لیست ادمین ها</h4>
+
                 <div class="flex items-center justify-center bg-white">
                     <Link href={'/account/dashboard/admins/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10  lg:left-10 z-40'}>
                         <IoPersonAddOutline size={25} className="hover:text-green" />

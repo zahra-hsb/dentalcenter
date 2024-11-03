@@ -2,20 +2,24 @@
 import { MdOutlineMenu } from "react-icons/md"
 import SideNav from "../SideNav"
 import { useState } from "react"
+import useScreenSize from "@/customHooks/Screen"
 
 const ShowMenuButton = () => {
     const [isShowMenu, setShowMenu] = useState(false)
+    const { isMobile } = useScreenSize()
     function handleShowMenu() {
         console.log('object');
         setShowMenu(!isShowMenu)
     }
 
     function handleCloseMenu() {
-        setShowMenu(false)
+        if (isMobile) {
+            setShowMenu(false)
+        }
     }
     return (
         <>
-            
+
             <div className={`lg:hidden text-black bg-darkGreen w-full h-full p-5 relative`}>
                 <div onClick={handleShowMenu} className="cursor-pointer w-14">
                     <MdOutlineMenu size={25} color="white" />
