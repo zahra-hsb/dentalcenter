@@ -44,7 +44,7 @@ const BlogRow = ({ title, image, author, date, selected, toggleSelect, handleDel
                     </Link>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <Link href={'/dashboard/blog/edit'} class="relative flex justify-center items-center select-none w-full hover:text-lime-500  transition-all duration-300" >
+                    <Link href={'/account/dashboard/blog/edit'} class="relative flex justify-center items-center select-none w-full hover:text-lime-500  transition-all duration-300" >
                         <GrEdit size={20} />
                     </Link>
                 </td>
