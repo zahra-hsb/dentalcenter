@@ -1,18 +1,16 @@
 'use client'
 import Link from "next/link"
 import { IoPersonAddOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminRow from "./AdminRow";
 import DelAllBtn from "../DelAllBtn";
 import Modal from "@/components/globalComponents/Modal";
+import { errorComp, getAllAdmins } from "@/methods";
 
 
 
 const Admins = () => {
-    const [items, setItems] = useState([
-        { id: 0, name: 'دکتر وحید گماریان', username: 'VGomaryan@', tel: '09914454546', image: '', selected: false },
-
-    ])
+    const [items, setItems] = useState([])
     const [isShowModal, setShowModal] = useState(false)
     const [id, setId] = useState(0)
     const [isOneItem, setOneItem] = useState(false)
@@ -20,7 +18,7 @@ const Admins = () => {
     const toggleSelect = (id) => {
         setItems(prevItems =>
             prevItems.map(item =>
-                item.id === id ? { ...item, selected: !item.selected } : item
+                item._id === id ? { ...item, selected: !item.selected } : item
             )
         );
     };
@@ -49,11 +47,12 @@ const Admins = () => {
     }
 
     function handleDeleteOne(id) {
-        setItems(prevItems => prevItems.filter(item => item.id !== id));
+        setItems(prevItems => prevItems.filter(item => item._id !== id));
         setShowModal(false)
     }
-
-
+    useEffect(() => {
+        getAllAdmins(setItems, errorComp)
+    }, [])
     return (
         <>
             <section className="px-5 py-10 sm:p-20 relative">
@@ -108,8 +107,8 @@ const Admins = () => {
                                 {items.length > 0 && items.map(item => (
                                     <AdminRow
                                         selected={item.selected}
-                                        toggleSelect={() => toggleSelect(item.id)} name={item.name} username={item.username} tel={item.tel} key={item.id}
-                                        handleDeleteOne={() => handleShowDeleteItemModal(item.id)} />
+                                        toggleSelect={() => toggleSelect(item._id)} name={item.name} username={item.username} tel={item.tel} key={item._id}
+                                        handleDeleteOne={() => handleShowDeleteItemModal(item._id)} />
                                 ))
                                 }
                             </tbody>
