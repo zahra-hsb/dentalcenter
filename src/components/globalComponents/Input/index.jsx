@@ -12,7 +12,7 @@ const Input = ({ type, placeholder, name, id, onKeyDown, style, value, onChange,
                 minLength={minLength}
                 onKeyDown={onKeyDown}
                 {...register(id, { required })}
-                className={`bg-transparent py-2 px-3 outline-none border-b-2 w-full border-b-green ${style}`} />
+                className={`bg-transparent py-2 px-3 outline-none border-b-2 text-gray-600 w-full border-b-green ${style}`} />
         </>
     )
 }
