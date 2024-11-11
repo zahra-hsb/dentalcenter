@@ -1,7 +1,18 @@
-const Input = ({ type, placeholder, name, onKeyDown, style, value, onChange, required }) => {
+const Input = ({ type, placeholder, name, id, onKeyDown, style, value, onChange, required, register, minLength }) => {
     return (
         <>
-            <input name={name} required={required} type={type} placeholder={placeholder} onChange={onChange} value={value} onKeyDown={onKeyDown} className={`bg-transparent py-2 px-3 outline-none border-b-2 w-full border-b-green ${style}`} />
+            <input
+                name={name}
+                id={id}
+                required={required}
+                type={type}
+                placeholder={placeholder}
+                onChange={onChange}
+                value={value}
+                minLength={minLength}
+                onKeyDown={onKeyDown}
+                {...register(id, { required })}
+                className={`bg-transparent py-2 px-3 outline-none border-b-2 w-full border-b-green ${style}`} />
         </>
     )
 }
