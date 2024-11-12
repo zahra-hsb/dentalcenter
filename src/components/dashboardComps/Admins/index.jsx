@@ -6,6 +6,7 @@ import AdminRow from "./AdminRow";
 import DelAllBtn from "../DelAllBtn";
 import Modal from "@/components/globalComponents/Modal";
 import { errorComp, getAllAdmins } from "@/methods";
+import axios from "axios";
 
 
 
@@ -46,8 +47,16 @@ const Admins = () => {
         setShowModal(false)
     }
 
-    function handleDeleteOne(id) {
-        setItems(prevItems => prevItems.filter(item => item._id !== id));
+    async function handleDeleteOne(id) {
+
+        try {
+            const response = await axios.delete('/api/deleteAdmin', { data: { id } })
+            console.log(response.data);
+            // if(response.status)
+            setItems(prevItems => prevItems.filter(item => item._id !== id));
+        } catch (error) {
+            console.log(error);
+        }
         setShowModal(false)
     }
     useEffect(() => {
