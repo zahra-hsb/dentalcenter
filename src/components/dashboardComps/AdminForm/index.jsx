@@ -8,6 +8,7 @@ import Button from "../../globalComponents/Button"
 import { LuSaveAll } from "react-icons/lu";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Alert from "@/components/globalComponents/Alert";
 
 const AdminForm = () => {
 
@@ -68,13 +69,7 @@ const AdminForm = () => {
                         ذخیره
                     </button>
                 </div>
-                {message &&
-                    <>
-                        <div className={`px-5 py-2 text-white absolute bottom-10 rounded bg-${message.color}`}>
-                            {message.message}
-                        </div>
-                    </>
-                }
+                <Alert message={message} />
             </form>
         </>
     )

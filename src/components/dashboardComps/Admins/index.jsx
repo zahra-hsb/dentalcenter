@@ -7,6 +7,7 @@ import DelAllBtn from "../DelAllBtn";
 import Modal from "@/components/globalComponents/Modal";
 import { errorComp, getAllAdmins } from "@/methods";
 import axios from "axios";
+import Alert from "@/components/globalComponents/Alert";
 
 
 
@@ -15,6 +16,7 @@ const Admins = () => {
     const [isShowModal, setShowModal] = useState(false)
     const [id, setId] = useState(0)
     const [isOneItem, setOneItem] = useState(false)
+    const [message, setMessage] = useState({ message: '', color: '' })
 
     const toggleSelect = (id) => {
         setItems(prevItems =>
@@ -52,8 +54,18 @@ const Admins = () => {
         try {
             const response = await axios.delete('/api/deleteAdmin', { data: { id } })
             console.log(response.data);
-            // if(response.status)
-            setItems(prevItems => prevItems.filter(item => item._id !== id));
+            if (response.data.isDeleted) {
+                setItems(prevItems => prevItems.filter(item => item._id !== id));
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            } else {
+                setMessage({ message: response.data.message, color: 'red-500' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            }
         } catch (error) {
             console.log(error);
         }
@@ -68,7 +80,7 @@ const Admins = () => {
                 <h4 className="text-2xl font-semibold text-center sm:text-start mb-10 text-slate-600">لیست ادمین ها</h4>
 
                 <div class="flex items-center justify-center bg-white">
-                    <Link href={'/account/dashboard/admins/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10  lg:left-10 z-40'}>
+                    <Link href={'/account/dashboard/admins/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-3 lg:left-10 z-40'}>
                         <IoPersonAddOutline size={25} className="hover:text-green" />
                     </Link>
                     <div class="p-6 px-10 w-full  overflow-x-auto">
@@ -127,6 +139,8 @@ const Admins = () => {
                         </div>}
                     </div>
                 </div>
+                <Alert message={message} />
+
                 {isShowModal && <Modal question={'آیا از حذف این موارد اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={deleteSelected} />}
                 {isShowModal && isOneItem && <Modal question={'آیا از حذف این وبلاگ اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={() => handleDeleteOne(id)} />}
             </section>
