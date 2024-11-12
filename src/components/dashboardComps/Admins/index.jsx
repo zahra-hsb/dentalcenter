@@ -31,6 +31,8 @@ const Admins = () => {
         setId(id)
     }
     const deleteSelected = () => {
+        const selectedIds = items.filter(item => item.selected).map(item => item._id)
+        
         setItems(prevItems => prevItems.filter(item => !item.selected));
         setShowModal(false);
     };

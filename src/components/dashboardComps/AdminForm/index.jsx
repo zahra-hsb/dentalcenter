@@ -9,9 +9,10 @@ import { LuSaveAll } from "react-icons/lu";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
+import { useRouter } from "next/navigation";
 
 const AdminForm = () => {
-
+    const router = useRouter()
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
     const onSubmit = async (data) => {
@@ -23,8 +24,9 @@ const AdminForm = () => {
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
                 }, 5000)
+                router.push('/account/dashboard/admins')
             } else {
-                setMessage({ message: response.data.message, color: 'green-500' })
+                setMessage({ message: response.data.message, color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
                 }, 5000)
