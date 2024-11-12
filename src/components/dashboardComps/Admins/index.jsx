@@ -13,14 +13,15 @@ import Alert from "@/components/globalComponents/Alert";
 
 const Admins = () => {
     const [items, setItems] = useState([])
+    const [selectedItems, setSelectedItems] = useState([])
     const [isShowModal, setShowModal] = useState(false)
     const [id, setId] = useState(0)
     const [isOneItem, setOneItem] = useState(false)
     const [message, setMessage] = useState({ message: '', color: '' })
 
     const toggleSelect = (id) => {
-        setItems(prevItems =>
-            prevItems.map(item =>
+        setItems(
+            items.map(item =>
                 item._id === id ? { ...item, selected: !item.selected } : item
             )
         );
@@ -30,10 +31,14 @@ const Admins = () => {
         setOneItem(true)
         setId(id)
     }
-    const deleteSelected = () => {
-        const selectedIds = items.filter(item => item.selected).map(item => item._id)
-        
-        setItems(prevItems => prevItems.filter(item => !item.selected));
+    const deleteSelected = async () => {
+        console.log(items);
+        const selecteditemsArray = items.filter(item => item.selected)
+        try {
+            await axios.delete('/api/deleteManyAdmins', { data: { ids: selecteditemsArray } })
+        } catch (error) {
+            console.error(error)
+        }
         setShowModal(false);
     };
 
@@ -41,7 +46,7 @@ const Admins = () => {
         const hasSelectedItems = items.some(item => item.selected);
 
         if (!hasSelectedItems) {
-            alert('موردی برای حذف وجود ندارد')
+            alert('موردی برای حذف انتخاب نشده است.')
             return;
         }
         setShowModal(true)
