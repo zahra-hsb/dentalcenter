@@ -35,9 +35,19 @@ const Admins = () => {
         console.log(items);
         const selecteditemsArray = items.filter(item => item.selected)
         try {
-            await axios.delete('/api/deleteManyAdmins', { data: { ids: selecteditemsArray } })
+            const response = await axios.delete('/api/deleteManyAdmins', { data: { ids: selecteditemsArray } })
+            if (response.data.success == true) {
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+                setItems(prevItems => prevItems.filter(item => !item.selected));
+            }
         } catch (error) {
-            console.error(error)
+            setMessage({ message: response.data.message, color: 'red-500' })
+            setTimeout(() => {
+                setMessage({ message: '', color: '' })
+            }, 5000)
         }
         setShowModal(false);
     };
