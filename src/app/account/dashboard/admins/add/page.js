@@ -4,7 +4,7 @@ import AddAdmin from "@/components/dashboardComps/AddAdmin"
 const add = () => {
     return (
         <>
-            <AddAdmin />
+            <AddAdmin title={'افزودن ادمین'} />
         </>
     )
 }

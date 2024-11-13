@@ -3,7 +3,7 @@ import AddAdmin from "@/components/dashboardComps/AddAdmin"
 
 const edit = () => {
     return (
-        <AddAdmin />
+        <AddAdmin title={'ویرایش ادمین'} />
     )
 }
 

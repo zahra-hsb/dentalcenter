@@ -43,7 +43,7 @@ const AdminForm = () => {
     const onEdit = async (data) => {
         try {
             const response = await axios.post('/api/editAdmin', data)
-            if (response.data.isExist) {
+            if (response.data) {
                 setMessage({ message: response.data.message, color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
@@ -55,7 +55,6 @@ const AdminForm = () => {
                     setMessage({ message: '', color: '' })
                 }, 5000)
             }
-            reset()
         } catch (error) {
             console.log(error);
         }
