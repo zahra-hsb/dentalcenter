@@ -1,13 +1,33 @@
 import Modal from "@/components/globalComponents/Modal"
+import axios from "axios"
 import { useState } from "react"
 
-const DelAllBtn = ({ items, setItems }) => {
+const DelAllBtn = ({ items, setItems, setMessage }) => {
 
     const [isShowModal, setShowModal] = useState(false)
 
-    function handleDeleteAllList() {
+    async function handleDeleteAllList() {
+        try {
+            const response = await axios.delete('/api/deleteAllAdmins')
+            if (response.data.isDeleted) {
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            } else {
+                setMessage({ message: response.data.message, color: 'red-500' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+
         setShowModal(false)
-        setItems([])
+        setItems([
+            { name: 'وحید گماریان', username: 'vgomrayan', tel: '09121403992' }
+        ])
     }
 
     function handleShowModal() {

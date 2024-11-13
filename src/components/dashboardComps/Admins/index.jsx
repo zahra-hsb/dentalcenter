@@ -105,7 +105,7 @@ const Admins = () => {
                             <thead>
                                 <tr className="">
                                     <td>
-                                        <DelAllBtn items={items} setItems={setItems} />
+                                        <DelAllBtn setMessage={setMessage} items={items} setItems={setItems} />
                                     </td>
                                     <td className="text-center">
                                         <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3 text-center">حذف انتخاب شده ها</button>
