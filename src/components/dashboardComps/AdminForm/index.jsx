@@ -42,12 +42,12 @@ const AdminForm = () => {
                 <div className="flex flex-col sm:flex-row items-center gap-10">
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4">نام ادمین</h3>
-                        <Input id={'name'} register={register} required={true} placeholder={'مانند: علی احمدزاده'} type={'text'} style={'w-full'} /> {/* Corrected register usage */}
+                        <Input id={'name'} register={register} required={true} placeholder={'مانند: علی احمدزاده'} type={'text'} style={'w-full'} />
                         {errors.name && <span className="text-red-500">نام ادمین الزامی است</span>}
                     </div>
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4">شماره تماس</h3>
-                        <Input id={'tel'} required={true} register={register} placeholder={'+مانند: 989123456789'} type={'tel'} style={'w-full'} /> {/* Corrected register usage */}
+                        <Input id={'tel'} required={true} register={register} placeholder={'+مانند: 989123456789'} type={'tel'} style={'w-full'} />
                         {errors.tel && <span className="text-red-500">شماره تماس معتبر نیست</span>}
                     </div>
                 </div>
@@ -55,12 +55,12 @@ const AdminForm = () => {
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4">نام کاربری</h3>
-                        <Input id={'username'} register={register} required={true} placeholder={'مانند: VGomaryan@'} type={'text'} style={'w-full text-left'} /> {/* Corrected register usage and type */}
+                        <Input id={'username'} register={register} required={true} placeholder={'مانند: VGomaryan@'} type={'text'} style={'w-full text-left'} />
                         {errors.username && <span className="text-red-500">نام کاربری الزامی است</span>}
                     </div>
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4 ">رمز عبور</h3>
-                        <Input id={'password'} register={register} minLength={8} placeholder={'********'} type={'password'} style={'w-full tracking-wide'} /> {/* Corrected register usage */}
+                        <Input id={'password'} register={register} minLength={8} placeholder={'********'} type={'password'} style={'w-full tracking-wide'} />
                         {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
                     </div>
                 </div>
