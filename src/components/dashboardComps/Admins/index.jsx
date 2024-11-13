@@ -121,9 +121,9 @@ const Admins = () => {
                                     <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                                         <p class="block font-sans text-sm font-normal opacity-70"></p>
                                     </th>
-                                    <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
+                                    {/* <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                                         <p class="block font-sans text-sm font-normal opacity-70">تصویر پرسنل</p>
-                                    </th>
+                                    </th> */}
                                     <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                                         <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">نام ادمین</p>
                                     </th>

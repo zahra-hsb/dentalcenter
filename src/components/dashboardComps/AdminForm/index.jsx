@@ -55,7 +55,7 @@ const AdminForm = () => {
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4">نام کاربری</h3>
-                        <Input id={'username'} register={register} required={true} placeholder={'مانند: VGomaryan@'} type={'text'} style={'w-full text-left'} />
+                        <Input id={'username'} register={register} required={true} placeholder={'مانند: vgomaryan'} type={'text'} style={'w-full text-left'} />
                         {errors.username && <span className="text-red-500">نام کاربری الزامی است</span>}
                     </div>
                     <div className="flex flex-col w-full p-2 gap-2">

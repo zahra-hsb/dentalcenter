@@ -21,7 +21,7 @@ const PassInput = ({ register, errors }) => {
                     {!isShowPass ? <BiShow size={20} className="text-green" /> :
                         <BiHide size={20} className="text-green" />}
                 </span>
-                {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
+                {errors.password && <span className="text-red-500 text-sm">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
             </div>
         </>
     )

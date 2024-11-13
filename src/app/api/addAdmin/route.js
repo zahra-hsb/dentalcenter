@@ -8,11 +8,11 @@ export async function POST(req) {
     try {
         await dbConnect()
         const data = await req.json()
-
+        const admin1 = data.username.toLowerCase()
         const adminIsExist = await AdminsModel.findOne({ tel: data.tel })
-        console.log(adminIsExist);
+
         if (!adminIsExist) {
-            const admin = new AdminsModel({ name: data.name, tel: data.tel, username: data.username, password: data.password, selected: 'false' })
+            const admin = new AdminsModel({ name: data.name, tel: data.tel, username: admin1, password: data.password, selected: 'false' })
             admin.save()
 
             

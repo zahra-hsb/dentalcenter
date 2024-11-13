@@ -21,12 +21,12 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
                         </div>
                     </div>
                 </td>
-
+{/* 
                 <td class="p-4 border-b border-blue-gray-50">
                     <div class="flex items-center justify-center">
                         <Image src={''} alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 rounded-lg border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                     </div>
-                </td>
+                </td> */}
                 <td class="p-4 border-b border-blue-gray-50 w-full sm:w-auto lg:w-auto">
                     <div class="">
                         <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-bold hover:underline cursor-pointer hover:text-green transition-all duration-300 text-nowrap text-center">{name != '' && name}</p>
