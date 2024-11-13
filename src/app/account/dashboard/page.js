@@ -5,7 +5,7 @@ import { PiArticleNyTimesFill } from "react-icons/pi";
 const dashboard = () => {
     return (
         <>
-            <section className="p-5 sm:p-20">
+            <section className="p-5 sm:p-20 h-screen overflow-y-auto">
                 {/* <!-- component --> */}
                 <h4 className="text-2xl font-semibold text-center sm:text-start">داشبورد مدیریت</h4>
                 <div className="py-10 flex flex-col sm:flex-row gap-5">
