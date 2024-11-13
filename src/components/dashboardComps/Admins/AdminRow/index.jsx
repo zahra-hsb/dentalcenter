@@ -11,7 +11,7 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
                 <td className="p-4 border-b border-blue-gray-50">
                     <div class="ml-5">
                         <div class="bg-gray-200 rounded-sm w-5 h-5 flex flex-shrink-0 justify-center items-center relative">
-                            <input checked={selected} onChange={toggleSelect} placeholder="checkbox" type="checkbox" class="checkbox absolute cursor-pointer w-full h-full" />
+                            <input checked={tel === '09121403992' ? false : selected} onChange={toggleSelect} placeholder="checkbox" type="checkbox" disabled={tel === '09121403992' && true} class={`checkbox absolute cursor-pointer w-full h-full ${tel === '09121403992' ? 'opacity-50 cursor-not-allowed' : ''}`} />
                             <div class="check-icon hidden bg-indigo-700 text-white rounded-sm">
                                 <svg class="icon icon-tabler icon-tabler-check" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z"></path>
@@ -44,7 +44,7 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
                     </Link>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <button onClick={handleDeleteOne} class="relative flex justify-center items-center select-none w-full hover:text-red-500  transition-all duration-300" >
+                    <button onClick={handleDeleteOne} disabled={tel === '09121403992' ? true : false} class={`relative flex justify-center items-center select-none w-full hover:text-red-500  transition-all duration-300 ${tel === '09121403992' ? 'opacity-50 cursor-not-allowed hover:text-black' : ''}`} >
                         <RiDeleteBinLine size={20} />
                     </button>
                 </td>

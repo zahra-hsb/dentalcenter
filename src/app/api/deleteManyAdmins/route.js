@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 export async function DELETE(request) {
     try {
         const { ids } = await request.json();
-        
+
         if (!Array.isArray(ids) || ids.length === 0) {
             return NextResponse.json(
                 { message: 'آرایه‌ای از شناسه‌های معتبر ارائه نشده است.', success: false },
@@ -17,7 +17,7 @@ export async function DELETE(request) {
         const validObjectIds = ids.map(id => id._id);
 
         await dbConnect();
-        const result = await AdminsModel.deleteMany({ _id: { $in: validObjectIds } });
+        const result = await AdminsModel.deleteMany({ _id: { $in: validObjectIds }, tel: { $ne: '09121403992' } });
 
 
         revalidatePath('/account/dashboard/admins', 'page');
