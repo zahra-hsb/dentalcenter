@@ -27,11 +27,11 @@ const AdminForm = () => {
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
                 }, 5000)
-                router.push('/account/dashboard/admins')
             } else {
                 setMessage({ message: response.data.message, color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/admins')
                 }, 5000)
             }
             reset()
@@ -43,16 +43,16 @@ const AdminForm = () => {
     const onEdit = async (data) => {
         try {
             const response = await axios.post('/api/editAdmin', data)
-            if (response.data) {
+            if (!response.data) {
                 setMessage({ message: response.data.message, color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
                 }, 5000)
-                router.push('/account/dashboard/admins')
             } else {
                 setMessage({ message: response.data.message, color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/admins')
                 }, 5000)
             }
         } catch (error) {
