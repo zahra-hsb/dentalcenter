@@ -42,14 +42,6 @@ const LoginForm = () => {
                 }, 5000)
                 reset()
             }
-            //  else {
-            //     setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
-            //     setTimeout(() => {
-            //         setMessage({ message: '', color: '' })
-            //     }, 5000)
-            //     reset()
-            //     // router.push('/account/dashboard')
-            // }
         } catch (error) {
             console.log(error);
         }
