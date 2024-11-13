@@ -4,7 +4,7 @@ import { BiShowAlt } from "react-icons/bi";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDeleteOne }) => {
+const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDeleteOne, id }) => {
     return (
         <>
             <tr className="hover:bg-gray-100 cursor-pointer transition-all duration-300">
@@ -39,7 +39,7 @@ const AdminRow = ({ name, username, tel, image, selected, toggleSelect, handleDe
                     <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal text-center text-nowrap">{username != '' && username}</p>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <Link href={'/account/dashboard/admins/edit'} class="relative flex justify-center items-center select-none w-full hover:text-lime-500  transition-all duration-300" >
+                    <Link href={`/account/dashboard/admins/edit?id=${id}`} class="relative flex justify-center items-center select-none w-full hover:text-lime-500  transition-all duration-300" >
                         <GrEdit size={20} />
                     </Link>
                 </td>

@@ -146,6 +146,7 @@ const Admins = () => {
                                     <AdminRow
                                         selected={item.selected}
                                         toggleSelect={() => toggleSelect(item._id)} name={item.name} username={item.username} tel={item.tel} key={item._id}
+                                        id={item._id}
                                         handleDeleteOne={() => handleShowDeleteItemModal(item._id)} />
                                 ))
                                 }
