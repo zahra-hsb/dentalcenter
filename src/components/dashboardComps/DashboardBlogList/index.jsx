@@ -39,8 +39,23 @@ const DashboardBlogList = () => {
         setShowModal(true)
     }
 
-    const deleteSelected = () => {
-        setItems(prevItems => prevItems.filter(item => !item.selected));
+    const deleteSelected = async () => {
+        const selecteditemsArray = items.filter(item => item.selected)
+        try {
+            const response = await axios.delete('/api/deleteManyBlogs', { data: { ids: selecteditemsArray } })
+            if (response.data.success == true) {
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+                setItems(prevItems => prevItems.filter(item => !item.selected));
+            }
+        } catch (error) {
+            setMessage({ message: response.data.message, color: 'red-500' })
+            setTimeout(() => {
+                setMessage({ message: '', color: '' })
+            }, 5000)
+        }
         setShowModal(false);
     };
 
@@ -68,8 +83,6 @@ const DashboardBlogList = () => {
             console.log(error);
         }
         setShowModal(false)
-        // setItems(prevItems => prevItems.filter(item => item._id !== id));
-        // setShowModal(false)
     }
 
 
