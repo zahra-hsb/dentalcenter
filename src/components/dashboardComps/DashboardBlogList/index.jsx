@@ -6,10 +6,12 @@ import DelAllBtn from "../DelAllBtn";
 import { useEffect, useState } from "react";
 import Modal from "@/components/globalComponents/Modal";
 import axios from "axios";
+import Alert from "@/components/globalComponents/Alert";
 
 const DashboardBlogList = () => {
 
     const [items, setItems] = useState([])
+    const [message, setMessage] = useState({ message: '', color: '' })
 
     const [isShowModal, setShowModal] = useState(false)
     const [isOneItem, setOneItem] = useState(false)
@@ -46,9 +48,28 @@ const DashboardBlogList = () => {
         setShowModal(false)
     }
 
-    function handleDeleteOne(id) {
-        setItems(prevItems => prevItems.filter(item => item._id !== id));
+    async function handleDeleteOne(id) {
+        try {
+            const response = await axios.delete('/api/deleteBlog', { data: { id } })
+            console.log(response.data);
+            if (response.data.isDeleted) {
+                setItems(prevItems => prevItems.filter(item => item._id !== id));
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            } else {
+                setMessage({ message: response.data.message, color: 'red-500' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            }
+        } catch (error) {
+            console.log(error);
+        }
         setShowModal(false)
+        // setItems(prevItems => prevItems.filter(item => item._id !== id));
+        // setShowModal(false)
     }
 
 
@@ -127,6 +148,9 @@ const DashboardBlogList = () => {
                         موردی برای نمایش وجود ندارد...
                     </div>}
                 </div>
+                <Alert message={message} />
+                
+
                 {isShowModal && <Modal question={'آیا از حذف این موارد اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={deleteSelected} />}
                 {isShowModal && isOneItem && <Modal question={'آیا از حذف این وبلاگ اطمینان دارید؟'} handleCloseModal={handleCloseModal} handleDeleteAllList={() => handleDeleteOne(id)} />}
             </div>
