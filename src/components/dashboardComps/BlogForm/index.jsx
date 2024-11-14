@@ -7,6 +7,7 @@ import Button from "../../globalComponents/Button"
 import { LuSaveAll } from "react-icons/lu";
 import { useForm } from "react-hook-form";
 import SubmitButton from '@/components/globalComponents/SubmitButton';
+import axios from 'axios';
 
 const BlogForm = () => {
     const [blogContent, setBlogContent] = useState('')
@@ -44,9 +45,21 @@ const BlogForm = () => {
         setImgUrl(url)
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         
         e.preventDefault()
+
+        try {
+          const res = await axios.post('/api/addBlog', {
+            title,
+            blogImg: imgUrl,
+            tags,
+            blogContent
+          })  
+          console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
         console.log(title, imgUrl, tags, blogContent);
     }
     
