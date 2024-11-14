@@ -22,16 +22,16 @@ const AdminForm = () => {
         console.log(data);
         try {
             const response = await axios.post('/api/addAdmin', data)
-            if (response.data.isExist) {
+            if (!response.data.isSaved) {
                 setMessage({ message: response.data.message, color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/blog')
                 }, 5000)
             } else {
                 setMessage({ message: response.data.message, color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    router.push('/account/dashboard/admins')
                 }, 5000)
             }
             reset()

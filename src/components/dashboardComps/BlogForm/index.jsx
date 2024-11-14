@@ -8,13 +8,17 @@ import { LuSaveAll } from "react-icons/lu";
 import { useForm } from "react-hook-form";
 import SubmitButton from '@/components/globalComponents/SubmitButton';
 import axios from 'axios';
+import Alert from '@/components/globalComponents/Alert';
+import { useRouter } from 'next/navigation';
 
 const BlogForm = () => {
     const [blogContent, setBlogContent] = useState('')
+    const [message, setMessage] = useState({ message: '', color: '' })
     const [tag, setTag] = useState('')
     const [title, setTitle] = useState('')
     const [tags, setTags] = useState([])
     const [imgUrl, setImgUrl] = useState('')
+    const router = useRouter()
     const [values, setValues] = useState({
         title: '',
         blogImg: '',
@@ -46,23 +50,35 @@ const BlogForm = () => {
     }
 
     async function handleSubmit(e) {
-        
+
         e.preventDefault()
 
         try {
-          const res = await axios.post('/api/addBlog', {
-            title,
-            blogImg: imgUrl,
-            tags,
-            blogContent
-          })  
-          console.log(res.data);
+            const response = await axios.post('/api/addBlog', {
+                title,
+                blogImg: imgUrl,
+                tags,
+                blogContent
+            })
+            if (response.data.isExist) {
+                setMessage({ message: response.data.message, color: 'red-500' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            } else {
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/blog')
+                }, 5000)
+            }
+            console.log(res.data);
         } catch (error) {
             console.log(error);
         }
         console.log(title, imgUrl, tags, blogContent);
     }
-    
+
     return (
         <>
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-5">
@@ -76,7 +92,9 @@ const BlogForm = () => {
                         placeholder={'عنوان مقاله'} type={'text'} className={'bg-transparent py-2 px-3 outline-none border-b-2 text-gray-600 w-full border-b-green'} />
                 </div>
                 <h3>متن وبلاگ</h3>
-                <CustomEditor blogContent={blogContent} setBlogContent={setBlogContent} />
+                <div className='w-[98%]'>
+                    <CustomEditor blogContent={blogContent} setBlogContent={setBlogContent} />
+                </div>
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="w-full flex flex-col gap-5">
                         <h3>تصویر مقاله</h3>
@@ -109,7 +127,9 @@ const BlogForm = () => {
                         افزودن وبلاگ
                     </SubmitButton>
                 </div>
+
             </form>
+            <Alert message={message} />
         </>
     )
 }

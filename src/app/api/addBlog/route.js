@@ -11,8 +11,8 @@ export async function POST(req) {
 
         const blog = new BlogsModel(data)
         blog.save()
-        return NextResponse.json({ message: '' })
+        return NextResponse.json({ message: 'وبلاگ شما با موفقیت ذخیره شد.', isSaved: true })
     } catch (error) {
-        return NextResponse.json({ message: '', error })
+        return NextResponse.json({ message: 'وبلاگ شما متاسفانه ذخیره نشد.', error, isSaved: false })
     }
 } 

@@ -3,7 +3,7 @@ import AddBlog from "@/components/dashboardComps/AddBlog"
 const edit = () => {
     return (
         <>
-            <AddBlog />
+            <AddBlog title={'ویرایش وبلاگ'} />
         </>
     )
 }
