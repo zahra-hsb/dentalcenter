@@ -3,17 +3,13 @@ import Link from "next/link"
 import { FaRegEdit } from "react-icons/fa";
 import BlogRow from "./BlogRow";
 import DelAllBtn from "../DelAllBtn";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "@/components/globalComponents/Modal";
+import axios from "axios";
 
 const DashboardBlogList = () => {
 
-    const [items, setItems] = useState([
-        { id: 1, title: 'کامپوزیت چیست؟', author: 'دکتر وحید گماریان', dateOfBlog: '1403/5/3', image: '', selected: false },
-        { id: 2, title: 'تفاوت بین لمینت و کامپوزیت', author: 'دکتر وحید گماریان', dateOfBlog: '1403/5/20', image: '', selected: false },
-        { id: 3, title: 'راز دندان های سفید و سالم', author: 'دکتر وحید گماریان', dateOfBlog: '1403/6/10', image: '', selected: false },
-        { id: 4, title: 'راز دندان های سفید و سالم', author: 'دکتر وحید گماریان', dateOfBlog: '1403/6/10', image: '', selected: false },
-    ])
+    const [items, setItems] = useState([])
 
     const [isShowModal, setShowModal] = useState(false)
     const [isOneItem, setOneItem] = useState(false)
@@ -55,11 +51,20 @@ const DashboardBlogList = () => {
         setShowModal(false)
     }
 
+
+    useEffect(() => {
+        async function getBlogs() {
+            const response = await axios.get('/api/getBlogs')
+            console.log(response.data);
+            setItems(response.data)
+        }
+        getBlogs()
+    }, [])
     return (
         <>
 
             <div class="flex items-center justify-center bg-white relative">
-                <Link href={'/account/dashboard/blog/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-10  lg:left-10 z-40'}>
+                <Link href={'/account/dashboard/blog/add'} className={'fixed group p-3 hover:text-green pb-3 !text-center flex items-center gap-2 border-4  border-blue-900  rounded-full bottom-5 lg:left-10 z-40'}>
                     <FaRegEdit size={25} className="group-hover:text-green" />
                 </Link>
                 <div class="p-6 px-10 w-full overflow-x-auto">
@@ -106,13 +111,14 @@ const DashboardBlogList = () => {
                         <tbody>
                             {items.length > 0 && items.map(item =>
                                 <BlogRow
+                                    image={item.blogImg}
                                     author={item.author}
-                                    date={item.dateOfBlog}
-                                    key={item.id}
+                                    date={item.date}
+                                    key={item._id}
                                     title={item.title}
                                     selected={item.selected}
-                                    toggleSelect={() => toggleSelect(item.id)}
-                                    handleDeleteOne={() => handleShowDeleteItemModal(item.id)} />
+                                    toggleSelect={() => toggleSelect(item._id)}
+                                    handleDeleteOne={() => handleShowDeleteItemModal(item._id)} />
                             )
                             }
                         </tbody>

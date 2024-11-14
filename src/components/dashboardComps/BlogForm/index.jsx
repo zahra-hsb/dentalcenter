@@ -52,13 +52,16 @@ const BlogForm = () => {
     async function handleSubmit(e) {
 
         e.preventDefault()
-
+        const time = new Date().toLocaleDateString('fa-IR');
+        console.log(time);
         try {
             const response = await axios.post('/api/addBlog', {
                 title,
                 blogImg: imgUrl,
                 tags,
-                blogContent
+                blogContent,
+                date: time,
+                selected: false
             })
             if (response.data.isExist) {
                 setMessage({ message: response.data.message, color: 'red-500' })
@@ -72,7 +75,6 @@ const BlogForm = () => {
                     router.push('/account/dashboard/blog')
                 }, 5000)
             }
-            console.log(res.data);
         } catch (error) {
             console.log(error);
         }
