@@ -19,7 +19,7 @@ const DashboardBlogList = () => {
     const toggleSelect = (id) => {
         setItems(prevItems =>
             prevItems.map(item =>
-                item.id === id ? { ...item, selected: !item.selected } : item
+                item._id === id ? { ...item, selected: !item.selected } : item
             )
         );
     };
@@ -47,7 +47,7 @@ const DashboardBlogList = () => {
     }
 
     function handleDeleteOne(id) {
-        setItems(prevItems => prevItems.filter(item => item.id !== id));
+        setItems(prevItems => prevItems.filter(item => item._id !== id));
         setShowModal(false)
     }
 
@@ -95,7 +95,7 @@ const DashboardBlogList = () => {
                                     <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">نویسنده</p>
                                 </th>
                                 <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
-                                    <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">تاریخ بارگزاری</p>
+                                    <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70 text-nowrap">تاریخ بارگزاری</p>
                                 </th>
                                 <th class="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">
                                     <p class="block antialiased font-sans text-sm text-blue-gray-900 font-normal leading-none opacity-70">نمایش</p>
