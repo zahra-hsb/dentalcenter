@@ -10,6 +10,7 @@ import SubmitButton from '@/components/globalComponents/SubmitButton';
 import axios from 'axios';
 import Alert from '@/components/globalComponents/Alert';
 import { useRouter } from 'next/navigation';
+import UploadFile from '@/components/globalComponents/UploadFile';
 
 const BlogForm = () => {
     const [blogContent, setBlogContent] = useState('')
@@ -19,12 +20,23 @@ const BlogForm = () => {
     const [tags, setTags] = useState([])
     const [imgUrl, setImgUrl] = useState('')
     const router = useRouter()
-    const [values, setValues] = useState({
-        title: '',
-        blogImg: '',
-        tags: '',
-        blogContent: '',
-    })
+    const [file, setFile] = useState(null);
+    const [error, setError] = useState(null);
+    const [uploadedFiles, setUploadedFiles] = useState([])
+
+
+    const handleFileChange = (event) => {
+        setFile(event.target.files[0]);
+        console.log(event.target.files[0]);
+        setError(null);
+        // const value = event.target.value;
+        // const replacedValue = value.replace(/^.*[\\/]/, '');
+        // const url = 'https://ecomerce.storage.iran.liara.space/' + replacedValue
+        setImgUrl(uploadedFiles)
+    };
+    const handleUpload = (file) => {
+        setUploadedFiles((prevFiles) => [...prevFiles, file]);
+    };
     function handleKeyDown(e) {
         if (e.keyCode == 13 && tag.trim()) {
             e.preventDefault()
@@ -42,12 +54,7 @@ const BlogForm = () => {
     function handleChangeTitle(e) {
         setTitle(e.target.value)
     }
-    function handleChangeImg(e) {
-        const value = e.target.value;
-        const replacedValue = value.replace(/^.*[\\/]/, '');
-        const url = 'https://ecomerce.storage.iran.liara.space/' + replacedValue
-        setImgUrl(url)
-    }
+
 
     async function handleSubmit(e) {
 
@@ -100,11 +107,7 @@ const BlogForm = () => {
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="w-full flex flex-col gap-5">
                         <h3>تصویر مقاله</h3>
-                        <input
-                            name={'blogImg'}
-                            id={'blogImg'}
-                            onChange={(e) => handleChangeImg(e)}
-                            type={'file'} />
+                        <UploadFile handleUpload={handleUpload} handleFileChange={handleFileChange} />
                     </div>
                     <div className="flex flex-col gap-5 w-full pt-1">
                         <h3>برچسب ها</h3>
@@ -132,6 +135,7 @@ const BlogForm = () => {
 
             </form>
             <Alert message={message} />
+            <Alert message={error} />
         </>
     )
 }
