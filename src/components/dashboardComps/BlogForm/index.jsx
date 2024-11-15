@@ -24,15 +24,15 @@ const BlogForm = () => {
     const [error, setError] = useState(null);
     const [uploadedFiles, setUploadedFiles] = useState([])
 
-
+    
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
         console.log(event.target.files[0]);
         setError(null);
-        // const value = event.target.value;
-        // const replacedValue = value.replace(/^.*[\\/]/, '');
-        // const url = 'https://ecomerce.storage.iran.liara.space/' + replacedValue
-        setImgUrl(uploadedFiles)
+        const value = event.target.value;
+        const replacedValue = value.replace(/^.*[\\/]/, '');
+        const url = 'https://ecomerce.storage.iran.liara.space/' + replacedValue
+        setImgUrl(url)
     };
     const handleUpload = (file) => {
         setUploadedFiles((prevFiles) => [...prevFiles, file]);
