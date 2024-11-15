@@ -57,7 +57,7 @@ const BlogForm = () => {
 
 
     async function handleSubmit(e) {
-
+        const author = localStorage.getItem('name')
         e.preventDefault()
         const time = new Date().toLocaleDateString('fa-IR');
         console.log(time);
@@ -67,6 +67,7 @@ const BlogForm = () => {
                 blogImg: imgUrl,
                 tags,
                 blogContent,
+                author,
                 date: time,
                 selected: false
             })

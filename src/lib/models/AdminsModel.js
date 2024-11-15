@@ -26,7 +26,10 @@ const AdminSchema = new Schema({
     selected: {  
         type: Boolean,  
         required: true  
-    }  
+    },
+    mainAdmin: {
+        type: Boolean
+    }
 });  
 
 // Middleware to hash the password before saving  

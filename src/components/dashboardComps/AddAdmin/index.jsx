@@ -1,9 +1,21 @@
 'use client'
 import { FormProvider, useForm } from "react-hook-form"
 import AdminForm from "../AdminForm"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const AddAdmin = ({ title }) => {
-    const methods = useForm();  
+    const methods = useForm();
+    const [isMainAdmin, setMainAdmin] = useState(false)
+    const router = useRouter()
+    useEffect(() => {
+        const username = localStorage.getItem('user')
+        if (username === 'vgomaryan') {
+            setMainAdmin(true)
+        } else {
+            router.push('/account/dashboard')
+        }
+    }, [])
     return (
         <>
             <section className="p-10 sm:p-20 flex flex-col gap-5">

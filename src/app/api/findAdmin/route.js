@@ -14,7 +14,7 @@ export async function POST(req) {
         await dbConnect();  
 
         const user = await AdminsModel.findOne({ username }).select('+password');  
-
+        console.log(user);
         if (!user) {  
             return NextResponse.json({ isExistUser: false, message: "User not found" });
         }  
@@ -27,7 +27,7 @@ export async function POST(req) {
         console.log('pass: ', isCorrectPassword);  
 
         if (isCorrectPassword) {  
-            return NextResponse.json({ isExistUser: true, success: true });  
+            return NextResponse.json({ isExistUser: true, success: true, user });  
         } else {  
             return NextResponse.json({ isExistUser: true, success: false, message: "Incorrect password" });
         }  

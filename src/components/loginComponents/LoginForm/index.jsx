@@ -7,27 +7,34 @@ import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import { UserContext } from "@/app/context";
+
+
+
 
 const LoginForm = () => {
     const router = useRouter()
     const methods = useForm();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
-
+    const { user, setUser } = useContext(UserContext)
 
     async function onSubmit(data) {
         try {
             const response = await axios.post(`/api/findAdmin`, data)
             const res = response.data
+            localStorage.setItem('user', res.user.username)
+            localStorage.setItem('name', res.user.name)
             if (res.isExistUser === true && res.success === true) {
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                     setTimeout(() => {
                         setMessage({ message: '', color: '' })
+                        console.log(user);
+                        router.push('/account/dashboard')
                     }, 5000)
                     reset()
-                    router.push('/account/dashboard')
             } else if (res.isExistUser === false) {
                 console.log(res);
                 setMessage({ message: 'کاربری با این نام کاربری در سیستم وجود ندارد.', color: 'red-500' })

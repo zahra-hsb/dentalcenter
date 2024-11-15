@@ -1,13 +1,15 @@
 'use client'
 import Link from "next/link"
 import { IoPersonAddOutline } from "react-icons/io5";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AdminRow from "./AdminRow";
 import DelAllBtn from "../DelAllBtn";
 import Modal from "@/components/globalComponents/Modal";
 import { errorComp, getAllAdmins } from "@/methods";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
+import { UserContext } from "@/app/context";
+import { useRouter } from "next/navigation";
 
 
 
@@ -18,7 +20,9 @@ const Admins = () => {
     const [id, setId] = useState(0)
     const [isOneItem, setOneItem] = useState(false)
     const [message, setMessage] = useState({ message: '', color: '' })
-
+    const { user, setUser } = useContext(UserContext)
+    const [isMainAdmin, setMainAdmin] = useState(false)
+    const router = useRouter()
     const toggleSelect = (id) => {
         setItems(
             items.map(item =>
@@ -65,7 +69,7 @@ const Admins = () => {
     function handleCloseModal() {
         setShowModal(false)
     }
-
+    
     async function handleDeleteOne(id) {
 
         try {
@@ -90,6 +94,12 @@ const Admins = () => {
     }
     useEffect(() => {
         getAllAdmins(setItems, errorComp)
+        const username = localStorage.getItem('user')
+        if (username === 'vgomaryan') {
+            setMainAdmin(true)
+        } else {
+            router.push('/account/dashboard')
+        }
     }, [])
     return (
         <>
