@@ -145,6 +145,7 @@ const DashboardBlogList = () => {
                         <tbody>
                             {items.length > 0 && items.map(item =>
                                 <BlogRow
+                                    id={item._id}
                                     image={item.blogImg}
                                     author={item.author}
                                     date={item.date}

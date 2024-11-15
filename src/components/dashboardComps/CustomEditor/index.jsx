@@ -1,7 +1,7 @@
 'use client'
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo, List, Alignment, Heading, Font, FontFamily, FontBackgroundColor, Strikethrough, Subscript, Code, Link, BlockQuote, CodeBlock, TodoList, Indent, ImageInsertViaUrl, Image, ImageUpload } from 'ckeditor5';
+import { ClassicEditor, Bold, Essentials, Italic, Mention, Paragraph, Undo, List, Alignment, Heading, Font, FontFamily, FontBackgroundColor, Strikethrough, Subscript, Code, Link, BlockQuote, CodeBlock, TodoList, Indent, ImageInsertViaUrl, Image, ImageUpload, ListItemView, ListItemButtonView, ListItemGroupView, ListProperties } from 'ckeditor5';
 
 import 'ckeditor5/ckeditor5.css';
 
@@ -34,12 +34,12 @@ const CustomEditor = ({ setBlogContent, blogContent }) => {
                         'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', 'imageInsert'],
                 },
                 plugins: [
-                    Bold, Essentials, Italic, Mention, Paragraph, Undo, List, Alignment, Heading, Font, FontFamily, FontBackgroundColor, Strikethrough, Subscript, Code, Link, BlockQuote, CodeBlock, TodoList, Indent, ImageInsertViaUrl, Image, ImageUpload
+                    Bold, Essentials, Italic, Mention, Paragraph, Undo, List, Alignment, Heading, Font, FontFamily, FontBackgroundColor, Strikethrough, Subscript, Code, Link, BlockQuote, CodeBlock, TodoList, Indent, ImageInsertViaUrl, Image, ImageUpload, ListItemView, ListItemButtonView, ListItemGroupView, ListProperties
                 ],
                 mention: {
                     // Mention configuration
                 },
-                initialData: '<p style=`text-align:right;`>متن وبلاگ خود را در این مکان وارد کنید..</p>'
+                initialData: `<p style='text-align:right;'>${blogContent}</p>`
             }}
         />
     );

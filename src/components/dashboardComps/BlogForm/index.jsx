@@ -1,7 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 const CustomEditor = dynamic(() => import('../CustomEditor'), { ssr: false });
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Tag from "../../globalComponents/Tag"
 import Button from "../../globalComponents/Button"
 import { LuSaveAll } from "react-icons/lu";
@@ -9,22 +9,28 @@ import { useForm } from "react-hook-form";
 import SubmitButton from '@/components/globalComponents/SubmitButton';
 import axios from 'axios';
 import Alert from '@/components/globalComponents/Alert';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import UploadFile from '@/components/globalComponents/UploadFile';
+import Link from 'next/link';
 
 const BlogForm = () => {
     const [blogContent, setBlogContent] = useState('')
     const [message, setMessage] = useState({ message: '', color: '' })
     const [tag, setTag] = useState('')
     const [title, setTitle] = useState('')
+    const [isEditBlogContent, setEditBlogContent] = useState(false)
     const [tags, setTags] = useState([])
     const [imgUrl, setImgUrl] = useState('')
     const router = useRouter()
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
     const [uploadedFiles, setUploadedFiles] = useState([])
+    const [isEdit, setEdit] = useState(false)
+    const [blogData, setBlogData] = useState({})
+    const params = useSearchParams()
+    const id = params.get('id')
 
-    
+
     const handleFileChange = (event) => {
         setFile(event.target.files[0]);
         console.log(event.target.files[0]);
@@ -89,9 +95,62 @@ const BlogForm = () => {
         console.log(title, imgUrl, tags, blogContent);
     }
 
+    function handleEditBlogContent() {
+        setEditBlogContent(true)
+    }
+    const onEdit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await axios.post('/api/editBlog', {
+                id,
+                title,
+                blogImg: imgUrl,
+                tags,
+                blogContent,
+                // author,
+                // date: time,
+                // selected: false
+            })
+            if (!response.data.success) {
+                setMessage({ message: response.data.message, color: 'red-500' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                }, 5000)
+            } else {
+                setMessage({ message: response.data.message, color: 'green' })
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/blog')
+                }, 5000)
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(() => {
+        async function findBlog(id) {
+            try {
+                const response = await axios.post('/api/getBlog', { id: id })
+                const blogInfo = response.data
+                setBlogData(blogInfo)
+                setEdit(true)
+                setTags(blogInfo.tags)
+                setBlogContent(blogInfo.blogContent)
+                setTitle(blogInfo.title)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        if (id) {
+            findBlog(id)
+        } else {
+            setEdit(false)
+        }
+    }, [id])
+
     return (
         <>
-            <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col gap-5">
+            <form onSubmit={isEdit ? (e) => onEdit(e) : (e) => handleSubmit(e)} className="flex flex-col gap-5">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-10">
                     {/* <h3>عنوان مقاله</h3> */}
                     <input
@@ -102,13 +161,16 @@ const BlogForm = () => {
                         placeholder={'عنوان مقاله'} type={'text'} className={'bg-transparent py-2 px-3 outline-none border-b-2 text-gray-600 w-full border-b-green'} />
                 </div>
                 <h3>متن وبلاگ</h3>
-                <div className='w-[98%]'>
+                <div className='w-full'>
+                    {/* <div className='text-sm font-thin text-gray-500 leading-6' dangerouslySetInnerHTML={{ __html: blogContent }}>
+                                    </div> */}
                     <CustomEditor blogContent={blogContent} setBlogContent={setBlogContent} />
                 </div>
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="w-full flex flex-col gap-5">
                         <h3>تصویر مقاله</h3>
                         <UploadFile handleUpload={handleUpload} handleFileChange={handleFileChange} />
+                        {isEdit && <img src={imgUrl} alt='' />}
                     </div>
                     <div className="flex flex-col gap-5 w-full pt-1">
                         <h3>برچسب ها</h3>
@@ -130,7 +192,9 @@ const BlogForm = () => {
                 <div className="flex items-end">
                     <SubmitButton style={'py-4'}>
                         <LuSaveAll className="ml-2" size={20} />
-                        افزودن وبلاگ
+                        {isEdit ? 'ویرایش وبلاگ' :
+                            'افزودن وبلاگ'
+                        }
                     </SubmitButton>
                 </div>
 
