@@ -29,12 +29,12 @@ const LoginForm = () => {
             localStorage.setItem('name', res.user.name)
             if (res.isExistUser === true && res.success === true) {
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
-                    setTimeout(() => {
-                        setMessage({ message: '', color: '' })
-                        console.log(user);
-                        router.push('/account/dashboard')
-                    }, 5000)
-                    reset()
+                setTimeout(() => {
+                    setMessage({ message: '', color: '' })
+                    console.log(user);
+                    router.push('/account/dashboard')
+                }, 5000)
+                reset()
             } else if (res.isExistUser === false) {
                 console.log(res);
                 setMessage({ message: 'کاربری با این نام کاربری در سیستم وجود ندارد.', color: 'red-500' })
@@ -65,11 +65,16 @@ const LoginForm = () => {
                     {errors.username && <span className="text-red-500 text-sm">نام ادمین الزامی است</span>}
                 </div>
                 <PassInput errors={errors} register={register} />
-                <button type="submit" className={'flex items-center justify-center pb-3 pt-2 w-full text-green text-nowrap min-w-24 bg-gradient-to-r from-darkGreen to-buttonOp px-5 sm:px-3 font-bold py-1 rounded-lg relative group overflow-hidden hover:text-white'}>
-                    <span className="absolute -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 top-0 right-0 cursor-pointer w-full h-full bg-gradient-to-r from-green to-green !duration-200 ease-linear"></span>
+                <div className="flex flex-col items-center gap-3">
+                    <button type="submit" className={'flex items-center justify-center pb-3 pt-2 w-full text-green text-nowrap min-w-24 bg-gradient-to-r from-darkGreen to-buttonOp px-5 sm:px-3 font-bold py-1 rounded-lg relative group overflow-hidden hover:text-white'}>
+                        <span className="absolute -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 top-0 right-0 cursor-pointer w-full h-full bg-gradient-to-r from-green to-green !duration-200 ease-linear"></span>
 
-                    ورود به پنل مدیریت
-                </button>
+                        ورود به پنل مدیریت
+                    </button>
+                    <button className="underline hover:text-green" onClick={() => router.push('/')}>
+                        بازگشت
+                    </button>
+                </div>
                 <p className="text-gray-500 text-sm">
                     رمز خود را فراموش کردید؟
                     <Link className="text-green mr-1" href={'#'}>بازگردانی رمز</Link>

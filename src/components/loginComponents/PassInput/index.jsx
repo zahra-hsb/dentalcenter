@@ -18,7 +18,7 @@ const PassInput = ({ register, errors }) => {
                     <MdPassword size={20} className="text-green" />
                 </span>
                 <span onClick={handleShowPass} className="absolute left-3 top-3 cursor-pointer">
-                    {!isShowPass ? <BiShow size={20} className="text-green" /> :
+                    {isShowPass ? <BiShow size={20} className="text-green" /> :
                         <BiHide size={20} className="text-green" />}
                 </span>
                 {errors.password && <span className="text-red-500 text-sm">رمز عبور باید حداقل 8 کاراکتر باشد</span>}

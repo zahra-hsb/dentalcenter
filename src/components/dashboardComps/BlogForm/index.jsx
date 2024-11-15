@@ -189,13 +189,16 @@ const BlogForm = () => {
                     </div>
 
                 </div>
-                <div className="flex items-end">
+                <div className="flex items-center gap-5 ">
                     <SubmitButton style={'py-4'}>
                         <LuSaveAll className="ml-2" size={20} />
                         {isEdit ? 'ویرایش وبلاگ' :
                             'افزودن وبلاگ'
                         }
                     </SubmitButton>
+                    <button className="underline hover:text-green" onClick={() => router.back()}>
+                        بازگشت
+                    </button>
                 </div>
 
             </form>

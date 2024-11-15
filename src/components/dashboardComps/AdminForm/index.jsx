@@ -121,11 +121,14 @@ const AdminForm = () => {
                         {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
                     </div>
                 </div>
-                <div className="flex items-end">
+                <div className="flex items-center gap-5">
                     <button type={'submit'} className={'text-green text-nowrap flex min-w-24 bg-gradient-to-r from-darkGreen to-buttonOp px-5 sm:px-3 font-bold py-2 rounded-lg relative group overflow-hidden hover:text-white '}>
                         <span className="absolute -translate-x-full opacity-0 group-hover:translate-x-full group-hover:opacity-100 top-0 right-0 cursor-pointer w-full h-full bg-gradient-to-r from-green to-green !duration-200 ease-linear"></span>
                         <LuSaveAll className="ml-2" size={20} />
                         ذخیره
+                    </button>
+                    <button className="underline hover:text-green" onClick={() => router.back()}>
+                        بازگشت
                     </button>
                 </div>
                 <Alert message={message} />
