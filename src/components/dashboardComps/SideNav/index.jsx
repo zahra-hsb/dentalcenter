@@ -26,7 +26,7 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
     const [isMainAdmin, setMainAdmin] = useState(false)
     function handleExit() {
         localStorage.clear()
-        router.push('/')
+        router.push('/account/login')
     }
 
     useEffect(() => {
