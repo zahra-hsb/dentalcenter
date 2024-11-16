@@ -68,32 +68,41 @@ const BlogForm = () => {
         e.preventDefault()
         const time = new Date().toLocaleDateString('fa-IR');
         console.log(time);
-        try {
-            const response = await axios.post('/api/addBlog', {
-                title,
-                blogImg: imgUrl,
-                tags,
-                blogContent,
-                author,
-                date: time,
-                selected: false
-            })
-            if (response.data.isExist) {
-                setMessage({ message: response.data.message, color: 'red-500' })
-                setTimeout(() => {
-                    setMessage({ message: '', color: '' })
-                }, 5000)
-            } else {
-                setMessage({ message: response.data.message, color: 'green' })
-                setTimeout(() => {
-                    setMessage({ message: '', color: '' })
-                    router.push('/account/dashboard/blog')
-                }, 5000)
+        if (title === '' || tags === '' || blogContent === '' || summary === '' || imgUrl === '') {
+            setMessage({ message: 'لطفا فیلدها را کامل پرکنید.', color: 'red-500' })
+            setTimeout(() => {
+                setMessage({ message: '', color: '' })
+            }, 5000)
+        } else {
+
+            try {
+                const response = await axios.post('/api/addBlog', {
+                    title,
+                    blogImg: imgUrl,
+                    tags,
+                    summary,
+                    blogContent,
+                    author,
+                    date: time,
+                    selected: false
+                })
+                if (response.data.isExist) {
+                    setMessage({ message: response.data.message, color: 'red-500' })
+                    setTimeout(() => {
+                        setMessage({ message: '', color: '' })
+                    }, 5000)
+                } else {
+                    setMessage({ message: response.data.message, color: 'green' })
+                    setTimeout(() => {
+                        setMessage({ message: '', color: '' })
+                        router.push('/account/dashboard/blog')
+                    }, 5000)
+                }
+            } catch (error) {
+                console.log(error);
             }
-        } catch (error) {
-            console.log(error);
+            console.log(title, imgUrl, tags, blogContent, summary);
         }
-        console.log(title, imgUrl, tags, blogContent);
     }
 
     function handleEditBlogContent() {
@@ -168,7 +177,6 @@ const BlogForm = () => {
                     <CustomEditor blogContent={blogContent} setBlogContent={setBlogContent} />
                 </div>
                 <h3>خلاصه ای از وبلاگ (توضیح کوتاه)</h3>
-
                 <CustomEditor blogContent={summary} setBlogContent={setSummary} />
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="w-full flex flex-col gap-5">

@@ -61,7 +61,7 @@ const BlogSlider = () => {
                     <>
                         <SwiperSlide>
                             <BlogCard author={item.author} blogImg={item.blogImg}
-                                date={item.date} title={item.title} />
+                                date={item.date} summary={item.summary} title={item.title} id={item._id} />
                         </SwiperSlide>
                     </>
                 ))}
