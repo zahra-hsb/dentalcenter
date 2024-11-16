@@ -8,7 +8,6 @@ const TitlesSection = () => {
         <>
             <section className="px-16 pb-20">
                 <Slider dataArray={mainPageTitlesSlides} type1={false} />  
-                <BlogCard />
             </section>
         </>
     )

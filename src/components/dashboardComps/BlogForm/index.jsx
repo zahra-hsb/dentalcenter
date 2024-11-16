@@ -21,6 +21,7 @@ const BlogForm = () => {
     const [isEditBlogContent, setEditBlogContent] = useState(false)
     const [tags, setTags] = useState([])
     const [imgUrl, setImgUrl] = useState('')
+    const [summary, setSummary] = useState('')
     const router = useRouter()
     const [file, setFile] = useState(null);
     const [error, setError] = useState(null);
@@ -166,6 +167,9 @@ const BlogForm = () => {
                                     </div> */}
                     <CustomEditor blogContent={blogContent} setBlogContent={setBlogContent} />
                 </div>
+                <h3>خلاصه ای از وبلاگ (توضیح کوتاه)</h3>
+
+                <CustomEditor blogContent={summary} setBlogContent={setSummary} />
                 <div className="flex flex-col sm:flex-row gap-5 items-start justify-between w-full h-full">
                     <div className="w-full flex flex-col gap-5">
                         <h3>تصویر مقاله</h3>

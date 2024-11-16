@@ -1,6 +1,7 @@
 import Footer from "@/components/globalComponents/Footer";
 import Header from "@/components/globalComponents/Header";
 import AboutComponent from "@/components/homeComponents/AboutComponent";
+import BlogSection from "@/components/homeComponents/BlogSection";
 import Main from "@/components/homeComponents/Main";
 import Services from "@/components/homeComponents/Services";
 import TitlesSection from "@/components/homeComponents/TitlesSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <Services />
       <AboutComponent isAboutUs={false} />
       <TitlesSection />
+      <BlogSection />
     </>
   );
 }
