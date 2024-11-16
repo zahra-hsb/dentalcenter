@@ -22,6 +22,11 @@ const Menu = ({ closeMenu, style }) => {
                     </Link>
                 </li>
                 <li className="hover:text-green transition-all duration-300 text-nowrap">
+                    <Link href={'/blogs'} onClick={handleCloseMenu} className={pathname === '/blogs' ? 'text-green' : ''}>
+                        وبلاگ
+                    </Link>
+                </li>
+                <li className="hover:text-green transition-all duration-300 text-nowrap">
                     <Link href={'/about'} onClick={handleCloseMenu} className={pathname === '/about' ? 'text-green' : ''}>
                         درباره ما
                     </Link>
