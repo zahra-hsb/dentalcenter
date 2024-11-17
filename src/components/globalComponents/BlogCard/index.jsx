@@ -5,7 +5,7 @@ import Link from "next/link"
 const BlogCard = ({ blogImg, title, author, summary, id }) => {
     return (
         <>
-            <Container style={'!items-start'}>
+            <Container style={'!items-start mb-10'}>
                 <Link href={`/blogs/[slug]?title=${title}&id=${id}`}>
                     <img src={blogImg} alt="" />
                 </Link>
