@@ -39,7 +39,7 @@ const BlogRow = ({ title, image, author, date, selected, toggleSelect, handleDel
                     <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">{date != '' && date}</p>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50">
-                    <Link href={'#'} class="relative flex justify-center items-center select-none w-full hover:text-green transition-all duration-300" >
+                    <Link href={`/blogs/${id}`} target="_blank" class="relative flex justify-center items-center select-none w-full hover:text-green transition-all duration-300" >
                         <BiShowAlt size={25} />
                     </Link>
                 </td>
