@@ -117,6 +117,7 @@ const BlogForm = () => {
                 blogImg: imgUrl,
                 tags,
                 blogContent,
+                summary
                 // author,
                 // date: time,
                 // selected: false

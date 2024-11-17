@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const Posts = () => {  
     const [posts, setPosts] = useState([]);  
     const [currentPage, setCurrentPage] = useState(1);  
-    const postsPerPage = 8; // Adjust as needed  
+    const postsPerPage = 8;
 
     useEffect(() => {  
         const fetchPosts = async () => {  

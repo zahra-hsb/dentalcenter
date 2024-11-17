@@ -1,5 +1,6 @@
 import dbConnect from "@/lib/dbconnect";
 import BlogsModel from "@/lib/models/BlogsModel";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server"
 
 
@@ -15,8 +16,11 @@ export async function POST(req) {
                 blogImg: data.blogImg,
                 tags: data.tags,
                 blogContent: data.blogContent,
+                summary: data.summary
             }
         })
+
+        revalidatePath('/blogs/[slug]', 'page')
 
         if (!editedBlog) {
             return NextResponse.json({ message: 'وبلاگی با این اطلاعات در سیستم موجود نمیباشد.' })
