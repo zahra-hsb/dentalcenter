@@ -105,14 +105,14 @@ const DashboardBlogList = () => {
                     <table class="table-auto group min-w-[120%] lg:min-w-full">
                         <thead>
                             <tr className="">
-                                <td className="">
+                                {/* <td className="">
                                     <DelAllBtn items={items} setItems={setItems} />
-                                </td>
+                                </td> */}
                                 <td className="">
                                     <button onClick={handleShowModal} className="hover:text-red-500 py-3 underline transition-all duration-300 text-nowrap p-3">حذف انتخاب شده ها</button>
                                 </td>
                                 <td className="text-center">
-                                    <p className="p-3 transition-all duration-300">تعداد وبلاگ ها: <span className="text-green">{items?.length}</span></p>
+                                    <p className="p-3 transition-all duration-300 text-nowrap">تعداد وبلاگ ها: <span className="text-green">{items?.length}</span></p>
                                 </td>
                             </tr>
                             <tr>
