@@ -4,8 +4,10 @@ import BlogImg from "../BlogImg"
 const SingleBlog = ({ params }) => {
     return (
         <>
-            <section className="px-16 py-20">
-                <BlogImg params={params} />
+            <section className="">
+                <div className="flex items-center justify-center w-full">
+                    <BlogImg params={params} />
+                </div>
                 <BlogContent params={params} />
             </section>
         </>

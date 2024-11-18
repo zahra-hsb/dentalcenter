@@ -25,7 +25,9 @@ const BlogImg = ({ params }) => {
 
     return (
         <>
-            <img src={blogImg} alt="" />
+            <div className="lg:w-1/2">
+                <img src={blogImg} alt="" />
+            </div>
         </>
     )
 }
