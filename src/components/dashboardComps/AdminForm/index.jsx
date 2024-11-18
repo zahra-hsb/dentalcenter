@@ -26,7 +26,7 @@ const AdminForm = () => {
                 setMessage({ message: response.data.message, color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    router.push('/account/dashboard/blog')
+                    router.push('/account/dashboard/admins')
                 }, 5000)
             } else {
                 setMessage({ message: response.data.message, color: 'green' })

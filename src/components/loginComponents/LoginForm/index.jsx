@@ -25,9 +25,9 @@ const LoginForm = () => {
         try {
             const response = await axios.post(`/api/findAdmin`, data)
             const res = response.data
-            localStorage.setItem('user', res.user.username)
-            localStorage.setItem('name', res.user.name)
             if (res.isExistUser === true && res.success === true) {
+                localStorage.setItem('user', res.user.username)
+                localStorage.setItem('name', res.user.name)
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
