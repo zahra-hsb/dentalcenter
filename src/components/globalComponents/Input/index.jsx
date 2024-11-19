@@ -1,4 +1,4 @@
-const Input = ({ type, placeholder, name, id, onKeyDown, style, value, onChange, required, register, minLength }) => {
+const Input = ({ type, placeholder, disabled, name, id, onKeyDown, style, value, onChange, required, register, minLength }) => {
     return (
         <>
             <input
@@ -11,6 +11,7 @@ const Input = ({ type, placeholder, name, id, onKeyDown, style, value, onChange,
                 value={value}
                 minLength={minLength}
                 onKeyDown={onKeyDown}
+                disabled={disabled}
                 {...register(id, { required })}
                 className={`bg-transparent py-2 px-3 outline-none border-b-2 text-gray-600 w-full border-b-green ${style}`} />
         </>

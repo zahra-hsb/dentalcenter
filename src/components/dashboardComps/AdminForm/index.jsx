@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
 import { useRouter, useSearchParams } from "next/navigation";
+import PassswordModal from "../PassswordModal";
 
 const AdminForm = () => {
     const router = useRouter()
@@ -17,6 +18,7 @@ const AdminForm = () => {
     const [message, setMessage] = useState({ message: '', color: '' })
     const [isEdit, setEdit] = useState(false)
     const [adminData, setAdminData] = useState({})
+    const [showPassModal, setShowPassModal] = useState(false)
 
     const onSubmit = async (data) => {
         console.log(data);
@@ -63,6 +65,10 @@ const AdminForm = () => {
     const params = useSearchParams()
     const id = params.get('id')
 
+    function editPassword() {
+        setShowPassModal(true)
+    }
+
     useEffect(() => {
         async function findAdmin(id) {
             try {
@@ -82,7 +88,7 @@ const AdminForm = () => {
         } else {
             setEdit(false)
         }
-    }, [id])
+    }, [id, setValue])
 
     return (
         <>
@@ -117,7 +123,15 @@ const AdminForm = () => {
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4 ">رمز عبور</h3>
 
-                        <Input id={'password'} register={register} minLength={8} placeholder={'********'} type={'password'} style={'w-full tracking-wide'} />
+                        <Input id={'password'}
+                            register={register}
+                            minLength={8}
+                            placeholder={'********'}
+                            type={'password'}
+                            style={'w-full tracking-wide'}
+                            value={isEdit ? '********' : ''}
+                            disabled={isEdit && true} />
+                        {isEdit && <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>}
                         {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
                     </div>
                 </div>
@@ -133,6 +147,7 @@ const AdminForm = () => {
                 </div>
                 <Alert message={message} />
             </form>
+            <PassswordModal setShowPassModal={setShowPassModal} showPassModal={showPassModal} />
         </>
     )
 }

@@ -15,7 +15,7 @@ const AddAdmin = ({ title }) => {
         } else {
             router.push('/account/dashboard')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <section className="p-10 sm:p-20 flex flex-col gap-5">
