@@ -39,7 +39,7 @@ const useScreenSize = () => {
     }, [getDeviceType, screenSize])
 
     const isMobile = useMemo(() => {
-        return screenSize < breakpoints.lg
+        return screenSize < breakpoints.sm
     }, [screenSize])
 
     useEffect(() => {
