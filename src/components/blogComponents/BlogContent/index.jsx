@@ -38,7 +38,13 @@ const BlogContent = ({ params }) => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white my-5 px-10 shadow-lg text-gray-700" dangerouslySetInnerHTML={{ __html: blogContent.blogContent }}></div>
+                <div className="bg-white my-5 px-10 shadow-lg text-gray-700 rounded" dangerouslySetInnerHTML={{ __html: blogContent.blogContent }}></div>
+                <div className="mb-5 shadow p-5 flex gap-5 items-center text-gray-600 rounded">
+                    تگ ها:
+                    {blogContent.tags?.map(item => (
+                        <span className="p-2 border border-green bg-white hover:text-white hover:bg-darkGreen rounded">{item}</span>
+                    ))}
+                </div>
             </section>
         </>
     )
