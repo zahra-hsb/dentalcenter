@@ -17,7 +17,7 @@ const Contact = () => {
             <div className="p-20 flex flex-col lg:flex-row lg:items-center items-start justify-evenly gap-10">
                 <div className="flex flex-col items-center lg:items-start justify-start w-full gap-8 h-full">
                     <h1 className="text-2xl font-bold">تماس با ما</h1>
-                    <p>
+                    <p className="text-gray-600">
                         شما میتوانید برای گرفتن ارتباط با ما با شماره های زیر تماس بگیرید.
                     </p>
                     <div className="flex flex-col gap-5">
@@ -44,7 +44,7 @@ const Contact = () => {
                 </div>
                 <div className="flex flex-col gap-5 w-full items-center lg:items-start">
                     <h1 className="text-2xl font-bold">فرم تماس با ما</h1>
-                    <p>
+                    <p className="text-gray-600">
                         برای گرفتن اطلاعات بیشتر میتوانید فرم زیر را پر کنید
                     </p>
                     <ContactForm />
