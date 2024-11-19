@@ -5,10 +5,6 @@ import { useEffect, useState } from "react"
 
 const BlogContent = ({ params }) => {
 
-
-    // const params1 = useSearchParams()
-    // const { id } = params1.get('id')
-
     const [blogContent, setBlogContent] = useState({})
 
     useEffect(() => {
