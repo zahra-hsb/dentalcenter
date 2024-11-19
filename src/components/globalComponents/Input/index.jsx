@@ -1,4 +1,4 @@
-const Input = ({ type, placeholder, disabled, name, id, onKeyDown, style, value, onChange, required, register, minLength }) => {
+const Input = ({ type, placeholder, disabled, maxLength, name, id, onKeyDown, style, value, onChange, required, register, minLength }) => {
     return (
         <>
             <input
@@ -10,6 +10,7 @@ const Input = ({ type, placeholder, disabled, name, id, onKeyDown, style, value,
                 onChange={onChange}
                 value={value}
                 minLength={minLength}
+                maxLength={maxLength}
                 onKeyDown={onKeyDown}
                 disabled={disabled}
                 {...register(id, { required })}

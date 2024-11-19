@@ -17,6 +17,7 @@ const AdminForm = () => {
     const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
     const [isEdit, setEdit] = useState(false)
+    const [isAdmin, setAdmin] = useState(false)
     const [adminData, setAdminData] = useState({})
     const [showPassModal, setShowPassModal] = useState(false)
 
@@ -24,16 +25,16 @@ const AdminForm = () => {
         console.log(data);
         try {
             const response = await axios.post('/api/addAdmin', data)
-            if (!response.data.isSaved) {
+            if (response.data.isExist) {
                 setMessage({ message: response.data.message, color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    router.push('/account/dashboard/admins')
                 }, 5000)
             } else {
                 setMessage({ message: response.data.message, color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
+                    router.push('/account/dashboard/admins')
                 }, 5000)
             }
             reset()
@@ -83,8 +84,14 @@ const AdminForm = () => {
                 console.log(error);
             }
         }
+        const admin = localStorage.getItem('user')
         if (id) {
             findAdmin(id)
+            if (admin === 'vgomaryan') {
+                setAdmin(true)
+            } else {
+                setAdmin(false)
+            }
         } else {
             setEdit(false)
         }
@@ -104,7 +111,7 @@ const AdminForm = () => {
                     <div className="flex flex-col w-full p-2 gap-2">
                         <h3 className="px-4">شماره تماس</h3>
 
-                        <Input id={'tel'} required={true} register={register} placeholder={'+مانند: 989123456789'} type={'tel'} style={'w-full'} />
+                        <Input id={'tel'} maxLength={11} required={true} register={register} placeholder={'0مانند: 9123456789'} type={'tel'} style={'w-full'} />
 
 
                         {errors.tel && <span className="text-red-500">شماره تماس معتبر نیست</span>}
@@ -120,20 +127,35 @@ const AdminForm = () => {
 
                         {errors.username && <span className="text-red-500">نام کاربری الزامی است</span>}
                     </div>
-                    <div className="flex flex-col w-full p-2 gap-2">
-                        <h3 className="px-4 ">رمز عبور</h3>
+                    {adminData?.username === 'vgomaryan' &&
+                        <div className="flex flex-col w-full p-2 gap-2">
+                            <h3 className="px-4 ">رمز عبور</h3>
 
-                        <Input id={'password'}
-                            register={register}
-                            minLength={8}
-                            placeholder={'********'}
-                            type={'password'}
-                            style={'w-full tracking-wide'}
-                            value={isEdit ? '********' : ''}
-                            disabled={isEdit && true} />
-                        {isEdit && <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>}
-                        {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
-                    </div>
+                            <Input id={'password'}
+                                register={register}
+                                minLength={8}
+                                placeholder={'********'}
+                                type={'password'}
+                                style={'w-full tracking-wide'}
+                                value={isEdit ? '********' : ''}
+                                disabled={isEdit && true} />
+                            {isEdit && <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>}
+                            {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
+                        </div>}
+                    {isEdit === false &&
+                        <>
+                            <div className="flex flex-col w-full p-2 gap-2">
+                                <h3 className="px-4 ">رمز عبور</h3>
+
+                                <Input id={'password'}
+                                    register={register}
+                                    minLength={8}
+                                    placeholder={'********'}
+                                    type={'password'}
+                                    style={'w-full tracking-wide'} />
+                            </div>
+                        </>
+                    }
                 </div>
                 <div className="flex items-center gap-5">
                     <button type={'submit'} className={'text-green text-nowrap flex min-w-24 bg-gradient-to-r from-darkGreen to-buttonOp px-5 sm:px-3 font-bold py-2 rounded-lg relative group overflow-hidden hover:text-white '}>
