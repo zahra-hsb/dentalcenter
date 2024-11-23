@@ -7,16 +7,20 @@ import InfoBox from "../InfoBox"
 const InfoSectionDashboard = () => {
     const [blogsCount, setBlogsCount] = useState(0)
     const [adminsCount, setAdminsCount] = useState(0)
+    const [adminsBlogsCount, setAdminsBlogsCount] = useState(0)
     const getAdminsFunc = useCallback(async () => {
         try {
             const res = await axios.get('/api/getBlogs')
             const res1 = await axios.get('/api/getAdmins')
+            const currentAdmin = localStorage.getItem('name')
+            const blogs = res.data 
+            setAdminsBlogsCount(blogs.filter(item => item.author === currentAdmin).length)
             setBlogsCount(res.data.length)
             setAdminsCount(res1.data.length)
         } catch (error) {
             console.log(error);
         }
-    })
+    }, [])
 
     useEffect(() => {
         getAdminsFunc()
@@ -26,6 +30,7 @@ const InfoSectionDashboard = () => {
             <div className="py-10 flex flex-col sm:flex-row gap-5">
                 <InfoBox info={blogsCount} title={'تعداد وبلاگ ها'} />
                 <InfoBox info={adminsCount} title={'تعداد ادمین ها'} />
+                <InfoBox info={adminsBlogsCount} title={'تعداد وبلاگ ادمین'} />
             </div>
         </>
     )
