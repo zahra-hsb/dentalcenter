@@ -58,6 +58,17 @@ const BlogForm = () => {
     function handleChangeTag(e) {
         setTag(e.target.value)
     }
+    async function handleDeleteTag(title) {
+        console.log(title);
+
+        // try {
+        //     const res = await axios.delete('/api/deleteTag', { title })
+        //     console.log(res.data);
+        // } catch (error) {
+        //     console.log(error);
+        // }
+        setTags(prevItems => prevItems.filter(item => item !== title))
+    }
     function handleChangeTitle(e) {
         setTitle(e.target.value)
     }
@@ -195,7 +206,7 @@ const BlogForm = () => {
                             {tags?.length > 0
                                 &&
                                 tags?.map((item, index) => (
-                                    <Tag tag={item} key={index} />
+                                    <Tag handleDeleteTag={() => handleDeleteTag(item)} tag={item} key={index} />
                                 ))
                             }
                         </div>
