@@ -7,14 +7,14 @@ import UserInfo from "../UserInfo"
 
 const ShowMenuButton = () => {
     const [isShowMenu, setShowMenu] = useState(false)
-    const { isMobile } = useScreenSize()
+    const { isMobile, isTablet } = useScreenSize()
     function handleShowMenu() {
         console.log('object');
         setShowMenu(!isShowMenu)
     }
 
     function handleCloseMenu() {
-        if (isMobile) {
+        if (isMobile || isTablet) {
             setShowMenu(false)
         }
     }

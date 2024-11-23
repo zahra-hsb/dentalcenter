@@ -44,7 +44,6 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
                 <Logo style={'text-inherit mb-10 !text-lg'} />
                 <ul className="flex flex-col items-start gap-8 border-r pr-5 border-r-green">
                     {isMainAdmin === true ?
-
                         menu?.map(item => (
                             <>
                                 <li className={`w-full`} key={item.id}>
