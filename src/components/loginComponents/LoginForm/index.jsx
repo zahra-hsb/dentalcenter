@@ -7,9 +7,11 @@ import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { UserContext } from "@/app/context";
+// import { useStore } from "zustand";
+import useStore from "@/customHooks/store";
+
 
 
 
@@ -19,7 +21,7 @@ const LoginForm = () => {
     const methods = useForm();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
-    const { user, setUser } = useContext(UserContext)
+    const { setUserInfo, userInfo } = useStore()
 
     async function onSubmit(data) {
         try {
@@ -31,7 +33,7 @@ const LoginForm = () => {
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    console.log(user);
+                    setUserInfo(res.user)
                     router.push('/account/dashboard')
                 }, 5000)
                 reset()
