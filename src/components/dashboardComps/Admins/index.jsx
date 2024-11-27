@@ -100,7 +100,7 @@ const Admins = () => {
         } else {
             router.push('/account/dashboard')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <section className="px-5 h-screen overflow-y-auto py-10 sm:p-20 relative ">

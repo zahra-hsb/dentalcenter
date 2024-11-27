@@ -24,7 +24,7 @@ const InfoSectionDashboard = () => {
 
     useEffect(() => {
         getAdminsFunc()
-    }, [])
+    }, [getAdminsFunc])
     return (
         <>
             <div className="py-10 flex flex-col sm:flex-row gap-5">
