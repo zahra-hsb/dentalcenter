@@ -1,9 +1,5 @@
 import Image from "next/image"
 import Container from "../Container"
-import implant from '../../../../public/icons/🦆 emoji _tooth_.svg'
-import toothClean from '../../../../public/icons/🦆 icon _teeth clean_.svg'
-import toothDrill from '../../../../public/icons/🦆 icon _tooth drill_.svg'
-import dentist from '../../../../public/icons/Group 3.svg'
 
 import React, { useRef, useState } from 'react';
 // Import Swiper React components

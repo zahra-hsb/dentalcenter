@@ -1,10 +1,5 @@
 'use client'
-import implant from '../../../../public/icons/🦆 emoji _tooth_.svg'
-import toothClean from '../../../../public/icons/🦆 icon _teeth clean_.svg'
-import toothDrill from '../../../../public/icons/🦆 icon _tooth drill_.svg'
-import dentist from '../../../../public/icons/Group 3.svg'
-import Container from "@/components/globalComponents/Container"
-import Image from "next/image"
+
 import Button from '@/components/globalComponents/Button'
 import Slider from '@/components/globalComponents/Slider'
 import { mainPageSlides } from '@/lib/data'
