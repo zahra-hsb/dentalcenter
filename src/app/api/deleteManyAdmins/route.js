@@ -1,7 +1,6 @@
 import dbConnect from "@/lib/dbconnect";
 import AdminsModel from "@/lib/models/AdminsModel";
 import { NextRequest, NextResponse } from "next/server";
-import { ObjectId } from 'mongodb';
 import { revalidatePath } from "next/cache";
 
 export async function DELETE(request) {

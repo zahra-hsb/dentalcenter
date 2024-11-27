@@ -1,17 +1,18 @@
 import mongoose from "mongoose";
 
-// const uri = 'mongodb://localhost/admins'
-const uri = process.env.MONGODB_URI
+const uri = 'mongodb+srv://zahra20hb:651598@cluster0.7amyb.mongodb.net/'
+// const uri = process.env.MONGODB_URI
 
 
-if (!process.env.MONGODB_URI) {
+// if (!process.env.MONGODB_URI) {
+  if (!uri) {
   throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
 }
 
 
-const MONGODB_URI = process.env.MONGODB_URI;
+// const MONGODB_URI = process.env.MONGODB_URI;
 
-if (!MONGODB_URI) {
+if (!uri) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local"
   );
