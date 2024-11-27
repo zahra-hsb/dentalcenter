@@ -11,10 +11,20 @@ const Page = ({ params }) => {
 export default Page
 
 
-export async function generateStaticParams() {
-    const posts = await fetch('http://drgomaryan.darkube.app/api/getBlogs').then((res) => res.json())
-
-    return posts.map((post) => ({
-        slug: post._id,
-    }))
+export async function generateStaticParams() {  
+    try {  
+        const res = await fetch('http://drgomaryan.darkube.app/api/getBlogs');  
+        if (!res.ok) {  
+            // Handle HTTP errors (including 503)  
+            console.error(`HTTP error! status: ${res.status}`);  
+            // Consider throwing an error or returning an empty array here  
+            return []; // Or throw new Error(`Failed to fetch blogs: ${res.status}`);  
+        }  
+        const posts = await res.json();  
+        return posts.map((post) => ({ slug: post._id }));  
+    } catch (error) {  
+        console.error('Error fetching blog posts:', error);  
+        // Consider throwing the error or returning an empty array  
+        return []; // Or throw error;  
+    }  
 }
