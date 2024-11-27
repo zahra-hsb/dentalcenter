@@ -31,6 +31,9 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
 
     useEffect(() => {
         const username = localStorage.getItem('user')
+        if (username === '') {
+            router.push('/account/login')
+        }
         if (username === 'vgomaryan') {
             setMainAdmin(true)
         } else {
