@@ -38,7 +38,7 @@ const EditPersonalInfo = () => {
                 <div className="grid lg:grid-cols- place-items-center lg:place-items-center w-full gap-y-5">
                     <div className="flex items-center gap-1">
                         <h3 className="text-gray-600 text-xs group-hover:text-white">
-                            نام و نام خانوادگی:
+                            نام و نام خانوادگی: 
                         </h3>
                         <p className="group-hover:text-white text-black">
                             {userInfo.name}
