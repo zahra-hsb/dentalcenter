@@ -12,6 +12,7 @@ import Alert from '@/components/globalComponents/Alert';
 import { useRouter, useSearchParams } from 'next/navigation';
 import UploadFile from '@/components/globalComponents/UploadFile';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const BlogForm = () => {
     const [blogContent, setBlogContent] = useState('')
@@ -194,7 +195,7 @@ const BlogForm = () => {
                     <div className="w-full flex flex-col gap-5">
                         <h3>تصویر مقاله</h3>
                         <UploadFile handleUpload={handleUpload} handleFileChange={handleFileChange} />
-                        {isEdit && <img src={imgUrl} alt='' />}
+                        {isEdit && <Image src={imgUrl} alt='' />}
                     </div>
                     <div className="flex flex-col gap-5 w-full pt-1">
                         <h3>برچسب ها</h3>
