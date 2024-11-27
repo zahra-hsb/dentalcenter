@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const uri = 'mongodb+srv://zahra20hb:651598@cluster0.7amyb.mongodb.net/'
+const uri = 'dentalcenter.zahra20hb.svc:27017'
 // const uri = process.env.MONGODB_URI
 
 
