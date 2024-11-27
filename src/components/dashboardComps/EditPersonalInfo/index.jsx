@@ -6,17 +6,22 @@ import { useEffect, useState } from "react";
 import { RxAvatar } from "react-icons/rx";
 import { MdOutlineRefresh } from "react-icons/md";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 
 const EditPersonalInfo = () => {
     const [userInfo, setUserInfo] = useState({})
-
+    const router = useRouter() 
+    
     useEffect(() => {
         const id = localStorage.getItem('id')
         async function findAdmin(id) {
             try {
                 const response = await axios.post('/api/getAdmin', { id: id })
                 const adminInfo = response.data
+                if(adminInfo === null) {
+                    router.push('/account/login')
+                }
                 setUserInfo(adminInfo)
             } catch (error) {
                 console.log(error);
