@@ -21,7 +21,7 @@ const LoginForm = () => {
     const methods = useForm();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
-    const { setUserInfo, userInfo } = useStore()
+    const { setUserInfo } = useStore()
 
     async function onSubmit(data) {
         try {
@@ -30,6 +30,7 @@ const LoginForm = () => {
             if (res.isExistUser === true && res.success === true) {
                 localStorage.setItem('user', res.user.username)
                 localStorage.setItem('name', res.user.name)
+                localStorage.setItem('id', res.user._id)
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })

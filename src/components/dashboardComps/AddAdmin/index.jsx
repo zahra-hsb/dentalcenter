@@ -8,14 +8,14 @@ const AddAdmin = ({ title }) => {
     const methods = useForm();
     const [isMainAdmin, setMainAdmin] = useState(false)
     const router = useRouter()
-    useEffect(() => {
-        const username = localStorage.getItem('user')
-        if (username === 'vgomaryan') {
-            setMainAdmin(true)
-        } else {
-            router.push('/account/dashboard')
-        }
-    }, [router])
+    // useEffect(() => {
+    //     const username = localStorage.getItem('user')
+    //     if (username === 'vgomaryan') {
+    //         setMainAdmin(true)
+    //     } else {
+    //         router.push('/account/dashboard')
+    //     }
+    // }, [router])
     return (
         <>
             <section className="p-10 sm:p-20 flex flex-col gap-5">

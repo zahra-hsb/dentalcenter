@@ -11,6 +11,7 @@ import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
 import { useRouter, useSearchParams } from "next/navigation";
 import PassswordModal from "../PassswordModal";
+import useStore from "@/customHooks/store";
 
 const AdminForm = () => {
     const router = useRouter()
@@ -20,6 +21,7 @@ const AdminForm = () => {
     const [isAdmin, setAdmin] = useState(false)
     const [adminData, setAdminData] = useState({})
     const [showPassModal, setShowPassModal] = useState(false)
+    const { userInfo } = useStore()
 
     const onSubmit = async (data) => {
         console.log(data);
@@ -84,10 +86,9 @@ const AdminForm = () => {
                 console.log(error);
             }
         }
-        const admin = localStorage.getItem('user')
         if (id) {
             findAdmin(id)
-            if (admin === 'vgomaryan') {
+            if (userInfo.username === 'vgomaryan') {
                 setAdmin(true)
             } else {
                 setAdmin(false)
@@ -95,7 +96,7 @@ const AdminForm = () => {
         } else {
             setEdit(false)
         }
-    }, [id, setValue])
+    }, [id, setValue, userInfo])
 
     return (
         <>
@@ -127,21 +128,21 @@ const AdminForm = () => {
 
                         {errors.username && <span className="text-red-500">نام کاربری الزامی است</span>}
                     </div>
-                    {adminData?.username === 'vgomaryan' &&
-                        <div className="flex flex-col w-full p-2 gap-2">
-                            <h3 className="px-4 ">رمز عبور</h3>
 
-                            <Input id={'password'}
-                                register={register}
-                                minLength={8}
-                                placeholder={'********'}
-                                type={'password'}
-                                style={'w-full tracking-wide'}
-                                value={isEdit ? '********' : ''}
-                                disabled={isEdit && true} />
-                            {isEdit && <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>}
-                            {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
-                        </div>}
+                    <div className="flex flex-col w-full p-2 gap-2">
+                        <h3 className="px-4 ">رمز عبور</h3>
+
+                        <Input id={'password'}
+                            register={register}
+                            minLength={8}
+                            placeholder={'********'}
+                            type={'password'}
+                            style={'w-full tracking-wide'}
+                            value={isEdit ? '********' : ''}
+                            disabled={isEdit && true} />
+                        <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>
+                        {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
+                    </div>
                     {isEdit === false &&
                         <>
                             <div className="flex flex-col w-full p-2 gap-2">
