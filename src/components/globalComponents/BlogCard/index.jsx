@@ -7,7 +7,7 @@ const BlogCard = ({ blogImg, title, author, summary, id }) => {
         <>
             <Container style={'!items-start mb-10'}>
                 <Link href={`/blogs/${id}`}>
-                    <Image src={blogImg} alt="" />
+                    <img src={blogImg} alt="" />
                 </Link>
                 <Link href={`/blogs/${id}`}>
                     <h4 className="group-hover:text-green">{title}</h4>

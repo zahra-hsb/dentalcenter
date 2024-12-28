@@ -13,7 +13,7 @@ export default Page
 
 export async function generateStaticParams() {  
     try {  
-        const res = await fetch('http://drgomaryan.darkube.app/api/getBlogs');  
+        const res = await fetch('https://drgomaryan.liara.run/api/getBlogs');  
         if (!res.ok) {  
             // Handle HTTP errors (including 503)  
             console.error(`HTTP error! status: ${res.status}`);  

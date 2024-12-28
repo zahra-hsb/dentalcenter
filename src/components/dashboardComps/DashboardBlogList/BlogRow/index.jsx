@@ -24,7 +24,7 @@ const BlogRow = ({ title, image, author, date, selected, toggleSelect, handleDel
 
                 <td class="p-4 border-b border-blue-gray-50">
                     <div class="flex items-center justify-center">
-                        <Image width={50} height={50} src={image} alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
+                        <img width={50} height={50} src={image} alt="Spotify" class="inline-block relative object-center !rounded-full w-12 h-12 border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1" />
                     </div>
                 </td>
                 <td class="p-4 border-b border-blue-gray-50 w-full sm:w-auto lg:w-auto">
