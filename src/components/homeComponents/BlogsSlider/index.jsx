@@ -58,12 +58,10 @@ const BlogSlider = () => {
                 className="mySwiper"
             >
                 {blogs.map(item => (
-                    <>
-                        <SwiperSlide>
-                            <BlogCard author={item.author} blogImg={item.blogImg}
-                                date={item.date} summary={item.summary} title={item.title} id={item._id} />
-                        </SwiperSlide>
-                    </>
+                    <SwiperSlide key={item._id}>
+                        <BlogCard author={item.author} blogImg={item.blogImg}
+                            date={item.date} summary={item.summary} title={item.title} id={item._id} />
+                    </SwiperSlide>
                 ))}
             </Swiper>
         </>

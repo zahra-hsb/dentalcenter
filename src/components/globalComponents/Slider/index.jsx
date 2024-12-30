@@ -44,8 +44,8 @@ const Slider = ({ dataArray, type1, isAboutUs }) => {
                     className="mySwiper"
                 >
                     {dataArray?.map(item => (
-                        <>
-                            <SwiperSlide>
+                        
+                            <SwiperSlide key={item._id ? item._id : item.id}>
                                 {isAboutUs ?
 
                                     <>
@@ -79,9 +79,9 @@ const Slider = ({ dataArray, type1, isAboutUs }) => {
                                     </>
                                 }
                             </SwiperSlide>
-                        </>
+                       
                     ))}
-                </Swiper >
+                </Swiper>
             </div >
         </>
     )

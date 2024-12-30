@@ -55,13 +55,13 @@ const DentalSlider = () => {
                     className="mySwiper"
                 >
                     {picsArray.length > 0 ? picsArray?.map(item =>
-                        <>
-                            <SwiperSlide>
-                                <div className='lg:w-[350] flex items-center justify-end'>
-                                    <img className={'w-full'} src={item.src} alt={item.alt} key={item.id} />
-                                </div>
-                            </SwiperSlide>
-                        </>
+
+                        <SwiperSlide key={item.id}>
+                            <div className='lg:w-[350] flex items-center justify-end'>
+                                <Image className={'w-full'} src={item.src} alt={item.alt} key={item.id} />
+                            </div>
+                        </SwiperSlide>
+
                     )
                         :
                         <div>موردی برای نمایش وجود ندارد...</div>}
