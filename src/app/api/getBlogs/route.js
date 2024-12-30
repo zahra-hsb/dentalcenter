@@ -10,6 +10,7 @@ export async function GET() {
         await dbConnect()
 
         const blogs = await BlogsModel.find()
+        console.log('blogs: ', blogs);
         revalidatePath('/account/dashboard/blog', 'page')
         return NextResponse.json(blogs)
     } catch (error) {
