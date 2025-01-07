@@ -7,8 +7,8 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        await dbConnect()
-
+        const connection = await dbConnect()
+        console.log(connection);
         const blogs = await BlogsModel.find()
         console.log('blogs: ', blogs);
         revalidatePath('/account/dashboard/blog', 'page')
