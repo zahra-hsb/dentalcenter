@@ -12,7 +12,7 @@ export async function POST(req) {
         const adminIsExist = await AdminsModel.findOne({ tel: data.tel })
 
         if (adminIsExist === null) {
-            const admin = new AdminsModel({ name: data.name, tel: data.tel, username: admin1, password: data.password, selected: false, mainAdmin: true })
+            const admin = new AdminsModel({ name: data.name, tel: data.tel, username: admin1, password: data.password, selected: false, mainAdmin: false })
             admin.save()
 
             
