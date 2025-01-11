@@ -57,7 +57,7 @@ const BlogSlider = () => {
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"
             >
-                {blogs.map(item => (
+                {blogs.length > 0 && blogs.map(item => (
                     <SwiperSlide key={item._id}>
                         <BlogCard author={item.author} blogImg={item.blogImg}
                             date={item.date} summary={item.summary} title={item.title} id={item._id} />
