@@ -33,7 +33,7 @@ const AboutComponent = ({ isAboutUs }) => {
                         <div className="flex sm:flex-row flex-col items-center justify-start gap-5">
                             {/* icon */}
                             <div className="p-4 rounded-lg bg-green bg-opacity-30">
-                                <Image src={terms} alt="" width={50} />
+                                <Image src={terms} alt="" />
                             </div>
                             {/* texts */}
                             <div className="h-full flex flex-col justify-between items-center sm:items-start  gap-3 w-2/3">

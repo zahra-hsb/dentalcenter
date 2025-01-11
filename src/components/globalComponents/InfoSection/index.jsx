@@ -6,7 +6,7 @@ const InfoSection = ({ icon, title, info }) => {
         <>
             <div className="flex gap-3 justify-evenly items-center">
                 <IconContainer>
-                    <Image src={icon} alt="" />
+                    <Image src={icon}  alt="" />
                 </IconContainer>
                 <div>
                     <p className="font-bold text-sm mb-1">{title}</p>

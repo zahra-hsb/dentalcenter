@@ -58,7 +58,7 @@ const DentalSlider = () => {
 
                         <SwiperSlide key={item.id}>
                             <div className='lg:w-[350] flex items-center justify-end'>
-                                <Image className={'w-full'} src={item.src} alt={item.alt} key={item.id} />
+                                <Image className={'w-full'} width={200} height={200} src={item.src} alt={item.alt} key={item.id} />
                             </div>
                         </SwiperSlide>
 
