@@ -1,10 +1,11 @@
+'use server'
 import axios from "axios";
 
 
 export async function getUsers() {
     try {
-        const userRes = axios.get('/api/getAdmins')
-        return userRes
+        console.log(userRes);
+        return userRes.data
     } catch (error) {
         return []
     }

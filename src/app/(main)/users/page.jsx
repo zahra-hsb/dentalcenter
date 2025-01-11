@@ -1,12 +1,15 @@
 import { getUsers } from "@/actions/getUsers"
+import axios from "axios"
 
-const users = () => {
-    const users = getUsers()
+const users = async () => {
+
+    const users = await axios.get('/api/getAdmins')
+
     return (
         <>
             <div>
-                {users.length > 0 ?
-                    users?.map((item, index) => (
+                {users.data.length > 0 ?
+                    users.data?.map((item, index) => (
                         <div key={index}> 
                             {item.name}
                         </div>
