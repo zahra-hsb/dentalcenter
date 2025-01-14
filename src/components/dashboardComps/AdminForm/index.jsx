@@ -88,7 +88,7 @@ const AdminForm = () => {
         }
         if (id) {
             findAdmin(id)
-            if (userInfo.username === 'vgomaryan') {
+            if (userInfo.tel === '09121403992') {
                 setAdmin(true)
             } else {
                 setAdmin(false)

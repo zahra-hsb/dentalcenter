@@ -34,7 +34,7 @@ const LoginForm = () => {
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    setUserInfo(res.user)
+                    setUserInfo(res.tel)
                     router.push('/account/dashboard')
                 }, 5000)
                 reset()

@@ -30,7 +30,7 @@ const EditPersonalInfo = () => {
         if (id) {
             findAdmin(id)
         }
-    }, [])
+    }, [router])
 
     return (
         <>
