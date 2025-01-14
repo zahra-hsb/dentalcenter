@@ -24,19 +24,24 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
     const pathname = usePathname()
     const router = useRouter()
     const [isMainAdmin, setMainAdmin] = useState(false)
+    
     function handleExit() {
         localStorage.clear()
         router.push('/account/login')
     }
 
     useEffect(() => {
-        const username = localStorage.getItem('user')
-        if (username === 'vgomaryan') {
+        const isMainAdmin = localStorage.getItem('user')
+        if (isMainAdmin) {
             setMainAdmin(true)
         } else {
             setMainAdmin(false)
         }
-    }, [])
+
+        if(!isMainAdmin) {
+            router.push('/account/login')
+        }
+    }, [router])
     return (
         <>
             <div onClick={handleCloseMenu} className={`block lg:hidden w-screen cursor-pointer h-screen absolute top-0 left-0 z-40 bg-darkGreen opacity-20 ${isShow ? 'block' : 'hidden'}`}></div>

@@ -11,7 +11,6 @@ const Header = () => {
     const [isShow, setShow] = useState(false)
 
     function openMenu() {
-        console.log('opened!');
         setShow(true)
     }
 

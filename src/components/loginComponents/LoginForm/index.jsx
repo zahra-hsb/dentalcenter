@@ -7,7 +7,7 @@ import Link from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import axios from "axios";
 import Alert from "@/components/globalComponents/Alert";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 // import { useStore } from "zustand";
 import useStore from "@/customHooks/store";
@@ -56,6 +56,14 @@ const LoginForm = () => {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        const isLoggedin = localStorage.getItem('user')
+        if(isLoggedin) {
+            router.push('/account/dashboard')
+        }
+    }, [router])
+
     return (
         <>
             {/* <FormProvider {...methods}> */}
