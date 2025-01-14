@@ -94,8 +94,8 @@ const Admins = () => {
     }
     useEffect(() => {
         getAllAdmins(setItems, errorComp)
-        const username = localStorage.getItem('user')
-        if (username === 'vgomaryan') {
+        const isMainAdmin = localStorage.getItem('user')
+        if (isMainAdmin) {
             setMainAdmin(true)
         } else {
             router.push('/account/dashboard')
