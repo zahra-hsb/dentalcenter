@@ -31,14 +31,15 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
     }
 
     useEffect(() => {
-        const isMainAdmin = localStorage.getItem('user')
-        if (isMainAdmin) {
+        const isMain = localStorage.getItem('user')
+        const id = localStorage.getItem('id')
+        if (isMain === "true") {
             setMainAdmin(true)
         } else {
             setMainAdmin(false)
         }
 
-        if(!isMainAdmin) {
+        if(!id) {
             router.push('/account/login')
         }
     }, [router])

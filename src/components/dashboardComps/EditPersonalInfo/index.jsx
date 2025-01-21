@@ -65,9 +65,9 @@ const EditPersonalInfo = () => {
                             {userInfo.tel}
                         </p>
                     </div>
-                    <Button style={`w-40 lg:w-32`} link={`/account/dashboard/admins/edit?id=${userInfo._id}`}>
+                    {/* <Button style={`w-40 lg:w-32`} link={`/account/dashboard/admins/edit?id=${userInfo._id}`}>
                         ویرایش مشخصات
-                    </Button>
+                    </Button> */}
                 </div>
 
 
