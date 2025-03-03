@@ -1,9 +1,18 @@
 const { create } = require("zustand");
+import { persist } from "zustand/middleware"
 
-
-const useStore = create((set) => ({
-    userInfo: {},
-    setUserInfo: (newUserInfo) => set({ userInfo: newUserInfo })
-}))
+const useStore = create()(
+    persist((set) => ({
+        userInfo: {},
+        userId: "",
+        setUserId: (userId) => set({ userId: userId }),
+        setUserInfo: (newUserInfo) => set({ userInfo: newUserInfo })
+    })
+        ,
+        {
+            name: "user-storage"
+        }
+    )
+)
 
 export default useStore
