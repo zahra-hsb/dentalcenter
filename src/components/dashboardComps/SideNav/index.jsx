@@ -50,7 +50,7 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
         <>
             <div onClick={handleCloseMenu} className={`block lg:hidden w-screen cursor-pointer h-screen absolute top-0 left-0 z-40 bg-darkGreen opacity-20 ${isShow ? 'block' : 'hidden'}`}></div>
             <div className={style}>
-                <Logo style={'text-inherit mb-10 !text-lg'} />
+                <Logo style={'text-inherit mb-10 !text-base'} />
                 <ul className="flex flex-col items-start gap-8 border-r pr-5 border-r-green">
                     {isMainAdmin === true ?
                         menu?.map(item => (
