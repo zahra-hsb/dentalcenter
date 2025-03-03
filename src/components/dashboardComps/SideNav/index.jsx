@@ -6,6 +6,7 @@ import { TiEdit } from "react-icons/ti";
 import { RiAdminFill, RiLogoutBoxRLine } from "react-icons/ri";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import useStore from "@/customHooks/store";
 
 const menu = [
     { id: 0, title: 'داشبورد', route: '/account/dashboard', icon: <> <MdDashboard size={25} /> </> },
@@ -24,25 +25,27 @@ const SideNav = ({ style, isShow, handleCloseMenu }) => {
     const pathname = usePathname()
     const router = useRouter()
     const [isMainAdmin, setMainAdmin] = useState(false)
-    
+    const { userId, setUserId, setUserInfo } = useStore()
     function handleExit() {
-        localStorage.clear()
+        setUserId("")
+        setUserInfo({})
+        localStorage.removeItem("user")
         router.push('/account/login')
     }
 
     useEffect(() => {
         const isMain = localStorage.getItem('user')
-        const id = localStorage.getItem('id')
+        // const id = localStorage.getItem('id')
         if (isMain === "true") {
             setMainAdmin(true)
         } else {
             setMainAdmin(false)
         }
 
-        if(!id) {
+        if(!userId) {
             router.push('/account/login')
         }
-    }, [router])
+    }, [router, userId])
     return (
         <>
             <div onClick={handleCloseMenu} className={`block lg:hidden w-screen cursor-pointer h-screen absolute top-0 left-0 z-40 bg-darkGreen opacity-20 ${isShow ? 'block' : 'hidden'}`}></div>

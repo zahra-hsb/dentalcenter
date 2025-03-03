@@ -21,25 +21,30 @@ const LoginForm = () => {
     const methods = useForm();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [message, setMessage] = useState({ message: '', color: '' })
-    const { setUserInfo } = useStore()
+    const { setUserInfo, userInfo, setUserId, userId } = useStore()
 
     async function onSubmit(data) {
         try {
             const response = await axios.post(`/api/findAdmin`, data)
             const res = response.data
             if (res.isExistUser === true && res.success === true) {
-                localStorage.setItem('user', res.user.mainAdmin)
-                localStorage.setItem('name', res.user.name)
-                localStorage.setItem('id', res.user._id)
+                // localStorage.setItem('user', res.user.mainAdmin)
+                // TODO add user role: main admin to detect the dashboard
+                console.log(res)
+                if(res.user.mainAdmin) {
+                    localStorage.setItem("user", "true")
+                } else {
+                    localStorage.setItem("user", "false")
+                }
                 setMessage({ message: 'در حال ریدایرکت...', color: 'green' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
-                    setUserInfo(res.tel)
-                    router.push('/account/dashboard')
+                    setUserId(res.user._id)
+                    setUserInfo(res.user)
+                    // router.push('/account/dashboard')
                 }, 5000)
                 reset()
             } else if (res.isExistUser === false) {
-                console.log(res);
                 setMessage({ message: 'کاربری با این نام کاربری در سیستم وجود ندارد.', color: 'red-500' })
                 setTimeout(() => {
                     setMessage({ message: '', color: '' })
@@ -58,11 +63,13 @@ const LoginForm = () => {
     }
 
     useEffect(() => {
-        const isLoggedin = localStorage.getItem('user')
-        if(isLoggedin) {
+        // const isLoggedin = localStorage.getItem('user')
+        console.log('user id: ', userId)
+        if(userId) {
             router.push('/account/dashboard')
+            // console.log('redirecting...');
         }
-    }, [router])
+    }, [userId, router])
 
     return (
         <>

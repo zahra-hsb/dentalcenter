@@ -12,9 +12,10 @@ import { useRouter } from "next/navigation";
 const EditPersonalInfo = () => {
     const [userInfo, setUserInfo] = useState({})
     const router = useRouter() 
-    
+    const { userId } = useStore()
     useEffect(() => {
-        const id = localStorage.getItem('id')
+        // !! get admin id from zustand
+
         async function findAdmin(id) {
             try {
                 const response = await axios.post('/api/getAdmin', { id: id })
@@ -27,10 +28,10 @@ const EditPersonalInfo = () => {
                 console.log(error);
             }
         }
-        if (id) {
-            findAdmin(id)
+        if (userId) {
+            findAdmin(userId)
         }
-    }, [router])
+    }, [router, userId])
 
     return (
         <>
@@ -65,9 +66,9 @@ const EditPersonalInfo = () => {
                             {userInfo.tel}
                         </p>
                     </div>
-                    {/* <Button style={`w-40 lg:w-32`} link={`/account/dashboard/admins/edit?id=${userInfo._id}`}>
+                    <Button style={`w-40 lg:w-32`} link={`/account/dashboard/admins/edit?id=${userInfo._id}`}>
                         ویرایش مشخصات
-                    </Button> */}
+                    </Button>
                 </div>
 
 
