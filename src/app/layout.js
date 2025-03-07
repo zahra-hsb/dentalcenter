@@ -2,6 +2,7 @@ import "./globals.css";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { GlobalContextProvider } from "./context";
+import JsonLD from "@/components/JsonLD";
 
 
 export const metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
             {children}
           </Suspense>
         </GlobalContextProvider>
+        <JsonLD />
       </body>
     </html>
   );
