@@ -15,10 +15,17 @@ const Services = () => {
                 <div className='w-full px-10 lg:px-0'>
                     <Slider dataArray={mainPageSlides} type1={true} />
                 </div>
-                <div className='py-5'>
+                <div className='text-center'>
+                    <h2 className='text-lg'>نیاز به مشاوره و معاینه رایگان دارید؟</h2>
+                    <h3 className='py-2'>شما می توانید با ما تماس گرفته و مشاوره بگیرید. کلینیک ما با ارائه راه‌حل ها می تواند بهترین خدمات را به شما ارائه دهد.</h3>
+                </div>
+                <div className=''>
                     <Button link={'/contact'}>
                         تماس با ما
                     </Button>
+                </div>
+                <div>
+
                 </div>
             </section>
         </>
