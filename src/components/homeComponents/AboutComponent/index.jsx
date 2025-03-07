@@ -11,12 +11,12 @@ const AboutComponent = ({ isAboutUs }) => {
                     <p className="text-green font-semibold text-2xl mb-2">
                         درباره
                     </p>
-                    <h3 className="text-3xl font-bold text-darkGreen">دنتال کلینیک</h3>
-                    <p className="text-justify text-md leading-7 py-5 text-gray-600">
+                    <h3 className="text-3xl font-bold text-darkGreen">مطب دندانپزشکی و زیبایی دکتر گماریان</h3>
+                    <h5 className="text-justify text-md leading-7 py-5 text-gray-600">
                         کلینیک ما متعهد به ارائه تجربیات و خدمات و مواد مصرفی و همچنین بهداشت با کیفیت به بیماران می‌باشد و همچنین به صورت رایگان آماده  ارائه راهنمایی‌ها و آموزش‌های  لازم به بیماران در زمینه بهداشت دهان و دندان می‌باشد
 
                         این مرکز متعهد است در تشخیص بیماری‌های دهان و دندان، ترمیم و درمان ریشه دندان، پروتزهای دندانی روکش دندانی ، اقدامات زیبایی و ایمپلنت و ...کمک رسانی کند.
-                    </p>
+                    </h5>
 
                     <div className="flex flex-col sm:items-start items-center gap-8 my-8">
                         <div className="flex sm:flex-row flex-col items-center justify-start gap-5">
@@ -38,7 +38,7 @@ const AboutComponent = ({ isAboutUs }) => {
                             {/* texts */}
                             <div className="h-full flex flex-col justify-between items-center sm:items-start  gap-3 w-2/3">
                                 <h4 className="font-semibold text-lg ">شرایط پرداخت</h4>
-                                <h6 className="text-justify">DentalCenter یک طرح پرداخت سفارشی ارائه می دهد، سلامت بیمار همیشه باید اولین هدف ما باشد.</h6>
+                                <h6 className="text-justify">یک طرح پرداخت سفارشی ارائه می دهد، سلامت بیمار همیشه باید اولین هدف ما باشد.</h6>
                             </div>
                         </div>
                     </div>

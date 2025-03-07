@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-bgColor`}
+        className={`antialiased bg-bgColor max-w-screen-2xl mx-auto`}
       >
         <GlobalContextProvider>
           <Suspense fallback={<><Loading /></>}>

@@ -11,15 +11,15 @@ const Main = () => {
     return (
         <>
             <section className="w-full px-10 sm:pt-20 lg:px-28 flex flex-col-reverse sm:flex-row gap-10 justify-between py-10">
-                <div className="w-full h-full flex flex-col items-start justify-between lg:gap-16 sm:gap-5 gap-8 text-justify">
+                <div className="w-full h-full flex flex-col items-start justify-between gap-8 text-justify">
                     <div className="lg:text-3xl text-xl">
                         به مطب دندانپزشکی
                         <h1 className="text-darkGreen py-5 lg:text-6xl font-bold text-right sm:text-4xl text-4xl text-nowrap">دکتر
                             <span className="text-green">وحید گماریان</span>
                         </h1>
                         خوش آمدید.
-                        <h2 className="lg:text-lg mt-5 text-sm">کلینیک دندانپزشکی و زیبایی در شهرقدس</h2>
-                        <h2 className="lg:text-lg mt-5 text-sm"></h2>
+                        <h2 className="lg:text-lg mt-5 text-sm text-gray-700">کلینیک دندانپزشکی و زیبایی در شهرقدس</h2>
+                        <h2 className="lg:text-lg text-sm text-gray-700">انجام ایمپلنت، روکش، ترمیم و لمینت، درمان ریشه دندان و...</h2>
                     </div>
                     <PhoneButton style={'text-md'} text={
                         <>
