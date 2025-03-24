@@ -14,6 +14,7 @@ const BlogImg = ({ params }) => {
         async function getBlog() {
             try {
                 const response = await axios.post('/api/getBlog', { id: params.slug })
+                console.log("blog image response: ", response)
                 setBlogImg(response.data.blogImg)
             } catch (error) {
                 console.log(error);
