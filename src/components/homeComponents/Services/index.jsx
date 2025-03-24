@@ -6,7 +6,6 @@ import { mainPageSlides } from '@/lib/data'
 
 const Services = () => {
     return (
-        <>
             <section className="w-full px-5 sm:px-16 flex flex-col items-center gap-5 justify-between py-10">
                 <div className='text-center mb-5'>
                     <h5 className="text-green text-md lg:text-2xl font-bold my-1">زیبایی را با ما تجربه کنید.</h5>
@@ -28,7 +27,6 @@ const Services = () => {
 
                 </div>
             </section>
-        </>
     )
 }
 

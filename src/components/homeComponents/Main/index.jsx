@@ -14,7 +14,8 @@ const Main = () => {
                 <div className="w-full h-full flex flex-col items-start justify-between gap-8 text-justify">
                     <div className="lg:text-3xl text-xl">
                         به مطب دندانپزشکی
-                        <h1 className="text-darkGreen py-5 lg:text-6xl font-bold text-right sm:text-4xl text-4xl text-nowrap">دکتر
+                        <h1 title="کلینیک دندانپزشکی و زیبایی در شهرقدس
+انجام ایمپلنت، روکش، ترمیم و لمینت، درمان ریشه دندان و..." className="text-darkGreen py-5 lg:text-6xl font-bold text-right sm:text-4xl text-4xl text-nowrap">دکتر
                             <span className="text-green">وحید گماریان</span>
                         </h1>
                         خوش آمدید.
