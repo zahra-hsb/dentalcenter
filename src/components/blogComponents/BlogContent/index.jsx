@@ -12,7 +12,7 @@ const BlogContent = ({ params }) => {
             try {
                 const response = await axios.post('/api/getBlog', { id: id })
                 console.log(response.data);
-                setBlogContent(response.data)
+                setBlogContent(response.data[0])
             } catch (error) {
                 console.log(error);
             }
