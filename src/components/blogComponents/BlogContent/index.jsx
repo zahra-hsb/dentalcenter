@@ -11,8 +11,8 @@ const BlogContent = ({ params }) => {
         async function getBlog(id) {
             try {
                 const response = await axios.post('/api/getBlog', { id: id })
-                console.log(response.data);
-                setBlogContent(response.data[0])
+                console.log(response);
+                setBlogContent(response)
             } catch (error) {
                 console.log(error);
             }
