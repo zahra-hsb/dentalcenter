@@ -12,18 +12,19 @@ export async function POST(req) {
         }
         console.log('id: ', body.id);
         await dbConnect()
-        const res = await BlogsModel.findOne({ _id: new ObjectId(body.id) })
-        console.log('result', res);
-
-        if (!res) {
+        // const res = await BlogsModel.findOne({ _id: new ObjectId(body.id) })
+        // console.log('result', res);
+        
+        // if (!res) {
             const result = await BlogsModel.findOne({ _id: body.id })
+            console.log("result of find blog: ", result)
             if (!result) {
                 return NextResponse.json({ error: "Blog not found" }, { status: 404 });
             }
             return NextResponse.json(result)
-        }
+        // }
 
-        return NextResponse.json(res)
+        // return NextResponse.json(res)
     } catch (error) {
         return NextResponse.json(error)
 

@@ -14,7 +14,7 @@ const BlogContent = ({ params }) => {
                 if (id) {
                     const response = await axios.post('/api/getBlog', { id: id })
                     console.log(response);
-                    setBlogContent(response)
+                    setBlogContent(response.data)
                 } else {
                     return
                 }
