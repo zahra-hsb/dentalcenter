@@ -16,7 +16,11 @@ export async function POST(req) {
         console.log('result', res);
 
         if (!res) {
-            return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+            const result = await BlogsModel.findOne({ _id: body.id })
+            if (!result) {
+                return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+            }
+            return NextResponse.json(result)
         }
 
         return NextResponse.json(res)
