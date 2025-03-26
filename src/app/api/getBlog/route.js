@@ -6,6 +6,7 @@ import BlogsModel from "@/lib/models/BlogsModel";
 export async function POST(req) {
     try {
         const body = await req.json()
+        console.log("body: ", body)
         if (!body.id) {
             return NextResponse.json({ error: "Missing ID" }, { status: 400 });
         }
@@ -17,7 +18,7 @@ export async function POST(req) {
         if (!res) {
             return NextResponse.json({ error: "Blog not found" }, { status: 404 });
         }
-        
+
         return NextResponse.json(res)
     } catch (error) {
         return NextResponse.json(error)
