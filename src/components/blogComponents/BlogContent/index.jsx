@@ -9,11 +9,9 @@ const BlogContent = ({ params }) => {
 
     useEffect(() => {
         async function getBlog(id) {
-            console.log("id: ", id)
             try {
                 if (id) {
                     const response = await axios.post('/api/getBlog', { id: id })
-                    console.log(response);
                     setBlogContent(response.data)
                 } else {
                     return
@@ -22,7 +20,6 @@ const BlogContent = ({ params }) => {
                 console.log(error);
             }
         }
-        console.log("params: ", params)
         getBlog(params.slug)
     }, [params])
 
