@@ -30,7 +30,6 @@ const LoginForm = () => {
             if (res.isExistUser === true && res.success === true) {
                 // localStorage.setItem('user', res.user.mainAdmin)
                 // TODO add user role: main admin to detect the dashboard
-                console.log(res)
                 if(res.user.mainAdmin) {
                     localStorage.setItem("user", "true")
                 } else {
@@ -64,7 +63,6 @@ const LoginForm = () => {
 
     useEffect(() => {
         // const isLoggedin = localStorage.getItem('user')
-        console.log('user id: ', userId)
         if(userId) {
             router.push('/account/dashboard')
             // console.log('redirecting...');
