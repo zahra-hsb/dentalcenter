@@ -40,18 +40,13 @@ const BlogForm = () => {
     setIsUploading(true)
 
     try {
-      // Create a FormData object to send the file
       const formData = new FormData()
       formData.append("file", selectedFile)
-
-      // Send the file to your API route that handles S3 upload
       const response = await axios.post("/api/upload", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
-
-      // Set the image URL from the response
       if (response.data.success) {
         setImgUrl(response.data.url)
         setUploadedFiles((prevFiles) => [...prevFiles, response.data.url])
