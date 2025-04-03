@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.779.0",
     "@ckeditor/ckeditor5-react": "^9.3.1",
     "@emailjs/browser": "^4.4.1",
     "aws-sdk": "^2.1692.0",
