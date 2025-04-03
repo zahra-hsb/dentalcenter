@@ -14,7 +14,6 @@ export async function POST(req) {
         await dbConnect();
 
         const user = await AdminsModel.findOne({ username }).select('+password');
-        console.log(user);
         if (user === null) {
             return NextResponse.json({ isExistUser: false, message: "کاربری پیدا نشد." });
         }
@@ -24,7 +23,6 @@ export async function POST(req) {
         }
 
         const isCorrectPassword = await bcrypt.compare(password, user.password);
-        console.log('pass: ', isCorrectPassword);
 
         if (isCorrectPassword) {
             return NextResponse.json({ isExistUser: true, success: true, user });
