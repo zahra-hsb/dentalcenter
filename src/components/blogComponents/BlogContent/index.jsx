@@ -61,7 +61,7 @@ const BlogContent = ({ params }) => {
 
         {/* Summary Card */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border border-gray-100">
-          <h2 className="text-lg font-medium mb-3 text-center font-bold">خلاصه آنچه در این مقاله می خوانید</h2>
+          <h2 className="text-lg font-medium mb-3 text-center">خلاصه آنچه در این مقاله می خوانید</h2>
           <div
             dangerouslySetInnerHTML={{ __html: blogContent.summary }}
             className="text-gray-600 dark:text-gray-300 leading-relaxed"

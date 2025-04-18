@@ -1,5 +1,13 @@
 import SingleBlog from "@/components/blogComponents/SingleBlog"
 
+export async function generateMetaData ({params}) {
+ return {
+    title: params.title,
+    description: params.blogContent,
+    keywords: params.keywords
+ }
+} 
+
 const Page = ({ params }) => {
     return (
         <>
