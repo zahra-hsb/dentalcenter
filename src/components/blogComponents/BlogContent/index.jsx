@@ -1,8 +1,7 @@
-"use client";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import styles from "./sytle.module.css";
+"use client"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 // import { CalendarIcon, Clock } from "lucide-react"
 
 // import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -10,32 +9,34 @@ import styles from "./sytle.module.css";
 // import { Skeleton } from "@/components/ui/skeleton"
 
 const BlogContent = ({ params }) => {
-  const [blogContent, setBlogContent] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [blogContent, setBlogContent] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     async function getBlog(id) {
       try {
-        setIsLoading(true);
+        setIsLoading(true)
         if (id) {
-          const response = await axios.post("/api/getBlog", { id: id });
-          setBlogContent(response.data);
+          const response = await axios.post("/api/getBlog", { id: id })
+          setBlogContent(response.data)
+
+         
         }
       } catch (error) {
-        console.log(error);
+        console.log(error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     }
 
     // Check if params and params.slug exist before using them
     if (params && params.slug) {
-      getBlog(params.slug);
+      getBlog(params.slug)
     } else {
       // If no slug is provided, set loading to false
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  }, [params]);
+  }, [params])
 
   // Add this right after the useEffect block
   // Show a message if no slug is provided
@@ -43,27 +44,24 @@ const BlogContent = ({ params }) => {
     return (
       <div className="max-w-4xl mx-auto mt-16 text-center">
         <h1 className="text-2xl font-bold mb-4">No blog post selected</h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-8">
-          Please select a blog post to view its content.
-        </p>
+        <p className="text-gray-600 dark:text-gray-300 mb-8">Please select a blog post to view its content.</p>
       </div>
-    );
+    )
   }
 
   if (isLoading) {
-    return <BlogSkeleton />;
+    return <BlogSkeleton />
   }
 
   return (
     <>
       <article className="max-w-7xl mx-auto">
         {/* Hero Section */}
+        
 
         {/* Summary Card */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border border-gray-100">
-          <h2 className="text-lg font-medium mb-3 text-center">
-            خلاصه آنچه در این مقاله می خوانید
-          </h2>
+          <h2 className="text-lg font-medium mb-3 text-center">خلاصه آنچه در این مقاله می خوانید</h2>
           <div
             dangerouslySetInnerHTML={{ __html: blogContent.summary }}
             className="text-gray-600 dark:text-gray-300 leading-relaxed"
@@ -74,7 +72,7 @@ const BlogContent = ({ params }) => {
         <div className="bg-white rounded-lg shadow-lg p-6 md:p-10 mb-8 border border-gray-100">
           <div
             dangerouslySetInnerHTML={{ __html: blogContent.blogContent }}
-            className={`prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-lg prose-img:mx-auto ${styles.blogLink}`}
+            className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-blue-600 prose-img:rounded-lg prose-img:mx-auto"
           />
         </div>
 
@@ -84,12 +82,7 @@ const BlogContent = ({ params }) => {
             <h3 className="font-medium">تگ ها:</h3>
             <div className="flex flex-wrap gap-2">
               {blogContent.tags?.map((item, index) => (
-                <span
-                  key={index}
-                  className="border-2 border-green rounded-md p-2 hover:bg-darkGreen hover:border-darkGreen hover:text-white"
-                >
-                  {item}
-                </span>
+               <span key={index} className="border-2 border-green rounded-md p-2 hover:bg-darkGreen hover:border-darkGreen hover:text-white">{item}</span>
               ))}
             </div>
           </div>
@@ -124,8 +117,8 @@ const BlogContent = ({ params }) => {
         </div> */}
       </article>
     </>
-  );
-};
+  )
+}
 
 // Loading skeleton
 const BlogSkeleton = () => (
@@ -146,6 +139,7 @@ const BlogSkeleton = () => (
     </div>
     <Skeleton className="w-full h-16 rounded-lg mb-8" /> */}
   </div>
-);
+)
 
-export default BlogContent;
+export default BlogContent
+
