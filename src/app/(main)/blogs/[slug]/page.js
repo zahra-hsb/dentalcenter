@@ -1,12 +1,28 @@
 import SingleBlog from "@/components/blogComponents/SingleBlog"
 
-export async function generateMetaData ({params}) {
- return {
-    title: params.title,
-    description: params.blogContent,
-    keywords: params.keywords
- }
-} 
+export async function generateMetaData({ params }) {
+    try {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + 'getBlog', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(params._id)
+        });
+        if (!res.ok) {
+            console.error(`HTTP error! status: ${res.status}`);
+            return [];
+        }
+        const post = await res.json();
+        return {
+            title: post?.title,
+            description: post?.summary,
+            keywords: post?.keywords
+        };
+    } catch (error) {
+        console.log("error while getting blog data for metadata..", error)
+    }
+}
 
 const Page = ({ params }) => {
     return (
