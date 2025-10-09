@@ -54,7 +54,7 @@ const DentalSlider = () => {
                     modules={[EffectCube, Pagination, Autoplay]}
                     className="mySwiper"
                 >
-                    {picsArray.length > 0 ? picsArray?.map(item =>
+                    {picsArray?.length > 0 ? picsArray?.map(item =>
 
                         <SwiperSlide key={item.id}>
                             <div className='lg:w-[350] flex items-center justify-end'>

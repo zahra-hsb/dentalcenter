@@ -14,7 +14,7 @@ export default function Home() {
       <Services />
       <AboutComponent isAboutUs={false} />
       <TitlesSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
     </>
   );
 }
