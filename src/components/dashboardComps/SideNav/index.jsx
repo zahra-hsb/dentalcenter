@@ -14,15 +14,15 @@ const menu = [
     { id: 0, title: 'داشبورد', route: '/account/dashboard', icon: <> <MdDashboard size={25} /> </> },
     { id: 1, title: 'مدیریت وبلاگ', route: '/account/dashboard/blog', icon: <> <TiEdit size={25} /> </> },
     { id: 2, title: 'ادمین ها', route: '/account/dashboard/admins', icon: <> <RiAdminFill size={25} /> </> },
-    { id: 2, title: 'نظرات', route: '/account/dashboard/comments', icon: <> <FaCommentSlash size={25} /> </> },
+    // { id: 3, title: 'نظرات', route: '/account/dashboard/comments', icon: <> <FaCommentSlash size={25} /> </> },
     { id: 3, title: 'خروج', route: '', icon: <> <RiLogoutBoxRLine size={25} />  </> },
 ]
 
 const menu1 = [
     { id: 0, title: 'داشبورد', route: '/account/dashboard', icon: <> <MdDashboard size={25} /> </> },
     { id: 1, title: 'مدیریت وبلاگ', route: '/account/dashboard/blog', icon: <> <TiEdit size={25} /> </> },
-    { id: 2, title: 'نظرات', route: '/account/dashboard/comments', icon: <> <FaComments size={25} /> </> },
-    { id: 3, title: 'خروج', route: '', icon: <> <RiLogoutBoxRLine size={25} />  </> },
+    // { id: 2, title: 'نظرات', route: '/account/dashboard/comments', icon: <> <FaComments size={25} /> </> },
+    { id: 2, title: 'خروج', route: '', icon: <> <RiLogoutBoxRLine size={25} />  </> },
 ]
 
 const SideNav = ({ style, isShow, handleCloseMenu }) => {
