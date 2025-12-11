@@ -88,7 +88,7 @@ const AdminForm = () => {
         }
         if (id) {
             findAdmin(id)
-            if (userInfo.tel === '09121403992') {
+            if (userInfo.mainAdmin) {
                 setAdmin(true)
             } else {
                 setAdmin(false)
@@ -129,21 +129,8 @@ const AdminForm = () => {
                         {errors.username && <span className="text-red-500">نام کاربری الزامی است</span>}
                     </div>
 
-                    <div className="flex flex-col w-full p-2 gap-2">
-                        <h3 className="px-4 ">رمز عبور</h3>
 
-                        <Input id={'password'}
-                            register={register}
-                            minLength={8}
-                            placeholder={'********'}
-                            type={'password'}
-                            style={'w-full tracking-wide'}
-                            value={isEdit ? '********' : ''}
-                            disabled={isEdit && true} />
-                        <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>
-                        {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
-                    </div>
-                    {isEdit === false &&
+                    {isEdit === false ?
                         <>
                             <div className="flex flex-col w-full p-2 gap-2">
                                 <h3 className="px-4 ">رمز عبور</h3>
@@ -156,6 +143,21 @@ const AdminForm = () => {
                                     style={'w-full tracking-wide'} />
                             </div>
                         </>
+                        :
+                        <div className="flex flex-col w-full p-2 gap-2">
+                            <h3 className="px-4 ">رمز عبور</h3>
+
+                            <Input id={'password'}
+                                register={register}
+                                minLength={8}
+                                placeholder={'********'}
+                                type={'password'}
+                                style={'w-full tracking-wide'}
+                                value={isEdit ? '********' : ''}
+                                disabled={isEdit && true} />
+                            <div onClick={editPassword} className="underline hover:text-green text-sm cursor-pointer text-left">تغییر رمز عبور</div>
+                            {errors.password && <span className="text-red-500">رمز عبور باید حداقل 8 کاراکتر باشد</span>}
+                        </div>
                     }
                 </div>
                 <div className="flex items-center gap-5">

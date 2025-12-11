@@ -3,19 +3,20 @@ import { FormProvider, useForm } from "react-hook-form"
 import AdminForm from "../AdminForm"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import useStore from "@/customHooks/store";
 
 const AddAdmin = ({ title }) => {
     const methods = useForm();
     const [isMainAdmin, setMainAdmin] = useState(false)
+    const { userInfo } = useStore()
     const router = useRouter()
     useEffect(() => {
-        const user = localStorage.getItem('user')
-        if (user === 'true') {
+        if (userInfo.mainAdmin) {
             setMainAdmin(true)
         } else {
             router.push('/account/dashboard')
         }
-    }, [router])
+    }, [userInfo.mainAdmin, router])
     return (
         <>
             <section className="p-10 sm:p-20 flex flex-col gap-5">
